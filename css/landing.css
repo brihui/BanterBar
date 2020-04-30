@@ -1,0 +1,129 @@
+        body{
+            margin:0;
+        }
+       .action-button, .info-button {
+            background: #E9E7E7;
+            border-radius: 100px;
+            color: dimgray;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto;
+            max-width: 90%;
+            padding: 10px 15px;
+            text-decoration: none;
+            transition: background .2s;
+            text-align: center;
+        }
+        .action-button:hover, .info-button:hover{
+            background: #D3D1D1;
+        }
+        .nav{
+            padding: 25px 35px 12px;
+        }
+        header{
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height:80px;
+            left: 0px;
+            margin-left: 0; 
+            background-color:#C4C4C4;
+            z-index: 99;
+        }
+        main{
+            padding:10%;
+            padding-top:250px;
+            text-align: center;
+            font-size:16pt;
+            height:200px;
+            background-color:aqua;
+        }
+        #topicm{
+            font-size: 40pt;
+            padding:0;
+            margin:0;
+        }
+        h2, p{
+            margin:0;
+        }
+        #signup, #login{
+            width:80px;
+            float:right;
+            margin-top:16px;
+        }
+        #signup{
+            margin-right:3%;
+        }
+        #login{
+            margin-right:2%;
+        }
+        h1{
+            float:left;
+            padding-left:3%;
+            color:white;
+            font-family: "Georgia"
+        }
+        .intro-text{
+            font-size:14pt;
+            width:40%;
+            padding-bottom: 25px;
+        }
+        .intro1, .intro3{
+            background-color:antiquewhite
+        }
+
+        .intro1.intro-image{
+            padding:0;
+            left:55%;
+            top:700px;
+            position:absolute;
+            width:40%;
+            height:auto;
+            
+        }
+        #topic1, #topic3{
+            padding:10px;
+            padding-top:200px;          
+        }
+        .intro3.intro-image{
+            padding:0;
+            right:55%;
+            top:2030px;
+            position:absolute;
+            width:40%;
+            height:auto;
+        }
+        .intro2{
+            background-color:azure;
+            text-align:center;
+        }
+        .intro3.intro-text{
+            width:62%
+        }
+        .intro2.intro-text{
+            padding-left:30%;
+            padding-right:30%;
+        }
+        .intro2.outerdiv1{
+            padding-top:150px;
+            padding-bottom:150px;
+        }
+        .info-button{
+            font-size:14pt;
+            background:white;
+            border-radius:50px;
+            padding:10px 25px;           
+        }
+        .intro1.outerdiv1, .intro3.outerdiv1{
+            padding-bottom:20%;
+            padding-left:20%;
+        }
+        .intro3.outerdiv1{
+            padding-left:48%;
+        }
+        .footer{
+            background-color:beige;
+            padding-top: 20px;
+        }
