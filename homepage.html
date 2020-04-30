@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banter Bar: Homepage</title>
+
+    <!----------------------------------------->
+    <!-- CSS: Bootstrap, Firebase, other API -->
+    <!----------------------------------------->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"/>
+
+    <!-- Custom CSS Files -->
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <!-- Navigation bar -->
+    <nav id="nav-bar" class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">Banter Bar</span>
+    </nav>
+
+    <!-- Content under nav bar -->
+    <section id="container">
+        <!-- Side bar -->
+        <section id="side-bar">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item list-group-item-secondary active">Home</li>
+                <li class="list-group-item list-group-item-secondary">Hangouts</li>
+                <li class="list-group-item list-group-item-secondary">Friends</li>
+                <li class="list-group-item list-group-item-secondary">Games</li>
+                <li id="filler" class="list-group-item list-group-item-secondary"></li>
+            </ul>
+        </section>
+
+        <!-- Main content -->
+        <section id="content">
+            <!-- Personalized card -->
+            <section id="personalization">
+                <h2>Hello John Wick,</h2>
+                <section id="personalization-content">
+                    <div class="card">
+                        <h5 class="card-header">Hello John Wick,</h5>
+                        <div class="card-body">
+                            <h6 class="card-title">Most recent hangout</h6>
+                            <p class="card-text">Hello</p>
+                            <button type="button" class="btn btn-primary btn-med">Join</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h5 class="card-header">Hello John Wick,</h5>
+                        <div class="card-body">
+                            <h6 class="card-title">Most recent hangout</h6>
+                            <p class="card-text">Hello</p>
+                            <button type="button" class="btn btn-primary btn-med">Join</button>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h5 class="card-header">Hello John Wick,</h5>
+                        <div class="card-body">
+                            <h6 class="card-title">Most recent hangout</h6>
+                            <p class="card-text">Hello</p>
+                            <button type="button" class="btn btn-primary btn-med">Join</button>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Hangout content -->
+            <section id="hangout-content">
+                <!-- Create your own hangout card -->
+                <section>
+                    <div class="card">
+                        <h5 class="card-header">Create Your Own Hangout</h5>
+                        <div class="card-body">
+                            <form action="">
+                                <div class="form-group">
+                                    <label for="roomName">Room Name</label>
+                                    <input type="text" class="form-control" id="roomName">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Room Size</label>
+                                    <input type="number" class="form-control" id="roomSize">
+                                </div>
+                                <div class="form-group form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="roomPrivate">
+                                    <label class="form-check-label">Private?</label>
+                                </div>
+                                <div class="form-group">
+                                    <label>Invite</label>
+                                    <select multiple class="form-control" id="roomInvite">
+                                      <option>Friend 1</option>
+                                      <option>Friend 2</option>
+                                      <option>Friend 3</option>
+                                      <option>Friend 4</option>
+                                      <option>Friend 5</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-med btn-block">Create</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Featured active hangouts card -->
+                <section>
+                    <div class="card">
+                        <h5 class="card-header">Featured Active Hangouts</h5>
+                        <div class="card-body">
+                            <h6 class="card-title">Hangout 1 (2/6)</h6>
+                            <p class="card-text">Friend 1, Friend 2</p>
+                            <button type="button" class="btn btn-primary btn-med btn-block">Join</button>
+                            <hr>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title">Hangout 1 (2/6)</h6>
+                            <p class="card-text">Friend 1, Friend 2</p>
+                            <button type="button" class="btn btn-primary btn-med btn-block">Join</button>
+                            <hr>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title">Hangout 1 (2/6)</h6>
+                            <p class="card-text">Friend 1, Friend 2</p>
+                            <button type="button" class="btn btn-primary btn-med btn-block">Join</button>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </section>
+
+    </section>
+
+    <!----------------------------------------->
+    <!-- JS: Boostrap, Firebase, API related -->
+    <!----------------------------------------->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <script src="scripts/firebase_api_banterbar.js"> </script>
+  
+    <!-- Custom JS Files -->
+    <script src="scripts/script.js"></script>
+</body>
+
+</html>
