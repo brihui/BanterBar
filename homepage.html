@@ -13,7 +13,7 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"/>
 
     <!-- Custom CSS Files -->
-    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
 
 <body>
@@ -31,7 +31,6 @@
                 <li class="list-group-item list-group-item-secondary">Hangouts</li>
                 <li class="list-group-item list-group-item-secondary">Friends</li>
                 <li class="list-group-item list-group-item-secondary">Games</li>
-                <li id="filler" class="list-group-item list-group-item-secondary"></li>
             </ul>
         </section>
 
@@ -39,32 +38,37 @@
         <section id="content">
             <!-- Personalized card -->
             <section id="personalization">
-                <h2>Hello John Wick,</h2>
-                <section id="personalization-content">
-                    <div class="card">
-                        <h5 class="card-header">Hello John Wick,</h5>
-                        <div class="card-body">
-                            <h6 class="card-title">Most recent hangout</h6>
-                            <p class="card-text">Hello</p>
-                            <button type="button" class="btn btn-primary btn-med">Join</button>
+                <h3>Hello John Wick,</h3>
+                <section id="personalization-content"> 
+                    <div class="row">
+                        <div class="col-sm-4">
+                          <div class="card text-center">
+                            <div class="card-body">
+                              <h5 class="card-title">Most Recent Hangout</h5>
+                              <p class="card-text">Information</p>
+                              <a href="#" class="btn btn-primary btn-sm">Restart Hangout</a>
+                            </div>
+                          </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <h5 class="card-header">Hello John Wick,</h5>
-                        <div class="card-body">
-                            <h6 class="card-title">Most recent hangout</h6>
-                            <p class="card-text">Hello</p>
-                            <button type="button" class="btn btn-primary btn-med">Join</button>
+                        <div class="col-sm-4">
+                          <div class="card text-center">
+                            <div class="card-body">
+                              <h5 class="card-title">Active Friends Hangout</h5>
+                              <p class="card-text">Information</p>
+                              <a href="#" class="btn btn-primary btn-sm">Join</a>
+                            </div>
+                          </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <h5 class="card-header">Hello John Wick,</h5>
-                        <div class="card-body">
-                            <h6 class="card-title">Most recent hangout</h6>
-                            <p class="card-text">Hello</p>
-                            <button type="button" class="btn btn-primary btn-med">Join</button>
-                        </div>
-                    </div>
+                        <div class="col-sm-4">
+                            <div class="card text-center">
+                              <div class="card-body">
+                                <h5 class="card-title">Featured Game</h5>
+                                <p class="card-text">Information</p>
+                                <a href="#" class="btn btn-primary btn-sm">More Information</a>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
                 </section>
             </section>
 
@@ -73,7 +77,7 @@
                 <!-- Create your own hangout card -->
                 <section>
                     <div class="card">
-                        <h5 class="card-header">Create Your Own Hangout</h5>
+                        <h6 class="card-header">Create Your Own Hangout</h6>
                         <div class="card-body">
                             <form action="">
                                 <div class="form-group">
@@ -106,24 +110,24 @@
 
                 <!-- Featured active hangouts card -->
                 <section>
-                    <div class="card">
-                        <h5 class="card-header">Featured Active Hangouts</h5>
+                    <div class="card" id="active-hangout-cards">
+                        <h6 class="card-header">Featured Active Hangouts</h6>
                         <div class="card-body">
                             <h6 class="card-title">Hangout 1 (2/6)</h6>
                             <p class="card-text">Friend 1, Friend 2</p>
-                            <button type="button" class="btn btn-primary btn-med btn-block">Join</button>
+                            <button type="button" class="btn btn-primary btn-sm btn-block">Join</button>
                             <hr>
                         </div>
                         <div class="card-body">
-                            <h6 class="card-title">Hangout 1 (2/6)</h6>
-                            <p class="card-text">Friend 1, Friend 2</p>
-                            <button type="button" class="btn btn-primary btn-med btn-block">Join</button>
+                            <h6 class="card-title">Hangout 2 (5/6)</h6>
+                            <p class="card-text">Friend 1, Friend 2, Friend 3, Friend 4, Friend 5</p>
+                            <button type="button" class="btn btn-primary btn-sm btn-block">Join</button>
                             <hr>
                         </div>
                         <div class="card-body">
-                            <h6 class="card-title">Hangout 1 (2/6)</h6>
-                            <p class="card-text">Friend 1, Friend 2</p>
-                            <button type="button" class="btn btn-primary btn-med btn-block">Join</button>
+                            <h6 class="card-title">Hangout 3 (4/6)</h6>
+                            <p class="card-text">Friend 1, Friend 2, Friend 3, Friend4</p>
+                            <button type="button" class="btn btn-primary btn-sm btn-block">Join</button>
                         </div>
                     </div>
                 </section>
