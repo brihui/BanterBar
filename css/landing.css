@@ -45,6 +45,12 @@
             padding:0;
             margin:0;
         }
+        #textm:hover{
+            font-size: 1.2em;
+        }
+        #topicm:hover{
+            font-size: 3em;
+        }
         h2, p{
             margin:0;
         }
@@ -90,7 +96,7 @@
         .intro3.intro-image{
             padding:0;
             right:55%;
-            top:2030px;
+            top:1970px;
             position:absolute;
             width:40%;
             height:auto;
