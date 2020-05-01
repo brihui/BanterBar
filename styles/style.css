@@ -69,3 +69,95 @@ option{
 #active-hangout-cards{
     font-size: smaller;
 }
+
+#mobile-footer{
+    display: none;
+}
+
+#active-friends-card{
+    display: none;
+}
+
+#mobile-create-hangout{
+    display: none;
+}
+
+@media (max-width: 414px){
+    #personalization-content{
+        display: none;
+    }
+
+    #side-bar{
+        display: none;
+    }
+
+    #desktop-create-hangout{
+        display: none;
+    }
+
+    #brand-text{
+        font-size: x-large;
+    }
+
+    #user-name{
+        font-size: larger;
+    }
+
+    #mobile-footer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 8%;
+        background-color: #b0b0b0;
+    }
+
+    #container{
+        height: 84%;
+    }
+
+    #content{
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        overflow: scroll;
+    }
+
+    #personalization{
+        border-bottom: 1px solid black;
+        padding-top: 1%;
+    }
+
+    #hangout-content{
+        display: flex;
+        flex-direction: column;
+        height: 92%;
+    }
+
+    #create-hangout-card{
+        padding-top: 2%;
+    }
+
+    #mobile-create-hangout{
+        display: flex;
+        justify-content: center;
+    }
+
+    .dot {
+        height: 15px;
+        width: 15px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+      }
+
+    #active-friends-card{
+        display: block;
+    }
+
+    #add-symbol{
+        width: 4%;
+        height: 4%;
+        margin-right: 2%;
+        margin-top: 0.2%;
+    }
+}

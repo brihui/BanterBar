@@ -18,8 +18,8 @@
 
 <body>
     <!-- Navigation bar -->
-    <nav id="nav-bar" class="navbar navbar-dark bg-dark">
-        <span class="navbar-brand mb-0 h1">Banter Bar</span>
+    <nav id="nav-bar" class="navbar sticky-top navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1" id="brand-text">Banter Bar</span>
     </nav>
 
     <!-- Content under nav bar -->
@@ -38,9 +38,18 @@
         <section id="content">
             <!-- Personalized card -->
             <section id="personalization">
-                <h3>Hello John Wick,</h3>
+                <h3 id="user-name">Hello John Wick,</h3>
                 <section id="personalization-content"> 
                     <div class="row">
+                        <div class="col-sm-4">
+                            <div class="card text-center">
+                              <div class="card-body">
+                                <h5 class="card-title">Online Friends</h5>
+                                <p class="card-text">List of Friends</p>
+                                <!-- <a href="#" class="btn btn-primary btn-sm">More Information</a> -->
+                              </div>
+                            </div>
+                          </div>
                         <div class="col-sm-4">
                           <div class="card text-center">
                             <div class="card-body">
@@ -59,15 +68,6 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="card text-center">
-                              <div class="card-body">
-                                <h5 class="card-title">Featured Game</h5>
-                                <p class="card-text">Information</p>
-                                <a href="#" class="btn btn-primary btn-sm">More Information</a>
-                              </div>
-                            </div>
-                          </div>
                       </div>
                 </section>
             </section>
@@ -75,10 +75,11 @@
             <!-- Hangout content -->
             <section id="hangout-content">
                 <!-- Create your own hangout card -->
-                <section>
-                    <div class="card">
+                <section id="create-hangout-card">
+                    <!-- Desktop Version -->
+                    <div class="card" id="desktop-create-hangout">
                         <h6 class="card-header">Create Your Own Hangout</h6>
-                        <div class="card-body">
+                        <div class="card-body" id="create-hangout-card-body">
                             <form action="">
                                 <div class="form-group">
                                     <label for="roomName">Room Name</label>
@@ -106,6 +107,11 @@
                             </form>
                         </div>
                     </div>
+                    <!-- Mobile Version -->
+                    <div id="mobile-create-hangout">
+                        <img src="/images/add_symbol.png" id="add-symbol">
+                        <h6>Create Your Own Hangout...</h6>
+                    </div>
                 </section>
 
                 <!-- Featured active hangouts card -->
@@ -128,11 +134,44 @@
                             <h6 class="card-title">Hangout 3 (4/6)</h6>
                             <p class="card-text">Friend 1, Friend 2, Friend 3, Friend4</p>
                             <button type="button" class="btn btn-primary btn-sm btn-block">Join</button>
-                        </div>
+                        </div>                        
                     </div>
+                </section>
+
+                <!-- Online Friends (for mobile) -->
+                <section id="active-friends-card">
+                    <h6 class="card-header">Online Friends</h6>
+                    <ul class="list-group">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Friend 1
+                          <span class="dot"></span>                        
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Friend 2
+                          <span class="dot"></span>                        
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Friend 3
+                          <span class="dot"></span>                        
+                        </li>
+                      </ul>
                 </section>
             </section>
         </section>
+
+        <nav class="navbar fixed-bottom navbar-light" id="mobile-footer">
+            <a class="navbar-brand" href="#">
+              <img src="/images/home.png" width="30" height="30" alt="">
+            </a>
+            <a class="navbar-brand" href="#">
+                <img src="/images/pub.png" width="30" height="30" alt="">
+            </a>
+            <a class="navbar-brand" href="#">
+                <img src="/images/friends.png" width="30" height="30" alt="">
+            </a>
+            <a class="navbar-brand" href="#">
+                <img src="/images/games-dark.png" width="30" height="30" alt="">
+            </a>  
+          </nav>
 
     </section>
 
