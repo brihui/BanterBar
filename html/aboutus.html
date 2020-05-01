@@ -5,10 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About-us Page</title>
-    <link rel="stylesheet" type="text/css" href="about-us.css">
+    <link rel="stylesheet" type="text/css" href="../css/about-us.css">
+    <link rel="stylesheet" href="../css/landing.css">
+
 </head>
 
 <body>
+    <header>
+    <div class="topnav" id='nav'>
+      <a href="landing.html" id="logo">Banter Bar</a>
+      <a href="signup.html" class='action-button' id='login'>Log in</a>
+      <a href="signup.html" class='action-button' id='signup'>Sign up</a>
+          <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
+</header>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("nav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
     <div class="container">
         <div class="about">
             <div class="text">
@@ -45,7 +66,7 @@
 
         </div>
     </div>
-    <footer>Copyright &copy; You Can Code 2020 Home/About us|Services|Contact Us</footer>
+    <footer>Contact us @</footer>
 
 
 </body>
