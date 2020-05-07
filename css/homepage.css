@@ -81,7 +81,21 @@ option{
 #mobile-create-hangout{
     display: none;
 }
-
+#close{
+    background-color:red;
+}
+#close:hover{
+    background-color: darkred;
+}
+#myForm{
+    display:none;
+    position: fixed;
+    bottom:50px;
+}
+.open-button{
+    width:150px;
+    height:50px;
+}
 @media (max-width: 414px){
     #personalization-content{
         display: none;
