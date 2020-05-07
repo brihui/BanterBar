@@ -21,7 +21,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 function personalizeHeader(uID) { 
     db.collection('users').doc(uID).onSnapshot(
         function (snapshot) {
-            $('#p-header').html("Hello " + snapshot.data().name + ",");
+            $('#p-header').html("Hello, " + snapshot.data().name);
         }
     );
 }
