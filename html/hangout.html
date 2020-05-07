@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banter Bar: Homepage</title>
+
+    <!----------------------------------------->
+    <!-- CSS: Bootstrap, Firebase, other API -->
+    <!----------------------------------------->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"/>
+
+    <!-- Custom CSS Files -->
+    <style>
+
+        .nav{
+            grid-area: header;
+            border: 1px solid black;
+        }
+        .sidebar{
+            grid-area: aside;
+            border: 1px solid black;
+        }
+        .display{
+            grid-area: main;
+            border: 1px solid black;
+        }
+        .games{
+            grid-area: game;
+            border: 1px solid black;
+        }
+        .chat{
+            grid-area: chat;
+            border: 1px solid black;
+            text-align: center;
+        }
+        body{
+            display: grid;
+            grid-template-areas: 
+            'header header header header header header'
+            'aside main main main chat chat'
+            'aside main main main chat chat'   
+            'aside main main main chat chat'
+            'aside game game game game game';
+        }
+        .aside{
+            background-color: #d7d8db;
+            border: 1px solid black;
+            grid-area: aside;
+        }
+        .user-pic{
+            width: 100px;
+            height: auto;
+        }
+        .user{
+            display:inline;
+            text-align: center;
+        }
+        .display-div{
+            display: grid;
+            grid-template-columns:repeat(3, 1fr);
+            height:400px;
+        }
+        .display{
+            text-align: center;
+        }
+        .display, .chat{
+            margin-top: 30px;
+        }
+        .sidebar, .display{
+            margin-right:20px;;
+        }
+        .chat{
+            margin-right: 10%;
+        }
+        .chatbox{
+            margin:15px;
+            width: 250px;
+            height:300px;
+            text-align: left;
+        }
+        .chat-send{
+            margin-bottom: 18px;
+        }
+        .games{
+            margin-top:20px;
+            height:107px;
+            text-align: center;
+        }
+        .list-group-item{
+            padding-right:60px;
+        }
+        .sidebar{
+            background-color: #d7d8db;            
+        }
+        @media screen and (max-width 540px){
+            .display{
+                display:none;
+            }
+        }
+        @media screen and (max-width: 800px) and (min-width: 540px){
+            body{
+                grid-template-areas: 
+                'header'
+                'main'
+                'main'
+                'chat'
+                'bar';
+            }
+            .sidebar{
+                display: none;
+            }
+            .games{
+                display:none;
+            }
+            .display-div{
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .display, .chat{
+                margin-left:5%;
+                margin-right:5%;
+            }
+            .user-pic{
+                width:150px;
+            }
+        }
+        
+    </style>
+</head>
+
+<body>
+    <nav id="nav-bar" class="navbar sticky-top navbar-dark bg-dark nav">
+        <span class="navbar-brand mb-0 h1" id="brand-text">Banter Bar</span>
+    </nav>
+
+    <section id="side-bar" class ='sidebar'>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item list-group-item-secondary active">Home</li>
+            <li class="list-group-item list-group-item-secondary">Hangouts</li>
+            <li class="list-group-item list-group-item-secondary">Friends</li>
+            <li class="list-group-item list-group-item-secondary">Games</li>
+        </ul>
+    </section>
+    <main class = 'display'>
+        <p>VIDEO CHAT</p>
+        <div class = 'display-div'>      
+            <div class = 'user'>
+                <img src = '../images/dummy.png' class ='user-pic'>
+                <p>user name</p>
+            </div>
+            <div class = 'user'>
+                <img src = '../images/dummy.png' class ='user-pic'>
+                <p>user name</p>
+            </div>
+            <div class = 'user'>
+                <img src = '../images/dummy.png' class ='user-pic'>
+                <p>user name</p>
+            </div>
+            <div class = 'user'>
+                <img src = '../images/dummy.png' class ='user-pic'>
+                <p>user name</p>
+            </div>
+            <div class = 'user'>
+                <img src = '../images/dummy.png' class ='user-pic'>
+                <p>user name</p>
+            </div>
+            <div class = 'user'>
+                <img src = '../images/dummy.png' class ='user-pic'>
+                <p>user name</p>
+            </div>
+
+        </div>
+    </main>
+    <section class = 'games'>
+        <div class = 'games-div'>
+            <p>GAMES</p>
+        </div>
+    </section>
+    <article class = 'chat'>
+        <p>CHAT</p>
+        <textarea class ='chatbox'></textarea>
+        <br>
+        <input type ='button' value ='send' class ='chat-send'>
+    </article>
+
+</body>
+
+</html>
