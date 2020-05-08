@@ -14,7 +14,7 @@
 
     <!-- Custom CSS Files -->
     <link rel="stylesheet" href="../css/homepage.css">
-    <script src = '../scripts/openForm.js'></script>
+
 </head>
 
 <body>
@@ -105,7 +105,7 @@
                                     <option>Friend 5</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-med btn-block">Create</button>
+                            <button type="button" class="btn btn-primary btn-med btn-block"  onclick="createRoom()">Create</button>
                             <button type="button" class="btn btn-primary btn-med btn-block" id ='close' onclick="closeForm()">Close</button>
                             </form>
                            </div>
@@ -188,7 +188,9 @@
     <script src="../scripts/firebase_api_banterbar.js"> </script>
   
     <!-- Custom JS Files -->
-<!--    <script src="../scripts/personalization.js"></script>-->
+    <script src="../scripts/personalization.js"></script>
+    <script src = '../scripts/openForm.js'></script>
+    <script src ='../scripts/createRoom.js'></script>
 </body>
 
 </html>
