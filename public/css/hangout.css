@@ -1,0 +1,117 @@
+        .display{
+            grid-area: main;
+            border: 1px solid black;
+        }
+        .games{
+            grid-area: game;
+            border: 1px solid black;
+        }
+        .chat{
+            grid-area: chat;
+            border: 1px solid black;
+            text-align: center;
+        }
+        #content{
+            display: grid;
+            grid-template-areas: 
+            'main main main chat chat'
+            'main main main chat chat'   
+            'main main main chat chat'
+            'game game game game game';
+        }
+        .user-pic{
+            width: 100px;
+            height: auto;
+        }
+        .user{
+            display:inline;
+            text-align: center;
+        }
+        .display-div{
+            display: grid;
+            grid-template-columns:repeat(3, 1fr);
+            height:400px;
+        }
+        .display{
+            text-align: center;
+            margin-left:3%;
+        }
+        .display, .chat{
+            margin-top: 30px;
+        }
+        .sidebar, .display{
+            margin-right:20px;;
+        }
+        .chat{
+            margin-right: 10%;
+        }
+        .chatbox{
+            margin:15px;
+            width: 250px;
+            height:50px;
+            text-align: left;
+        }
+        .chat-send{
+            margin-bottom: 18px;
+        }
+        .games{
+            margin-top:20px;
+            height:107px;
+            text-align: center;
+        }
+        .list-group-item{
+            padding-right:60px;
+        }
+        .sidebar{
+            background-color: #d7d8db;            
+        }
+        #chatarea{
+            height:250px;;
+        }
+
+        @media screen and (max-width: 800px) and (min-width: 634px){
+            body{
+                grid-template-areas: 
+                'main'
+                'main'
+                'chat'
+                'game';
+            }
+            .sidebar{
+                display: none;
+            }
+            .display-div{
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .display, .chat{
+                margin-left:5%;
+                margin-right:5%;
+            }
+            .user-pic{
+                width:100px;
+            }
+
+        }
+        @media screen and (max-width: 634px) {
+            #side-bar{
+                width:100px;
+            }
+            #content{
+                width:800px;
+            }
+            .games{
+                display:none;
+            }
+            .chat{
+                margin-left:5%;
+                margin-right:5%;
+            }
+            .chat{
+                margin-bottom: 20px;
+            }
+        }
+        @media screen and (max-width: 414px){
+            .display-div{
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }

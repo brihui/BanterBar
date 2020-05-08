@@ -96,6 +96,23 @@ option{
     width:150px;
     height:50px;
 }
+.side-link{
+    color:#383d41;
+}
+.side-link:hover{
+    text-decoration: none;
+}
+.list-group-item:hover{
+    color:white;
+    background-color: darkturquoise;
+}
+.active{
+    color:white;
+}
+.side-link:hover{
+    text-decoration: none;
+    color:white;
+}
 @media (max-width: 414px){
     #personalization-content{
         display: none;

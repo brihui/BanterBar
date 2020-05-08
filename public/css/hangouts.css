@@ -1,0 +1,15 @@
+#public-rooms{
+    float:right;;
+}
+#rooms-list{
+    float:left;
+}
+#content{
+    margin-left:5%;
+    margin-right:5%;
+}
+#public-rooms, #rooms-list{
+    display:block;
+    text-align:center;
+}
+

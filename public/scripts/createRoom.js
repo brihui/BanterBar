@@ -1,11 +1,24 @@
 function createRoom(){
     var roomName = $('#roomName').val();
-    var roomSize = $('#roomSize').val();
-    var private = $('#roomPrivate').val();
-    db.collection('users').doc(userID).collection('hangouts').doc('testRoom').set({
+    var roomSize = parseInt($('#roomSize').val());
+    var private = document.getElementById('roomPrivate').checked;
+    db.collection('rooms').add({
         "roomName": roomName,
         "host" : userID,
-    }, {merge: true});
+        "roomSize" : roomSize,
+        "private" : private
+    })
+    .then(function(docRef) {
+        db.collection('users').doc(userID).update({
+            rooms:firebase.firestore.FieldValue.arrayUnion(docRef.id)
+        });
+        docRef.update({
+           users:firebase.firestore.FieldValue.arrayUnion(userID) 
+        });
+    })
+    .catch(function(error) {
+        console.error("Error adding document: ", error);
+    });
+          
 
-    window.location.assign('../html/hangout.html');
 }
