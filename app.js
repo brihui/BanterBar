@@ -12,7 +12,7 @@ const admin = require('firebase-admin');
 
 // ***** this JSON file has to be downloaded from our Banterbar database, cannot be 
 // uploaded to Github as it has private credentials. *******
-let serviceAccount = require('./banterbar-4ff3d-firebase-adminsdk-ai9ep-76e66d729d.json');
+let serviceAccount = require('./banterbar-4ff3d-firebase-adminsdk-ai9ep-a3ff325123.json');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
