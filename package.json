@@ -1,18 +1,16 @@
 {
-  "name": "workshop7",
+  "name": "chatsocket",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
-  "dependencies": {
-    "ejs": "^3.1.2",
-    "express": "^4.17.1",
-    "firebase-admin": "^8.12.0"
-  },
-  "devDependencies": {},
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment": "^2.25.3",
+    "socket.io": "^2.3.0"
+  }
 }
