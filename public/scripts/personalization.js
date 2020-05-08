@@ -12,7 +12,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         }
     } else {
         // If no user is signed in, redirect to landing and alert.
-        window.location.replace('landing.html');
+        window.location.replace('../index.html');
         alert("You must be signed in to access the homepage.");
     }
 });
