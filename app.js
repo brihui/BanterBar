@@ -21,6 +21,10 @@ admin.initializeApp({
 let db = admin.firestore();
 // End of setting up firebase
 
+app.get("/"), (req, res) => {
+    res.render("html/landing.html");
+}
+
 app.get("/friends", (req, res)=> { 
     res.render("pages/friends"); 
 })

@@ -69,6 +69,10 @@
             height:250px;;
         }
 
+        .active{
+            color:white;
+        }
+
         @media screen and (max-width: 800px) and (min-width: 634px){
             body{
                 grid-template-areas: 

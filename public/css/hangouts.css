@@ -13,3 +13,20 @@
     text-align:center;
 }
 
+.active{
+    color:white;
+}
+
+@media screen and (max-width: 414px){
+    #content{
+        margin: 0;
+    }
+
+    #public-rooms, #rooms-list{
+        display: flex;
+        flex-direction: column;
+        text-align:center;
+        justify-content: center;
+        align-items: center;
+    }
+}

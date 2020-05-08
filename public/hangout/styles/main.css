@@ -170,6 +170,12 @@ main, #messages-card {
 #mediaCapture {
   display: none;
 }
+a{
+  color: white;
+}
+.header-color{
+  background-color: #7a0203;
+}
 @media screen and (max-width: 610px) {
   header {
     height: 113px;
@@ -188,6 +194,14 @@ main, #messages-card {
     height: 33px;
     background-size: 33px;
   }
+  /* span{
+    display: none;
+  }
+  #logo{
+    content: url("../../images/apple-touch-icon.png");
+    width: 35%;
+    height: 35%;
+  } */
 }
 .mdl-textfield__label:after {
   background-color: #0288D1;

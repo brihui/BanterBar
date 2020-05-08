@@ -1,6 +1,10 @@
-html, body {
+html,body {
     margin: 0; 
     height: 100%; 
+    background-image: url(../images/gg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
 }
 
 #container {
@@ -12,6 +16,7 @@ html, body {
 
 #nav-bar{
     height: 8%;
+    background-color: #7a0203;
 }
 
 #side-bar{
@@ -41,61 +46,19 @@ html, body {
     width: 100%;
 }
 
-#hangout-content {
-    display: grid;
-    grid-template-columns: 49% 49%;
-    grid-template-rows: 100%;
-    column-gap: 2%;
-}
-
-.card {
+.carousel-pic{
+    width: 100%;
     height: 100%;
-    overflow: scroll;
-}
-
-label{
-    font-size: smaller;
-    margin: 0;
-}
-
-.card-body{
-    padding: 1%;
-}
-
-option{
-    font-size: smaller;
-}
-
-#active-hangout-cards{
-    font-size: smaller;
 }
 
 #mobile-footer{
     display: none;
 }
 
-#active-friends-card{
-    display: none;
-}
-
 #mobile-create-hangout{
     display: none;
 }
-#close{
-    background-color:red;
-}
-#close:hover{
-    background-color: darkred;
-}
-#myForm{
-    display:none;
-    position: fixed;
-    bottom:50px;
-}
-.open-button{
-    width:150px;
-    height:50px;
-}
+
 .side-link{
     color:#383d41;
 }
@@ -115,14 +78,10 @@ option{
 }
 @media (max-width: 414px){
     #personalization-content{
-        display: none;
+        /* display: none; */
     }
 
     #side-bar{
-        display: none;
-    }
-
-    #desktop-create-hangout{
         display: none;
     }
 
@@ -139,7 +98,7 @@ option{
         flex-direction: row;
         justify-content: space-around;
         height: 8%;
-        background-color: #b0b0b0;
+        background-color: #7a0203;
     }
 
     #container{
@@ -154,41 +113,18 @@ option{
     }
 
     #personalization{
-        border-bottom: 1px solid black;
         padding-top: 1%;
     }
 
-    #hangout-content{
-        display: flex;
-        flex-direction: column;
-        height: 92%;
+    #enter-pub{
+        padding-top: 5%;
     }
 
-    #create-hangout-card{
-        padding-top: 2%;
-    }
-
-    #mobile-create-hangout{
-        display: flex;
-        justify-content: center;
-    }
-
-    .dot {
-        height: 15px;
-        width: 15px;
-        background-color: #bbb;
-        border-radius: 50%;
-        display: inline-block;
-      }
-
-    #active-friends-card{
-        display: block;
-    }
-
-    #add-symbol{
-        width: 4%;
-        height: 4%;
-        margin-right: 2%;
-        margin-top: 0.2%;
+    body{
+        background-image: url(../images/gg.jpg);
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 }

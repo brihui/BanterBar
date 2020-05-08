@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friends</title>
+    <title>Banter Bar: Friends</title>
 
     <!----------------------------------------->
     <!-- CSS: Bootstrap, Firebase, other API -->
@@ -14,10 +14,13 @@
 
     <!-- Custom CSS Files -->
     <link rel="stylesheet" href="../css/friends.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="..images/favicon-16x16.png">
 </head>
 <body>
     <!-- Navigation bar -->
-    <nav id="nav-bar" class="navbar sticky-top navbar-dark bg-dark">
+    <nav id="nav-bar" class="navbar sticky-top navbar-dark">
         <span class="navbar-brand mb-0 h1" id="brand-text">Banter Bar</span>
     </nav>
 
@@ -26,10 +29,18 @@
         <!-- Side bar -->
         <section id="side-bar">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item list-group-item-secondary">Home</li>
-                <li class="list-group-item list-group-item-secondary">Hangouts</li>
-                <li class="list-group-item list-group-item-secondary active">Friends</li>
-                <li class="list-group-item list-group-item-secondary">Games</li>
+                <li class="list-group-item list-group-item-secondary">
+                    <a href="homepage.html" class = 'side-link'>Home</a>
+                </li>
+                <li class="list-group-item list-group-item-secondary">
+                    <a href="hangouts.html" class = 'side-link'>Hangouts</a>
+                </li>
+                <li class="list-group-item list-group-item-secondary active">
+                    <a href="friends.html" class = 'side-link active'>Friends</a>
+                </li>
+                <li class="list-group-item list-group-item-secondary">
+                    <a href="homepage.html" class = 'side-link'>Games</a>
+                </li>
             </ul>
         </section>
 
@@ -44,13 +55,13 @@
         </section>
 
         <nav class="navbar fixed-bottom navbar-light" id="mobile-footer">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="../html/homepage.html">
               <img src="../images/home.png" width="30" height="30" alt="">
             </a>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="../html/hangouts.html">
                 <img src="../images/pub.png" width="30" height="30" alt="">
             </a>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="../html/friends.html">
                 <img src="../images/friends.png" width="30" height="30" alt="">
             </a>
             <a class="navbar-brand" href="#">

@@ -12,6 +12,7 @@ html, body {
 
 #nav-bar{
     height: 8%;
+    background-color: #7a0203;
 }
 
 #side-bar{
@@ -26,7 +27,7 @@ html, body {
 }
 
 #friends-list-outer{
-    border: 2px solid #b0b0b0;
+    /* border: 2px solid #b0b0b0; */
     width: 90%;
     height: 90%;
     text-align: center;
@@ -75,6 +76,10 @@ html, body {
     display: none;
 }
 
+.active{
+    color:white;
+}
+
 @media (max-width: 414px){
     #side-bar{
         display: none;
@@ -85,7 +90,7 @@ html, body {
         flex-direction: row;
         justify-content: space-around;
         height: 8%;
-        background-color: #b0b0b0;
+        background-color: #7a0203;
     }
 
     #container{

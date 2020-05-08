@@ -55,7 +55,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         for(let i = 0; i < friendArray.length; i++){
             db.collection("users").doc(friendArray[i]).get()
                 .then(function(doc){
-                $('#friends-list').append('<div class="card" style="width: 18rem;"><img src="images/men.png" alt="Card image cap" class="rounded-circle profile-pic"><div class="card-body"><h5 class="card-title">' + doc.data().name + '</h5><div id="interactions"><a href="#" class="btn btn-light btn-sm" id="invite-friend">Invite</a><a href="#" class="btn btn-light btn-sm" id="delete-friend">Delete</a></div></div></div>');
+                $('#friends-list').append('<div class="card" style="width: 18rem;"><img src="../images/men.png" alt="Card image cap" class="rounded-circle profile-pic"><div class="card-body"><h5 class="card-title">' + doc.data().name + '</h5><div id="interactions"><a href="#" class="btn btn-light btn-sm" id="invite-friend">Invite</a><a href="#" class="btn btn-light btn-sm" id="delete-friend">Delete</a></div></div></div>');
             })
         }
     })

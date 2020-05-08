@@ -166,7 +166,8 @@
         }
         .intro2{
             text-align:center;
-            color:white;
+            /* color:white; */
+            background-color:antiquewhite
         }
         .intro3.intro-text{
             width:62%
@@ -178,7 +179,7 @@
         .intro2.outerdiv1{
             padding-top:150px;
             padding-bottom:150px;
-                        background-image:url(../images/test.jpg);
+                        /* background-image:url(../images/wood.jpg); */
             background-size: cover;
             background-position: center;
         }
@@ -209,4 +210,15 @@
             line-height: 50px;
         }
 
+        #img1{
+            display: none;
+        }
+
+        #text2{
+            padding: 0;
+            width: 100%;
+            padding-bottom: 5%;
+            padding-top: 5%;
+            background-color:antiquewhite;
+        }
     }
