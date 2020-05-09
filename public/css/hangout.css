@@ -28,8 +28,13 @@
             text-align: center;
         }
         .display-div{
+/*
             display: grid;
             grid-template-columns:repeat(3, 1fr);
+*/
+            display:flex;
+            flex-direction:column;
+            overflow:scroll;
             height:400px;
         }
         .display{
@@ -81,7 +86,8 @@
                 display: none;
             }
             .display-div{
-                grid-template-columns: repeat(2, 1fr);
+/*                grid-template-columns: repeat(2, 1fr);*/
+                
             }
             .display, .chat{
                 margin-left:5%;
@@ -112,6 +118,6 @@
         }
         @media screen and (max-width: 414px){
             .display-div{
-                grid-template-columns: repeat(2, 1fr);
+/*                grid-template-columns: repeat(2, 1fr);*/
             }
         }

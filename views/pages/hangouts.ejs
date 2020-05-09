@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Friends</title>
+    <title>Rooms</title>
 
     <!----------------------------------------->
     <!-- CSS: Bootstrap, Firebase, other API -->
@@ -13,7 +13,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- Custom CSS Files -->
-    <link rel="stylesheet" href="../css/friends.css">
+    <link rel="stylesheet" href="../css/template-page.css">
+    <link rel ="stylesheet" href ="../css/hangouts.css">
 </head>
 <body>
     <!-- Navigation bar -->
@@ -23,33 +24,33 @@
 
     <!-- Content under nav bar -->
     <section id="container">
+        <!-- Side bar -->
         <section id="side-bar">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item list-group-item-secondary">
-                    <a href="homepage.html" class = 'side-link'>Home</a>
-                </li>
-                <li class="list-group-item list-group-item-secondary">
-                    <a href="hangouts.html" class = 'side-link'>Hangouts</a>
+                    <a href="homepage" class = 'side-link'>Home</a>
                 </li>
                 <li class="list-group-item list-group-item-secondary active">
-                    <a href="friends.html" class = 'side-link active'>Friends</a>
+                    <a href="hangouts" class = 'side-link active'>Hangouts</a>
                 </li>
-                <li class="list-group-item list-group-item-sescondary">
-                    <a href="homepage.html" class = 'side-link'>Games</a>
+                <li class="list-group-item list-group-item-secondary">
+                    <a href="friends" class = 'side-link'>Friends</a>
+                </li>
+                <li class="list-group-item list-group-item-secondary">
+                    <a href="homepage" class = 'side-link'>Games</a>
                 </li>
             </ul>
         </section>
 
         <!-- Main content -->
         <section id="content">
-            <section id="friends-list-outer">
-                <h2>All Friends</h2>
-                <section id="friends-list">
-
-                </section>
+            <section id="rooms-list">
+                <h2>Joined Hangouts</h2>
             </section>
-        </section>
-
+            <section id='public-rooms'>
+                <h2>Public Hangouts</h2>
+            </section>
+            </section>
         <nav class="navbar fixed-bottom navbar-light" id="mobile-footer">
             <a class="navbar-brand" href="#">
               <img src="../images/home.png" width="30" height="30" alt="">
@@ -81,6 +82,6 @@
     <script src="../scripts/firebase_api_banterbar.js"> </script>
 
     <!-- Custom JS files -->
-    <script src="../scripts/friends.js"></script>
+    <script src="../scripts/hangouts.js"></script>
 </body>
 </html>

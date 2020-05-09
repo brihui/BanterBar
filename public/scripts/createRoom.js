@@ -15,6 +15,9 @@ function createRoom(){
         docRef.update({
            users:firebase.firestore.FieldValue.arrayUnion(userID) 
         });
+        docRef.update({
+           users:firebase.firestore.FieldValue.arrayUnion(userID) 
+        });
     })
     .catch(function(error) {
         console.error("Error adding document: ", error);

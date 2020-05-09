@@ -11,5 +11,7 @@
 #public-rooms, #rooms-list{
     display:block;
     text-align:center;
+    height:600px;
+    overflow:scroll;
 }
 
