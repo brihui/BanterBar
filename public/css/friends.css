@@ -17,6 +17,7 @@ html, body {
 
 #side-bar{
     background-color: #d7d8db;
+    text-decoration: none;
 }
 
 #content {
@@ -27,6 +28,28 @@ html, body {
 }
 
 #add-friends{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 20%; 
+}
+
+#input-section{
+    display: grid;
+    grid-template-columns: 68% 28%;
+    column-gap: 5%;
+    padding: 0 2% 0 2%;
+    width: 100%;
+}
+
+#smalltext-section{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding-left: 3%;
 }
 
 #friends-list-outer{
@@ -78,7 +101,21 @@ html, body {
     display: none;
 }
 
+.side-link{
+    color:#383d41;
+}
+.side-link:hover{
+    text-decoration: none;
+}
+.list-group-item:hover{
+    color:white;
+    background-color: darkturquoise;
+}
 .active{
+    color:white;
+}
+.side-link:hover{
+    text-decoration: none;
     color:white;
 }
 
