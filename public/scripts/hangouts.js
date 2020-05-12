@@ -33,6 +33,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     });
 })
 function joinRoom(roomID){
+    var userID;
     firebase.auth().onAuthStateChanged(function (user) {
     user = firebase.auth().currentUser;
     let userID = user.uid;
@@ -51,8 +52,23 @@ function joinRoom(roomID){
     });
     })
 })
+//    var a = false, b = false;
+//    var roomRef = db.collection("rooms").doc(roomID);
+//    roomRef.onSnapshot(function(doc){
+//        a = true;
+//})
+//    firebase.auth().onAuthStateChanged(function (user) {
+//    user = firebase.auth().currentUser;
+//    let userID = user.uid;
+//    var userRef = db.collection("users").doc(userID);
+//    userRef.onSnapshot(function(doc){
+//        b = true;
+//    })
+//    })
     var url = "hangout/" + roomID;
-    window.location.href = url;
+    setTimeout(function(){window.location.href = url;}, 1000);
+    
+    
 }
 
 function delRoom(roomID){
@@ -84,5 +100,6 @@ function delRoom(roomID){
         }
     })
 })
-    location.reload;
+    setTimeout(function(){location.reload();}, 1000);
+
 }
