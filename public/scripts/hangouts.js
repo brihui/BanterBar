@@ -1,6 +1,3 @@
-
-
-
 //Joined hangouts
 firebase.auth().onAuthStateChanged(function (user) {
     user = firebase.auth().currentUser;
@@ -14,7 +11,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                 .then(function(doc){
                 db.collection("rooms").doc(doc.id).get()
                 .then(function(doc){
-                    $('#rooms-list').append('<div class="card" style="width: 18rem;"><div class="card-body"><h5 class="card-title">' + doc.data().roomName + '</h5><div id="interactions"><a href="#" class="btn btn-light btn-sm" id="joinRoom">Join</a><a href="#" class="btn btn-light btn-sm" id="delRoom">Delete</a></div></div></div>');
+                    $('#rooms-list').append('<div class="card" style="width: 18rem;"><div class="card-body"><h5 class="card-title">' + doc.data().roomName + '</h5><div id="interactions"><input type="button" class="btn btn-light btn-sm" value ="Join" onclick ="joinRoom(' + "'" +  doc.id+ "'" + ')"><input type="button" class="btn btn-light btn-sm" value ="Delete" onclick ="delRoom(' + "'" +  doc.id+ "'" + ')"></div></div></div>');
                 })
                 
             })
@@ -36,6 +33,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     });
 })
 function joinRoom(roomID){
+    var userID;
     firebase.auth().onAuthStateChanged(function (user) {
     user = firebase.auth().currentUser;
     let userID = user.uid;
@@ -54,5 +52,54 @@ function joinRoom(roomID){
     });
     })
 })
-    location:reload;
+//    var a = false, b = false;
+//    var roomRef = db.collection("rooms").doc(roomID);
+//    roomRef.onSnapshot(function(doc){
+//        a = true;
+//})
+//    firebase.auth().onAuthStateChanged(function (user) {
+//    user = firebase.auth().currentUser;
+//    let userID = user.uid;
+//    var userRef = db.collection("users").doc(userID);
+//    userRef.onSnapshot(function(doc){
+//        b = true;
+//    })
+//    })
+    var url = "hangout/" + roomID;
+    setTimeout(function(){window.location.href = url;}, 1000);
+    
+    
+}
+
+function delRoom(roomID){
+    firebase.auth().onAuthStateChanged(function (user) {
+    user = firebase.auth().currentUser;
+    let userID = user.uid;
+    db.collection("users").doc(userID).get()
+        .then(function(doc){
+        db.collection('rooms').doc(roomID).get()
+        .then(function(doc){
+            var users = doc.data().users;
+            var i;
+            for(i = 0; i < users.length; i ++){
+                if(users[i]==userID){
+                    db.collection('rooms').doc(roomID).update({
+                        "users":firebase.firestore.FieldValue.arrayRemove(userID)
+                    });
+                }
+            }
+        })
+        var rooms = doc.data().rooms;
+        var i;
+        for(i = 0; i < rooms.length; i ++){
+             if(rooms[i]==roomID){
+                 db.collection('users').doc(userID).update({
+                   "rooms":firebase.firestore.FieldValue.arrayRemove(roomID)
+               });
+            }
+        }
+    })
+})
+    setTimeout(function(){location.reload();}, 1000);
+
 }

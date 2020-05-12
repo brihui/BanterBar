@@ -21,13 +21,32 @@ admin.initializeApp({
 let db = admin.firestore();
 // End of setting up firebase
 
-app.get("/"), (req, res) => {
-    res.render("html/landing.html");
-}
-
+app.get("/", (req, res)=>{
+    res.render("pages/landing")
+})
+app.get("/signup", (req, res)=> { 
+    res.render("pages/signup"); 
+})
+app.get("/aboutus", (req, res)=> { 
+    res.render("pages/aboutus"); 
+})
+app.get("/readmore", (req, res)=> { 
+    res.render("pages/readmore"); 
+})
+app.get("/homepage", (req, res)=>{
+    res.render("pages/homepage");
+})
+app.get("/hangouts", (req, res)=>{
+    res.render("pages/hangouts");
+})
+app.get("/hangout/:one", (req, res)=>{
+    let room = req.params.one;   
+    res.render("pages/hangout", {room});
+})
 app.get("/friends", (req, res)=> { 
     res.render("pages/friends"); 
 })
+
 
 app.post("/getFriends", (req, res) => { 
     let userID = req.body;

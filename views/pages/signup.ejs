@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/signup.css" type="text/css" />
+    <!-- <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" /> -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleeapis.com/css?family=Play"> -->
+</head>
+
+<body>
+    <h1 id='title'>Banter Bar</h1>
+
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+
+
+
+    <!-- Link Firebase -->
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyB2q_AddrmJegiUR7wgL90uFA3wPp_I8rM",
+            authDomain: "banterbar-4ff3d.firebaseapp.com",
+            databaseURL: "https://banterbar-4ff3d.firebaseio.com",
+            projectId: "banterbar-4ff3d",
+            storageBucket: "banterbar-4ff3d.appspot.com",
+            messagingSenderId: "94183751358",
+            appId: "1:94183751358:web:cfd8476aacd213b5e728ef"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        const db = firebase.firestore();
+    </script>
+    <div id="firebaseui-auth-container"></div>
+
+    <!-- Login/signup, adds new user to firebase storage. -->
+    <script>
+        // Initialize the FirebaseUI Widget using Firebase.
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+        var uiConfig = {
+            callbacks: {
+                signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+                    // User successfully signed in.
+                    // Adds user to the Firestore database.
+                    var user = authResult.user;
+                    if (authResult.additionalUserInfo.isNewUser) {
+                        db.collection("users").doc(user.uid).set({
+                            name: user.displayName,
+                            email: user.email,
+                            friends: [],
+                        }).then(function () {
+                            console.log("New user added to firestore");
+                            window.location.assign("homepage");
+                        }).catch(function (error) {
+                            console.log("Error adding new user: " + error);
+                        });
+                    } else {
+                        return true;
+                    }
+                    return false;
+                },
+                uiShown: function () {
+                    // The widget is rendered.
+                    // Hide the loader.
+                }
+            },
+            // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+            signInFlow: 'popup',
+            signInSuccessUrl: 'homepage',
+            signInOptions: [
+                // Sign in options
+                firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            ],
+            // Terms of service url.
+            tosUrl: 'main.html',
+            // Privacy policy url.
+            privacyPolicyUrl: 'main.html'
+        };
+        // The start method will wait until the DOM is loaded.
+        ui.start('#firebaseui-auth-container', uiConfig);
+    </script>
+</body>
+
+</html>
