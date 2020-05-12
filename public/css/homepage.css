@@ -14,6 +14,11 @@ html,body {
     height: 92%;
 }
 
+#openForm{
+    width:10%;
+    height:50px;
+}
+
 #nav-bar{
     height: 8%;
     background-color: #7a0203;
@@ -75,6 +80,22 @@ html,body {
 .side-link:hover{
     text-decoration: none;
     color:white;
+}
+#close{
+    background-color:red;
+}
+#close:hover{
+    background-color: darkred;
+}
+#myForm{
+    display:none;
+    position: fixed;
+    bottom:50px;
+    color:black;
+}
+.open-button{
+    width:150px;
+    height:50px;
 }
 @media (max-width: 414px){
     #personalization-content{
