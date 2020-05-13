@@ -21,7 +21,7 @@ roomRef.onSnapshot(function(doc){
     for(i = 0; i < users.length; i++){
         var userRef = db.collection("users").doc(users[i]);
         userRef.get().then(function(doc){
-            $('.display-div').append('<div>' + doc.data().name + '</div>');
+            $('.display-div').append('<div class ="task">' + doc.data().name + '</div>');
         })
     }
         

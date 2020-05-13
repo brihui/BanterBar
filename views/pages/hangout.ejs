@@ -15,6 +15,7 @@
     <!-- Custom CSS Files -->
     <link rel="stylesheet" href="../css/hangout.css">
     <link rel="stylesheet" href="../css/template-page.css">
+    <link rel="stylesheet" href="../css/context-menu.css">
     <script>var room = "<%=room%>";</script>
 </head>
 
@@ -109,6 +110,16 @@
 
     </section>
     </section>
+     <nav id="context-menu" class="context-menu">
+    <ul class="context-menu__items">
+      <li class="context-menu__item">
+        <a href="#" class="context-menu__link" data-action="View"><i class="fa fa-eye"></i> Add as Friend</a>
+      </li>
+      <li class="context-menu__item">
+        <a href="#" class="context-menu__link" data-action="Edit"><i class="fa fa-edit"></i> Blacklist User</a>
+      </li>
+    </ul>
+  </nav>
            <!----------------------------------------->
     <!-- JS: Boostrap, Firebase, API related -->
     <!----------------------------------------->
@@ -121,5 +132,6 @@
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <script src="../../scripts/firebase_api_banterbar.js"> </script>
     <script src="../../scripts/customRoom.js"></script>
+    <script src="../../scripts/interaction.js"></script>
     </body>
 </html>
