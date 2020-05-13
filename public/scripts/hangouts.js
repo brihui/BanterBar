@@ -95,11 +95,14 @@ function delRoom(roomID){
              if(rooms[i]==roomID){
                  db.collection('users').doc(userID).update({
                    "rooms":firebase.firestore.FieldValue.arrayRemove(roomID)
-               });
+               })
+                .then(function(doc){
+                    setTimeout(function(){location.reload();}, 1000);                  
+                 })
             }
         }
     })
 })
-    setTimeout(function(){location.reload();}, 1000);
+
 
 }

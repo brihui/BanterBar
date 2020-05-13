@@ -15,6 +15,16 @@ roomRef.get().then(function(doc) {
     console.log("Error getting document:", error);
 });
 roomRef.onSnapshot(function(doc){
+    firebase.auth().onAuthStateChanged(function (user) {
+    user = firebase.auth().currentUser;
+    let userID = user.uid;
+    if(doc.data().host == userID){
+        var kick ='<li class="context-menu__item"><a href="#" class="context-menu__link" data-action="Edit"><i class="fa fa-edit"></i>Kick User</a></li>';
+        $('#cont').append(kick);
+        var kick ='<li class="context-menu__item"><a href="#" class="context-menu__link" data-action="Edit"><i class="fa fa-edit"></i>Assign DJ</a></li>';
+        $('#cont').append(kick);
+    }
+})
     $('.display-div').innerHTML = '';
     var users = doc.data().users;
     var i;

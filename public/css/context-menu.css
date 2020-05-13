@@ -23,7 +23,6 @@
   border-bottom: none;
 }
 
-/* context menu */
 
 .context-menu {
   display: none;
@@ -63,6 +62,7 @@
 }
 
 .context-menu__link:hover {
+    text-decoration: none;
   color: #fff;
   background-color: #0066aa;
 }
