@@ -19,10 +19,12 @@ function updateFriends(){
             db.collection("users").doc(friends[i]).get()
             .then(function(doc){
                 var name = doc.data().name;
-                display ='<option value = "' + name + '">' + name + '</option>';
+                display ='<div><input type="checkbox" name ="friends" value = "' + doc.id + '"> <label>' + name + '</label></div>';
                 $('#roomInvite').append(display);
             })           
         }
+        $('#roomInvite').append('<input type="checkbox" style ="display:none;" checked name="userID" value="' + userID + '">');
     })
 })
 }
+

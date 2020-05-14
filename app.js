@@ -46,7 +46,38 @@ app.get("/hangout/:one", (req, res)=>{
 app.get("/friends", (req, res)=> { 
     res.render("pages/friends"); 
 })
+app.post("/hangout/:roomID", (req, res)=> {
+    var roomID = req.params.roomID;
+    var friends = req.body.friends;
+    var userID = req.body.userID;
+    if(typeof friends == "string"){
+        db.collection("users").doc(friends).get()
+        .then(function(doc){
+            db.collection("users").doc(friends).collection("invitations").add({
+            "from": userID,
+            "to" : friends,
+            "roomID" : roomID
+            })
+            .then(function(doc){
+            })
+        }) 
+    }else{
+        for(var i = 0; i < friends.length; i++){
+        var friendID = friends[i];
+        db.collection("users").doc(friendID).get()
+        .then(function(doc){
+            db.collection("users").doc(friendID).collection("invitations").add({
+            "from": userID,
+            "to" : friendID,
+            "roomID" : roomID
+            })
+            .then(function(doc){
+            })
+        })        
+    }
+    }
 
+})
 
 // Adds a friend to the user's friend array
 app.post("/addFriend", (req, res) => {

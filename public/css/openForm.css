@@ -14,3 +14,7 @@
     width:150px;
     height:50px;
 }
+#roomInvite{
+    display:flex;
+    flex-direction: column;
+}

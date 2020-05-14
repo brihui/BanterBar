@@ -89,11 +89,11 @@
                        <div class="card" id="desktop-create-hangout">
                             <h6 class="card-header">Select friends:</h6>
                             <div class="form-group">
-                                <form>
+                                <form method="POST" id="inviteForm">
                                 <label>Invite</label>
-                                <select multiple class="form-control" id="roomInvite">
-                                </select>
-                            <button type="button" class="btn btn-primary btn-med btn-block"  onclick="createRoom()">Create</button>
+                                <div  name ="option" id="roomInvite">
+                                </div>
+                            <button id ="submit" type="submit" class="btn btn-primary btn-med btn-block"  >Invite</button>
                             <button type="button" class="btn btn-primary btn-med btn-block" id ='close' onclick="closeForm()">Close</button>
                             </form>
                            </div>
