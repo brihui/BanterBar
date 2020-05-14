@@ -38,37 +38,24 @@ function joinRoom(roomID){
     user = firebase.auth().currentUser;
     let userID = user.uid;
     db.collection("users").doc(userID).get()
-        .then(function(doc){
-    db.collection('rooms').doc(roomID).update({
-        users:firebase.firestore.FieldValue.arrayUnion(userID)
-    })
-    .then(function(docRef) {
-        db.collection('users').doc(userID).update({
-            rooms:firebase.firestore.FieldValue.arrayUnion(roomID)
-        });
-    })
+    .then(function(doc){
+        db.collection('rooms').doc(roomID).update({
+            users:firebase.firestore.FieldValue.arrayUnion(userID)
+        })
+        .then(function(docRef) {
+            db.collection('users').doc(userID).update({
+                rooms:firebase.firestore.FieldValue.arrayUnion(roomID)
+            })
+            .then(function(doc){
+                var url = "hangout/" + roomID;
+                window.location.href = url;
+            })
+        })
     .catch(function(error) {
         console.error("Error adding document: ", error);
     });
     })
-})
-//    var a = false, b = false;
-//    var roomRef = db.collection("rooms").doc(roomID);
-//    roomRef.onSnapshot(function(doc){
-//        a = true;
-//})
-//    firebase.auth().onAuthStateChanged(function (user) {
-//    user = firebase.auth().currentUser;
-//    let userID = user.uid;
-//    var userRef = db.collection("users").doc(userID);
-//    userRef.onSnapshot(function(doc){
-//        b = true;
-//    })
-//    })
-    var url = "hangout/" + roomID;
-    setTimeout(function(){window.location.href = url;}, 1000);
-    
-    
+})   
 }
 
 function delRoom(roomID){
@@ -97,7 +84,7 @@ function delRoom(roomID){
                    "rooms":firebase.firestore.FieldValue.arrayRemove(roomID)
                })
                 .then(function(doc){
-                    setTimeout(function(){location.reload();}, 1000);                  
+                   location.reload();                  
                  })
             }
         }
