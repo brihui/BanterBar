@@ -6,7 +6,10 @@ html,body {
     background-attachment: fixed;
     color: white;
 }
-
+.audiobtn{
+    width:10%;
+    height: 50px;
+}
 #container {
     display: grid;
     grid-template-columns: 15% 85%;
