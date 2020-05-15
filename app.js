@@ -94,35 +94,4 @@ app.get("/friends", (req, res)=> {
 //       })
 // })
 
-/**
- * Gets friends from database and returns an array of them
- */
-// app.post("/getFriends", (req, res) => { 
-//     let userID = req.body;
-
-//     console.log(userID);
-
-//     let userRef = db.collection('users').doc('' + userID["uid"]);
-//     let friendsRef = userRef.get()
-//       .then(doc => {
-//         let friendIdArray = doc.data().friends;
-//         let friendNameArray = [];
-        
-//         for(let i = 0; i < friendIdArray.length; i++){
-//             let friendRef = db.collection('users').doc(friendIdArray[i])
-//             let friendName = friendRef.get()
-//                 .then(doc => {
-//                     friendNameArray.push(doc.data().name);
-                    
-//                     if(i == (friendIdArray.length - 1)){
-//                         res.json(friendNameArray);
-//                     }
-//                 })       
-//         }
-//       })
-//       .catch(err => {
-//         console.log('Error getting documents', err);
-//       });
-// }) 
-
 app.listen(3000);
