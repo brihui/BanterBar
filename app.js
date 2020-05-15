@@ -48,45 +48,55 @@ app.get("/friends", (req, res)=> {
 })
 
 
-// Adds a friend to the user's friend array
-app.post("/addFriend", (req, res) => {
-    let addEmail = req.body.addEmail;
-    let currentUserId = req.body.uid;
-    let userRef = db.collection('users')
-    // Getting all users
-    let allUserRef = userRef.get()
-      .then(snapshot => {
-        // Looping through all users and getting their email
-        snapshot.forEach(doc => {
-          let userEmail = doc.data().email;
-          // Checking if emails are the same (case insensitive)
-          if(userEmail.toLowerCase() == addEmail.toLowerCase()){
-            // arrayUnion adds an entry onto an array field if it doesn't already exist
-            let arrUnion = userRef.doc(currentUserId).update({
-              friends: admin.firestore.FieldValue.arrayUnion(doc.id)
-            })
-          }
-        })
-      })
-})
+/**
+ * Receives an email to add as a friend, and current user's ID
+ * Looks through existing users in the database and matches the email and gets their UserID
+ * Adds that userID to the current user's friends list
+ */
+// app.post("/addFriend", (req, res) => {
+//     let addEmail = req.body.addEmail;
+//     let currentUserId = req.body.uid;
+//     let userRef = db.collection('users')
+//     // Getting all users
+//     let allUserRef = userRef.get()
+//       .then(snapshot => {
+//         // Looping through all users and getting their email
+//         snapshot.forEach(doc => {
+//           let userEmail = doc.data().email;
+//           // Checking if emails are the same (case insensitive)
+//           if(userEmail.toLowerCase() == addEmail.toLowerCase()){
+//             // arrayUnion adds an entry onto an array field if it doesn't already exist
+//             let arrUnion = userRef.doc(currentUserId).update({
+//               friends: admin.firestore.FieldValue.arrayUnion(doc.id)
+//             })
+//           }
+//         })
+//       })
+// })
 
-// Deletes a friend from the user's friend array
-app.post("/deleteFriend", (req, res) => {
-    // ID to be deleted and current user's ID gets passed in
-    let deleteId = req.body.deleteId;
-    let currentUserId = req.body.uid;
+/**
+ * Receives an ID to delete, and the current user's ID
+ * Deletes the ID from the current user's friends list
+ */
+// app.post("/deleteFriend", (req, res) => {
+//     // ID to be deleted and current user's ID gets passed in
+//     let deleteId = req.body.deleteId;
+//     let currentUserId = req.body.uid;
 
-    // Reference to current user's document
-    let userRef = db.collection('users').doc(currentUserId);
-    let deleteFriendRef = userRef.update({
-        // Removes all istances of the ID to be deleted
-        friends: admin.firestore.FieldValue.arrayRemove(deleteId)
-    })
-      .then(function(){
-        res.json("Friend Removed")
-      })
-})
+//     // Reference to current user's document
+//     let userRef = db.collection('users').doc(currentUserId);
+//     let deleteFriendRef = userRef.update({
+//         // Removes all istances of the ID to be deleted
+//         friends: admin.firestore.FieldValue.arrayRemove(deleteId)
+//     })
+//       .then(function(){
+//         res.json("Friend Removed")
+//       })
+// })
 
+/**
+ * Gets friends from database and returns an array of them
+ */
 // app.post("/getFriends", (req, res) => { 
 //     let userID = req.body;
 
