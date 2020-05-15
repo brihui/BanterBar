@@ -15,6 +15,9 @@
  */
 'use strict';
 
+let hangoutRoomID = localStorage.getItem('hangoutID');
+console.log(hangoutRoomID);
+
 // Signs-in Friendly Chat.
 function signIn() {
   // Sign in Firebase using popup auth and Google as the identity provider.
@@ -52,7 +55,7 @@ function isUserSignedIn() {
 // Saves a new message on the Cloud Firestore.
 function saveMessage(messageText) {
   // Add a new message entry to the Firebase database.
-  return firebase.firestore().collection('messages').add({
+  return firebase.firestore().collection('rooms').doc(hangoutRoomID).collection('messages').add({
     name: getUserName(),
     text: messageText,
     profilePicUrl: getProfilePicUrl(),
@@ -65,7 +68,7 @@ function saveMessage(messageText) {
 // Loads chat messages history and listens for upcoming ones.
 function loadMessages() {
   // Create the query to load the last 12 messages and listen for new ones.
-  var query = firebase.firestore().collection('messages').orderBy('timestamp', 'desc').limit(12);
+  var query = firebase.firestore().collection('rooms').doc(hangoutRoomID).collection('messages').orderBy('timestamp', 'desc').limit(12);
   
   // Start listening to the query.
   query.onSnapshot(function(snapshot) {
@@ -85,7 +88,7 @@ function loadMessages() {
 // This first saves the image in Firebase storage.
 function saveImageMessage(file) {
   // 1 - We add a message with a loading icon that will get updated with the shared image.
-  firebase.firestore().collection('messages').add({
+  firebase.firestore().collection('rooms').doc(hangoutRoomID).collection('messages').add({
     name: getUserName(),
     imageUrl: LOADING_IMAGE_URL,
     profilePicUrl: getProfilePicUrl(),
@@ -114,7 +117,7 @@ function saveMessagingDeviceToken() {
     if (currentToken) {
       console.log('Got FCM device token:', currentToken);
       // Saving the Device Token to the datastore.
-      firebase.firestore().collection('fcmTokens').doc(currentToken)
+      firebase.firestore().collection('rooms').doc(hangoutRoomID).collection('fcmTokens').doc(currentToken)
           .set({uid: firebase.auth().currentUser.uid});
     } else {
       // Need to request permissions to show notifications.

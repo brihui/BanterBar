@@ -77,8 +77,13 @@
         .active{
             color:white;
         }
+#myForm{
+    width:40%;
+    margin-left:10px;
+}
 
-        @media screen and (max-width: 800px) and (min-width: 634px){
+
+        @media (max-width: 800px) and (min-width: 634px){
             body{
                 grid-template-areas: 
                 'main'
@@ -102,7 +107,7 @@
             }
 
         }
-        @media screen and (max-width: 634px) {
+        @media  (max-width: 634px) {
             #side-bar{
                 width:100px;
             }
@@ -120,7 +125,7 @@
                 margin-bottom: 20px;
             }
         }
-        @media screen and (max-width: 414px){
+        @media  (max-width: 414px){
             .display-div{
 /*                grid-template-columns: repeat(2, 1fr);*/
             }
