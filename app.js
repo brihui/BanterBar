@@ -77,7 +77,7 @@ app.post("/hangout/:roomID", (req, res)=> {
                 }
         })
     })
-
+})
 /**
  * Receives an email to add as a friend, and current user's ID
  * Looks through existing users in the database and matches the email and gets their UserID

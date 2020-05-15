@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "banterbar-4ff3d"
+    "default": "banterbar-79980",
+    "test": "banterbar-79980"
   }
 }
