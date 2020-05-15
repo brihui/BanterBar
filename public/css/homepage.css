@@ -6,13 +6,28 @@ html,body {
     background-attachment: fixed;
     color: white;
 }
+@keyframes test {
+  from {font-size: 20pt; opacity: 1;}
+  to {font-size: 80pt; opacity: 0;}
+}
 *{
     z-index:2;
 }
-#mc{
+#mj{
+    position:fixed;
+    z-index:2;
+}
+.mc{
+    opacity:0;
     z-index:3;
     position:fixed;
     font-size: 30pt;
+    animation-name: test;
+    animation-duration: 5s;
+}
+.move{
+    font-size:100pt;
+    transition: font-size 3s;
 }
 .audiobtn{
     width:10%;
