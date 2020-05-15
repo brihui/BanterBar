@@ -47,7 +47,6 @@ app.get("/friends", (req, res)=> {
     res.render("pages/friends"); 
 })
 
-
 // Adds a friend to the user's friend array
 app.post("/addFriend", (req, res) => {
     let addEmail = req.body.addEmail;
