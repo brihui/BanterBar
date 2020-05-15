@@ -8,7 +8,7 @@
     margin-left:5%;
     margin-right:5%;
 }
-#public-rooms, #rooms-list{
+#public-rooms, #rooms-list, #invited-list{
     display:block;
     text-align:center;
     height:600px;

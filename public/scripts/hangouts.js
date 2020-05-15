@@ -1,3 +1,5 @@
+
+
 //Joined hangouts
 firebase.auth().onAuthStateChanged(function (user) {
     user = firebase.auth().currentUser;
@@ -18,6 +20,17 @@ firebase.auth().onAuthStateChanged(function (user) {
         }
     })
 })
+//Invited hangouts
+firebase.auth().onAuthStateChanged(function (user) {
+    user = firebase.auth().currentUser;
+    let userID = user.uid;
+            db.collection("invitations").where("to", "==", userID).get()
+            .then(function(querySnapshot){
+              querySnapshot.forEach(function(doc) {
+                    $('#invited-rooms').append('<div class="card" style="width: 18rem;"><div class="card-body"><h5 class="card-title">' + doc.data().roomName + '</h5><p>from:' + doc.data().userName +'</p><div id="interactions"><input type="button" class="btn btn-light btn-sm" value ="Accept" onclick ="acpRecord(' + "'" + doc.data().roomID + "', '" + doc.id + "'" + ')"><input type="button" class="btn btn-light btn-sm" value ="Deny" onclick ="delRecord(' + "'" +  doc.id+ "'" + ')"></div></div></div>');
+                })
+            })
+})
 //Public hangouts
 firebase.auth().onAuthStateChanged(function (user) {
     db.collection("rooms").where("private", "==", false)
@@ -32,43 +45,38 @@ firebase.auth().onAuthStateChanged(function (user) {
         console.log("Error getting documents: ", error);
     });
 })
+
+function delRecord(recID){
+    db.collection("invitations").doc(recID).delete();
+}
+function acpRecord(roomID, recID){
+    delRecord(recID);
+    joinRoom(roomID);
+}
 function joinRoom(roomID){
     var userID;
     firebase.auth().onAuthStateChanged(function (user) {
     user = firebase.auth().currentUser;
     let userID = user.uid;
     db.collection("users").doc(userID).get()
-        .then(function(doc){
-    db.collection('rooms').doc(roomID).update({
-        users:firebase.firestore.FieldValue.arrayUnion(userID)
-    })
-    .then(function(docRef) {
-        db.collection('users').doc(userID).update({
-            rooms:firebase.firestore.FieldValue.arrayUnion(roomID)
-        });
-    })
+    .then(function(doc){
+        db.collection('rooms').doc(roomID).update({
+            users:firebase.firestore.FieldValue.arrayUnion(userID)
+        })
+        .then(function(docRef) {
+            db.collection('users').doc(userID).update({
+                rooms:firebase.firestore.FieldValue.arrayUnion(roomID)
+            })
+            .then(function(doc){
+                var url = "hangout/" + roomID;
+                window.location.href = url;
+            })
+        })
     .catch(function(error) {
         console.error("Error adding document: ", error);
     });
     })
-})
-//    var a = false, b = false;
-//    var roomRef = db.collection("rooms").doc(roomID);
-//    roomRef.onSnapshot(function(doc){
-//        a = true;
-//})
-//    firebase.auth().onAuthStateChanged(function (user) {
-//    user = firebase.auth().currentUser;
-//    let userID = user.uid;
-//    var userRef = db.collection("users").doc(userID);
-//    userRef.onSnapshot(function(doc){
-//        b = true;
-//    })
-//    })
-    var url = "hangout/" + roomID;
-    setTimeout(function(){window.location.href = url;}, 1000);
-    
-    
+})   
 }
 
 function delRoom(roomID){
@@ -97,7 +105,7 @@ function delRoom(roomID){
                    "rooms":firebase.firestore.FieldValue.arrayRemove(roomID)
                })
                 .then(function(doc){
-                    setTimeout(function(){location.reload();}, 1000);                  
+                   location.reload();                  
                  })
             }
         }

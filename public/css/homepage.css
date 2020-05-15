@@ -141,6 +141,7 @@ html,body {
     transform: translateX(-50%) translateY(-50%);
     display: none;
 }
+
 @media (max-width: 414px){
     #personalization-content{
         /* display: none; */
