@@ -7,11 +7,18 @@ html,body {
     color: white;
 }
 
+#brand-text{
+    font-size: x-large;
+}
+
 #container {
-    display: grid;
-    grid-template-columns: 15% 85%;
-    grid-template-rows: 100%;
+    display: flex;
+    flex-direction: column;
     height: 92%;
+}
+
+#personalization{
+    text-align: center;
 }
 
 #openForm{
@@ -24,10 +31,6 @@ html,body {
     background-color: #7a0203;
 }
 
-#side-bar{
-    background-color: #d7d8db;
-}
-
 #content {
     padding: 1%;
     display: grid;
@@ -37,9 +40,11 @@ html,body {
 }
 
 #personalization {
-    display: grid;
-    grid-template-rows: 20% 80%;
     text-align: center;
+}
+
+#enter-pub{
+    padding-top: 2%;
 }
 
 #personalization-content {
@@ -48,41 +53,14 @@ html,body {
     margin-top: 1%;
 }
 
-.row{
-    width: 100%;
-}
-
 #mobile-footer{
-    display: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 8%;
+    background-color: #7a0203;
 }
 
-#mobile-create-hangout{
-    display: none;
-}
-
-.side-link{
-    color:#383d41;
-}
-.side-link:hover{
-    text-decoration: none;
-}
-.list-group-item:hover{
-    color:white;
-    background-color: darkturquoise;
-}
-.active{
-    color:white;
-}
-.side-link:hover{
-    text-decoration: none;
-    color:white;
-}
-#close{
-    background-color:red;
-}
-#close:hover{
-    background-color: darkred;
-}
 #myForm{
     display:none;
     position: fixed;
@@ -93,15 +71,8 @@ html,body {
     width:150px;
     height:50px;
 }
+
 @media (max-width: 414px){
-    #personalization-content{
-        /* display: none; */
-    }
-
-    #side-bar{
-        display: none;
-    }
-
     #p-header{
         font-size: x-large;
     }

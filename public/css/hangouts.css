@@ -1,34 +1,66 @@
-#public-rooms{
-    float:right;;
+html, body {
+    margin: 0; 
+    height: 100%; 
 }
-#rooms-list{
-    float:left;
+
+#brand-text{
+    font-size: x-large;
 }
+
+#container {
+    display: flex;
+    flex-direction: column;
+    height: 92%;
+}
+
 #content{
-    margin-left:5%;
-    margin-right:5%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
+
 #public-rooms, #rooms-list{
-    display:block;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
     text-align:center;
     height:600px;
     overflow:scroll;
 }
 
-.active{
-    color:white;
+#nav-bar{
+    height: 8%;
+    background-color: #7a0203;
 }
 
-@media screen and (max-width: 414px){
-    #content{
-        margin: 0;
+#mobile-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 8%;
+    background-color: #7a0203;
+}
+
+@media (max-width: 634px){
+     #mobile-footer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 8%;
+        background-color: #7a0203;
     }
 
-    #public-rooms, #rooms-list{
-        display: flex;
-        flex-direction: column;
-        text-align:center;
-        justify-content: center;
-        align-items: center;
+    #container{
+        height: 84%;
+    }
+
+    #content{
+        /* width: 100vw; */
+        height: 100%;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 50% 50%;
+        overflow: scroll;
     }
 }
