@@ -50,32 +50,34 @@ app.post("/hangout/:roomID", (req, res)=> {
     var roomID = req.params.roomID;
     var friends = req.body.friends;
     var userID = req.body.userID;
-    if(typeof friends == "string"){
-        db.collection("users").doc(friends).get()
+    db.collection("users").doc(userID).get()
+    .then(function(doc){
+        var name = doc.data().name;
+        db.collection("rooms").doc(roomID).get()
         .then(function(doc){
-            db.collection("users").doc(friends).collection("invitations").add({
-            "from": userID,
-            "to" : friends,
-            "roomID" : roomID
-            })
-            .then(function(doc){
-            })
-        }) 
-    }else{
-        for(var i = 0; i < friends.length; i++){
-        var friendID = friends[i];
-        db.collection("users").doc(friendID).get()
-        .then(function(doc){
-            db.collection("users").doc(friendID).collection("invitations").add({
-            "from": userID,
-            "to" : friendID,
-            "roomID" : roomID
-            })
-            .then(function(doc){
-            })
-        })        
-    }
-    }
+            var roomName = doc.data().roomName;
+                if(typeof friends == "string"){
+                    db.collection("invitations").add({
+                        "from": userID,
+                        "to" : friends,
+                        "roomID" : roomID,
+                        "userName" : name,
+                        "roomName": roomName
+                    })
+                }else{
+                    for(var i = 0; i < friends.length; i++){
+                    db.collection("invitations").add({
+                        "from": userID,
+                        "to" : friends[i],
+                        "roomID" : roomID,
+                        "userName" : name,
+                        "roomName" : roomName
+                    })     
+                    }
+                }
+        })
+    })
+
 
 })
 

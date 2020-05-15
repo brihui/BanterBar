@@ -24,13 +24,12 @@ firebase.auth().onAuthStateChanged(function (user) {
 firebase.auth().onAuthStateChanged(function (user) {
     user = firebase.auth().currentUser;
     let userID = user.uid;
-    db.collection("users").doc(userID).collection("invitations").get()
-    .then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-            // doc.data() is never undefined for query doc snapshots
-            $('#public-rooms').append('<div class="card" style="width: 18rem;"><div class="card-body"><h5 class="card-title">' + doc.data().roomName + '</h5><div id="interactions"><input type="button" class="btn btn-light btn-sm" id="joinRoom" value ="accept" onclick ="acpRec(' + "'" +  doc.data().roomID + "', '" + doc.id + "'", + ')"><input type="button" class="btn btn-light btn-sm" id="deny" value ="Join" onclick ="delRec(' + "'" +  doc.id+ "'" + ')"></div></div></div>');
-        });
-    })
+            db.collection("invitations").where("to", "==", userID).get()
+            .then(function(querySnapshot){
+              querySnapshot.forEach(function(doc) {
+                    $('#invited-rooms').append('<div class="card" style="width: 18rem;"><div class="card-body"><h5 class="card-title">' + doc.data().roomName + '</h5><p>from:' + doc.data().userName +'</p><div id="interactions"><input type="button" class="btn btn-light btn-sm" value ="Accept" onclick ="acpRecord(' + "'" + doc.data().roomID + "', '" + doc.id + "'" + ')"><input type="button" class="btn btn-light btn-sm" value ="Deny" onclick ="delRecord(' + "'" +  doc.id+ "'" + ')"></div></div></div>');
+                })
+            })
 })
 //Public hangouts
 firebase.auth().onAuthStateChanged(function (user) {
@@ -39,7 +38,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
             // doc.data() is never undefined for query doc snapshots
-            $('#public-rooms').append('<div class="card" style="width: 18rem;"><div class="card-body"><h5 class="card-title">' + doc.data().roomName + '</h5><div id="interactions"><input type="button" class="btn btn-light btn-sm" value ="Accept" onclick ="acceptInv(' + "'" +  doc.id+ "'" + ')"><input type="button" class="btn btn-light btn-sm" value ="Decline" onclick ="declineInv(' + "'" +  doc.id+ "'" + ')"></div></div></div>');
+            $('#public-rooms').append('<div class="card" style="width: 18rem;"><div class="card-body"><h5 class="card-title">' + doc.data().roomName + '</h5><div id="interactions"><input type="button" class="btn btn-light btn-sm" id="joinRoom" value ="Join" onclick ="joinRoom(' + "'" +  doc.id+ "'" + ')"></div></div></div>');
         });
     })
     .catch(function(error) {
@@ -48,13 +47,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 })
 
 function delRecord(recID){
-    var userID;
-    firebase.auth().onAuthStateChanged(function(user){
-        user = firebase.auth().currentUser;
-        let userID = user.uid;
-        db.collection("users").doc(userID).collection('invitations').doc(recId).delete();
-    })
-        
+    db.collection("invitations").doc(recID).delete();
 }
 function acpRecord(roomID, recID){
     delRecord(recID);
