@@ -11,7 +11,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                     .then(function (doc) {
                         db.collection("rooms").doc(doc.id).get()
                             .then(function (doc) {
-                                $('#rooms-list').append('<div class="card" style="width: 18rem;"><div class="card-body"><h5 class="card-title">' + doc.data().roomName + '</h5><div id="interactions"><a href="#" class="btn btn-light btn-sm" id="joinRoom">Join</a><a href="#" class="btn btn-light btn-sm" id="delRoom">Delete</a></div></div></div>');
+                                $('#rooms-list').append('<div class="card" style="width: 18rem;"><div class="card-body"><h5 class="card-title">' + doc.data().roomName + '</h5><div id="interactions"><a href="#" class="btn btn-light btn-sm" id="joinRoom" onclick ="joinRoom(' + "'" + doc.id + "'" + ')">Join</a><a href="#" class="btn btn-light btn-sm" id="delRoom">Delete</a></div></div></div>');
                             })
 
                     })
