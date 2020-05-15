@@ -9,6 +9,11 @@ html,body {
 *{
     z-index:2;
 }
+#mc{
+    z-index:3;
+    position:fixed;
+    font-size: 30pt;
+}
 .audiobtn{
     width:10%;
     height: 50px;
@@ -105,7 +110,8 @@ html,body {
     height:20%;
     left:40%;
     top:40%;
-    
+    z-index:3;
+    opacity: 0;
 }
 #myVideo{
     position: fixed;
@@ -117,6 +123,7 @@ html,body {
     height: auto;
     z-index: 1;
     transform: translateX(-50%) translateY(-50%);
+    display: none;
 }
 @media (max-width: 414px){
     #personalization-content{
