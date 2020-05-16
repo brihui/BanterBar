@@ -1,3 +1,4 @@
+var room = localStorage.getItem('hangoutID');
 function log(room){
     console.log(room);
 }

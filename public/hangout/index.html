@@ -44,6 +44,7 @@
   <!-- Material Components -->
   <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <!-- Material Design Lite -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -57,7 +58,10 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="..images/favicon-16x16.png">
-
+    <link rel="stylesheet" href="../css/context-menu.css">
+    <link rel="stylesheet" href="../css/openForm.css">
+    <link rel="stylesheet" href="../css/hangout.css">
+    
   <!-- TODO: Enable First Input Delay polyfill library. -->
   <script type="text/javascript">
     ! function (n, e) {
@@ -155,6 +159,40 @@
                 Send
               </button>
             </form>
+        <main class = 'display'>
+        <h1 id='roomName'></h1>
+        <div class = 'display-div'>
+            <p>Users:</p>
+          <input type="button" value="Invite" onclick="openForm()">        
+        </div>
+    </main>
+             <div class="form-popup" id="myForm">
+                    
+                   <section id="create-hangout-card">
+                       <div class="card" id="desktop-create-hangout">
+                            <h6 class="card-header">Select friends:</h6>
+                            <div class="form-group">
+                                <form id="inviteForm">
+                                <label>Invite</label>
+                                <div  name ="option" id="roomInvite">
+                                </div>
+                            <button id ="submit" type="button" class="btn btn-primary btn-med btn-block" onclick="invite()" >Invite</button>
+                            <button type="button" class="btn btn-primary btn-med btn-block" id ='close' onclick="closeForm()">Close</button>
+                            </form>
+                           </div>
+                       </div>
+                    </section>
+                </div>
+                   <nav id="context-menu" class="context-menu">
+    <ul class="context-menu__items" id="cont">
+      <li class="context-menu__item">
+        <a href="#" class="context-menu__link" data-action="View"><i class="fa fa-eye"></i> Add as Friend</a>
+      </li>
+      <li class="context-menu__item">
+        <a href="#" class="context-menu__link" data-action="Edit"><i class="fa fa-edit"></i> Blacklist User</a>
+      </li>
+    </ul>
+  </nav>
             <form id="image-form" action="#">
               <input id="mediaCapture" type="file" accept="image/*" capture="camera">
               <button id="submitImage" title="Add an image"
@@ -164,7 +202,7 @@
             </form>
           </div>
         </div>
-
+          
         <!-- start video -->
         <div id="main-container">
           <div id="video-chat-containier">
@@ -236,16 +274,20 @@
   <!-- Import and configure the Firebase SDK -->
   <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
   <!-- If you do not want to serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
-  <script src="/__/firebase/7.14.2/firebase-app.js"></script>
-  <script src="/__/firebase/7.14.2/firebase-auth.js"></script>
-  <script src="/__/firebase/7.14.2/firebase-storage.js"></script>
-  <script src="/__/firebase/7.14.2/firebase-messaging.js"></script>
-  <script src="/__/firebase/7.14.2/firebase-firestore.js"></script>
-  <script src="/__/firebase/7.14.2/firebase-performance.js"></script>
-  <script src="/__/firebase/init.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-performance.js"></script>
+    <script src="../scripts/firebase_api_banterbar.js"> </script>
 
+<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
   <script src="scripts/main.js"></script>
   <script src="scripts/app.js"></script>
+    <script src="../scripts/customRoom.js"></script>
+    <script src="../scripts/interaction.js"></script>
+    <script src="../scripts/openForm.js"></script>
 </body>
 
 </html>

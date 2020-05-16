@@ -10,9 +10,9 @@
     bottom:50px;
     color:black;
 }
-.open-button{
-    width:150px;
-    height:50px;
+#openForm{
+    width:120px;
+    z-index:99;
 }
 #roomInvite{
     display:flex;

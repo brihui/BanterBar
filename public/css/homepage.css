@@ -11,7 +11,7 @@ html,body {
     font-size: x-large;
 }
 
-@keyframes test {
+@keyframes ani {
   from {font-size: 20pt; opacity: 1;}
   to {font-size: 80pt; opacity: 0;}
 }
@@ -27,7 +27,7 @@ html,body {
     z-index:3;
     position:fixed;
     font-size: 30pt;
-    animation-name: test;
+    animation-name: ani;
     animation-duration: 5s;
 }
 .move{
@@ -48,16 +48,16 @@ html,body {
     text-align: center;
 }
 
-#openForm{
-    width:10%;
-    height:50px;
-}
-
 #nav-bar{
     height: 8%;
     background-color: #7a0203;
 }
-
+#player{
+    z-index:-99;
+}
+.iframe-container{
+    display:none;
+}
 #content {
     padding: 1%;
     display: grid;
