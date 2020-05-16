@@ -38,6 +38,8 @@ main, #messages-card {
   margin-top: 15px;
   /* /* height: 500px; */
   /* padding-bottom: 0; */
+  display: flex;
+  overflow: scroll;
 }
 .mdl-layout__header-row span {
   margin-left: 15px;
