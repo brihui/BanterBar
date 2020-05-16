@@ -10,22 +10,22 @@ html, body {
 #container {
     display: flex;
     flex-direction: column;
-    height: 92%;
+    height: 84%;
 }
 
 #content{
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: repeat(3, 1fr);
     margin-left: 5%;
     margin-right: 5%;
+    height:100%;
 }
 
-#public-rooms, #rooms-list{
+#public-rooms, #rooms-list, #invited-rooms{
     display:flex;
     flex-direction: column;
     align-items: center;
     text-align:center;
-    height:600px;
     overflow:scroll;
 }
 
@@ -56,11 +56,12 @@ html, body {
     }
 
     #content{
-        /* width: 100vw; */
-        height: 100%;
-        display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: 50% 50%;
-        overflow: scroll;
+        display:flex;
+        flex-direction: column;
+        height:2000px;
+        margin-bottom:8%;
+    }
+    #rooms-list, #public-rooms, #invited-rooms{
+        margin-top: 50px;
     }
 }

@@ -61,7 +61,7 @@
     <link rel="stylesheet" href="../css/context-menu.css">
     <link rel="stylesheet" href="../css/openForm.css">
     <link rel="stylesheet" href="../css/hangout.css">
-    
+
   <!-- TODO: Enable First Input Delay polyfill library. -->
   <script type="text/javascript">
     ! function (n, e) {
@@ -159,40 +159,7 @@
                 Send
               </button>
             </form>
-        <main class = 'display'>
-        <h1 id='roomName'></h1>
-        <div class = 'display-div'>
-            <p>Users:</p>
-          <input type="button" value="Invite" onclick="openForm()">        
-        </div>
-    </main>
-             <div class="form-popup" id="myForm">
-                    
-                   <section id="create-hangout-card">
-                       <div class="card" id="desktop-create-hangout">
-                            <h6 class="card-header">Select friends:</h6>
-                            <div class="form-group">
-                                <form id="inviteForm">
-                                <label>Invite</label>
-                                <div  name ="option" id="roomInvite">
-                                </div>
-                            <button id ="submit" type="button" class="btn btn-primary btn-med btn-block" onclick="invite()" >Invite</button>
-                            <button type="button" class="btn btn-primary btn-med btn-block" id ='close' onclick="closeForm()">Close</button>
-                            </form>
-                           </div>
-                       </div>
-                    </section>
-                </div>
-                   <nav id="context-menu" class="context-menu">
-    <ul class="context-menu__items" id="cont">
-      <li class="context-menu__item">
-        <a href="#" class="context-menu__link" data-action="View"><i class="fa fa-eye"></i> Add as Friend</a>
-      </li>
-      <li class="context-menu__item">
-        <a href="#" class="context-menu__link" data-action="Edit"><i class="fa fa-edit"></i> Blacklist User</a>
-      </li>
-    </ul>
-  </nav>
+              
             <form id="image-form" action="#">
               <input id="mediaCapture" type="file" accept="image/*" capture="camera">
               <button id="submitImage" title="Add an image"
@@ -227,10 +194,7 @@
             <div>
               <span id="currentRoom"></span>
             </div>
-            <div id="videos">
-              <video id="localVideo" muted autoplay playsinline></video>
-              <video id="remoteVideo" autoplay playsinline></video>
-            </div>
+
             <div class="mdc-dialog" id="room-dialog" role="alertdialog" aria-modal="true"
               aria-labelledby="my-dialog-title" aria-describedby="my-dialog-content">
               <div class="mdc-dialog__container">
@@ -259,6 +223,47 @@
             </div>
           </div>
         </div>
+          <div id='added'>
+    <main class = 'display'>
+        <div class = 'display-div'>
+            <h1 id='roomName'></h1>
+            <p>Users:</p>
+          <input type="button" value="Invite" onclick="openForm()">        
+        </div>
+    </main>
+             <div class="form-popup" id="myForm">
+                    
+                   <section id="create-hangout-card">
+                       <div class="card" id="desktop-create-hangout">
+                            <h6 class="card-header">Select friends:</h6>
+                            <div class="form-group">
+                                <form id="inviteForm">
+                                <label>Invite</label>
+                                <div  name ="option" id="roomInvite">
+                                </div>
+                            <button id ="submit" type="button" class="btn btn-primary btn-med btn-block" onclick="invite()" >Invite</button>
+                            <button type="button" class="btn btn-primary btn-med btn-block" id ='close' onclick="closeForm()">Close</button>
+                            </form>
+                           </div>
+                       </div>
+                    </section>
+                </div>
+    <nav id="context-menu" class="context-menu">
+    <ul class="context-menu__items" id="cont">
+      <li class="context-menu__item">
+        <a href="#" class="context-menu__link" data-action="View"><i class="fa fa-eye"></i> Add as Friend</a>
+      </li>
+      <li class="context-menu__item">
+        <a href="#" class="context-menu__link" data-action="Edit"><i class="fa fa-edit"></i> Blacklist User</a>
+      </li>
+    </ul>
+  </nav>
+    
+          </div>
+                      <div id="videos">
+              <video id="localVideo" muted autoplay playsinline></video>
+              <video id="remoteVideo" autoplay playsinline></video>
+            </div>
 
         <!-- end video -->
         <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">

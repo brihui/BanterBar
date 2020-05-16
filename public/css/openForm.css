@@ -9,6 +9,7 @@
     position: fixed;
     bottom:50px;
     color:black;
+    z-index:88;
 }
 #openForm{
     width:120px;
