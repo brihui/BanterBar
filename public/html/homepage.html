@@ -17,7 +17,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="..images/favicon-16x16.png">
-
+    <link rel="stylesheet" href="../css/openForm.css">
 </head>
 
 <body>
@@ -25,27 +25,12 @@
     <nav id="nav-bar" class="navbar sticky-top navbar-dark">
         <span class="navbar-brand mb-0 h1" id="brand-text">Banter Bar</span>
     </nav>
-
+<video loop id="myVideo">
+  <source src="../images/MJ.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
     <!-- Content under nav bar -->
     <section id="container">
-        <!-- Side bar -->
-        <section id="side-bar">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item list-group-item-secondary active">
-                    <a href="homepage.html" class = 'side-link active'>Home</a>
-                </li>
-                <li class="list-group-item list-group-item-secondary">
-                    <a href="hangouts.html" class = 'side-link'>Hangouts</a>
-                </li>
-                <li class="list-group-item list-group-item-secondary">
-                    <a href="friends.html" class = 'side-link'>Friends</a>
-                </li>
-                <li class="list-group-item list-group-item-secondary">
-                    <a href="homepage.html" class = 'side-link'>Games</a>
-                </li>
-            </ul>
-        </section>
-
         <!-- Main content -->
         <section id="content">
             <!-- Personalized card -->
@@ -55,10 +40,43 @@
                     <section id="enter-pub">
                         <h4>Enter the pub!</h4>
                         <a class="btn btn-secondary" href="../hangout/index.html" role="button">Bring me in</a>
+                        <button class="btn btn-secondary" id = "openForm" onclick="openForm()">Create Room</button>
+                        <div class="form-popup" id="myForm">    
+                   <section id="create-hangout-card">
+                       <div class="card" id="desktop-create-hangout">
+                            <h6 class="card-header">Create Your Own Hangout</h6>
+                            <div class="card-body" id="create-hangout-card-body">
+                            <form action="">
+                            <div class="form-group">
+                                <label for="roomName">Room Name</label>
+                                <input type="text" class="form-control" id="roomName">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Room Size</label>
+                                <input type="number" class="form-control" id="roomSize">
+                            </div>
+                            <div class="form-group form-check">
+                                <input class="form-check-input" type="checkbox"  id="roomPrivate">
+                                <label class="form-check-label">Private?</label>
+                            </div>
+                            <div class="form-group">
+                                <label>Invite</label>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-med btn-block"  onclick="createRoom()">Create</button>
+                            <button type="button" class="btn btn-primary btn-med btn-block" id ='close' onclick="closeForm()">Close</button>
+                            </form>
+                           </div>
+                       </div>
+                    </section>
+                </div>
                         <!-- <a <button type="button" class="btn btn-secondary">Bring me in</button> -->
                     </section>
                 </section>
             </section>
+            <!-- Div which will hold the Youtube IFrame -->
+            <div class="iframe-container">
+                <div id="player"></div>>
+            </div>
         </section>
 
         <nav class="navbar fixed-bottom navbar-light" id="mobile-footer">
@@ -71,7 +89,7 @@
             <a class="navbar-brand" href="../html/friends.html">
                 <img src="../images/friends.png" width="30" height="30" alt="">
             </a>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="../html/games.html">
                 <img src="../images/games-dark.png" width="30" height="30" alt="">
             </a>  
         </nav>
@@ -95,6 +113,8 @@
     <script src="../scripts/personalization.js"></script>
     <script src = '../scripts/openForm.js'></script>
     <script src ='../scripts/createRoom.js'></script>
+    <script src ="../scripts/youtube.js"></script>
+    <script src ='../scripts/easter.js'></script>
 </body>
 
 </html>

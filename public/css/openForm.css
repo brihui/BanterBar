@@ -1,0 +1,21 @@
+#close{
+    background-color:red;
+}
+#close:hover{
+    background-color: darkred;
+}
+#myForm{
+    display:none;
+    position: fixed;
+    bottom:50px;
+    color:black;
+    z-index:88;
+}
+#openForm{
+    width:120px;
+    z-index:99;
+}
+#roomInvite{
+    display:flex;
+    flex-direction: column;
+}

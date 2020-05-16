@@ -3,11 +3,14 @@ html, body {
     height: 100%; 
 }
 
+#brand-text{
+    font-size: x-large;
+}
+
 #container {
-    display: grid;
-    grid-template-columns: 15% 85%;
-    grid-template-rows: 100%;
-    height: 92%;
+    display: flex;
+    flex-direction: column;
+    height: 84%;
 }
 
 #nav-bar{
@@ -15,19 +18,40 @@ html, body {
     background-color: #7a0203;
 }
 
-#side-bar{
-    background-color: #d7d8db;
-}
-
 #content {
-    /* border: 4px solid blue; */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 100%;
+}
+
+#add-friends{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 20%; 
+}
+
+#input-section{
+    display: grid;
+    grid-template-columns: 68% 28%;
+    column-gap: 5%;
+    padding: 0 2% 0 2%;
+    width: 100%;
+}
+
+#smalltext-section{
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    padding-left: 3%;
 }
 
 #friends-list-outer{
-    /* border: 2px solid #b0b0b0; */
     width: 90%;
     height: 90%;
     text-align: center;
@@ -65,26 +89,14 @@ html, body {
 }
 
 #mobile-footer{
-    display: none;
-}
-
-#active-friends-card{
-    display: none;
-}
-
-#mobile-create-hangout{
-    display: none;
-}
-
-.active{
-    color:white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 8%;
+    background-color: #7a0203;
 }
 
 @media (max-width: 414px){
-    #side-bar{
-        display: none;
-    }
-
     #mobile-footer{
         display: flex;
         flex-direction: row;
@@ -98,16 +110,41 @@ html, body {
     }
 
     #content{
+        height: 100%;
         width: 100vw;
         display: flex;
         flex-direction: column;
         overflow: scroll;
     }
 
-    #friends-list-outer{
-        /* border: 2px solid red; */
+    #add-friends{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 100%;
-        height: 100%;
+        height: 20%;  
+    }
+
+    #input-section{
+        display: grid;
+        grid-template-columns: 68% 28%;
+        column-gap: 5%;
+        padding: 0 2% 0 2%;
+        width: 100%;
+    }
+
+    #smalltext-section{
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        padding-left: 2%;
+    }
+
+    #friends-list-outer{
+        width: 100%;
+        height: 80%;
         text-align: center;
         padding: 1%;
         display: grid;
@@ -122,13 +159,6 @@ html, body {
         justify-items: center;
         overflow: scroll;
         /* border: 2px dotted blue; */
-    }
-
-    #add-symbol{
-        width: 4%;
-        height: 4%;
-        margin-right: 2%;
-        margin-top: 0.2%;
     }
 
     #interactions{

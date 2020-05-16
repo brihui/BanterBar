@@ -13,7 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- Custom CSS Files -->
-    <link rel="stylesheet" href="../css/template-page.css">
+    <!-- <link rel="stylesheet" href="../css/template-page.css"> -->
     <link rel ="stylesheet" href ="../css/hangouts.css">
     <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
@@ -27,33 +27,19 @@
 
     <!-- Content under nav bar -->
     <section id="container">
-        <!-- Side bar -->
-        <section id="side-bar">
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item list-group-item-secondary">
-                    <a href="homepage.html" class = 'side-link'>Home</a>
-                </li>
-                <li class="list-group-item list-group-item-secondary active">
-                    <a href="hangouts.html" class = 'side-link active'>Hangouts</a>
-                </li>
-                <li class="list-group-item list-group-item-secondary">
-                    <a href="friends.html" class = 'side-link'>Friends</a>
-                </li>
-                <li class="list-group-item list-group-item-secondary">
-                    <a href="homepage.html" class = 'side-link'>Games</a>
-                </li>
-            </ul>
-        </section>
-
         <!-- Main content -->
         <section id="content">
+            <section id='invited-rooms'>
+                <h2>Invited Hangouts</h2>
+            </section>
             <section id="rooms-list">
                 <h2>Joined Hangouts</h2>
             </section>
             <section id='public-rooms'>
                 <h2>Public Hangouts</h2>
             </section>
-        </section>
+            
+            </section>
 
         <nav class="navbar fixed-bottom navbar-light" id="mobile-footer">
             <a class="navbar-brand" href="../html/homepage.html">
@@ -65,10 +51,10 @@
             <a class="navbar-brand" href="../html/friends.html">
                 <img src="../images/friends.png" width="30" height="30" alt="">
             </a>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="../html/games.html">
                 <img src="../images/games-dark.png" width="30" height="30" alt="">
             </a>  
-          </nav>
+        </nav>
     </section>
 
         <!----------------------------------------->

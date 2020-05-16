@@ -1,32 +1,67 @@
-#public-rooms{
-    float:right;;
+html, body {
+    margin: 0; 
+    height: 100%; 
 }
-#rooms-list{
-    float:left;
+
+#brand-text{
+    font-size: x-large;
 }
+
+#container {
+    display: flex;
+    flex-direction: column;
+    height: 84%;
+}
+
 #content{
-    margin-left:5%;
-    margin-right:5%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 5%;
+    margin-right: 5%;
+    height:100%;
 }
-#public-rooms, #rooms-list{
-    display:block;
+
+#public-rooms, #rooms-list, #invited-rooms{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
     text-align:center;
+    overflow:scroll;
 }
 
-.active{
-    color:white;
+#nav-bar{
+    height: 8%;
+    background-color: #7a0203;
 }
 
-@media screen and (max-width: 414px){
-    #content{
-        margin: 0;
+#mobile-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 8%;
+    background-color: #7a0203;
+}
+
+@media (max-width: 634px){
+     #mobile-footer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 8%;
+        background-color: #7a0203;
     }
 
-    #public-rooms, #rooms-list{
-        display: flex;
+    #container{
+        height: 84%;
+    }
+
+    #content{
+        display:flex;
         flex-direction: column;
-        text-align:center;
-        justify-content: center;
-        align-items: center;
+        height:2000px;
+        margin-bottom:8%;
+    }
+    #rooms-list, #public-rooms, #invited-rooms{
+        margin-top: 50px;
     }
 }

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banter Bar: Games</title>
+
+    <!----------------------------------------->
+    <!-- CSS: Bootstrap, Firebase, other API -->
+    <!----------------------------------------->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- Custom CSS Files -->
+    <link rel="stylesheet" href="../css/games.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="..images/favicon-16x16.png">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <nav id="nav-bar" class="navbar sticky-top navbar-dark">
+        <span class="navbar-brand mb-0 h1" id="brand-text">Banter Bar</span>
+    </nav>
+
+    <!-- Content under nav bar -->
+    <section id="container">
+        <!-- Main content -->
+        <section id="content">
+            <!-- Card to start game -->
+            <div class="card text-center" style="width: 20rem;">
+                <div class="card-body">
+                <h5 class="card-title">Zombie Hunter</h5>
+                <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+                <p class="card-text">Play this zombie game and compare scores with your friends!</p>
+                <a href="../html/zombie.html" class="card-link">Play Now</a>
+                </div>
+            </div>
+
+            <!-- Card to see leaderboard -->
+            <div class="card text-center" style="width: 20rem;">
+                <div class="card-body">
+                <h5 class="card-title">Leaderboard</h5>
+                <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+                <p class="card-text">See how your score compares to other people!</p>
+                <a href="../html/leaderboard.html" class="card-link">See Leaderboard</a>
+                </div>
+            </div>
+
+            <nav class="navbar fixed-bottom navbar-light" id="mobile-footer">
+                <a class="navbar-brand" href="../html/homepage.html">
+                <img src="../images/home.png" width="30" height="30" alt="">
+                </a>
+                <a class="navbar-brand" href="../html/hangouts.html">
+                    <img src="../images/pub.png" width="30" height="30" alt="">
+                </a>
+                <a class="navbar-brand" href="../html/friends.html">
+                    <img src="../images/friends.png" width="30" height="30" alt="">
+                </a>
+                <a class="navbar-brand" href="../html/leaderboard.html">
+                    <img src="../images/games-dark.png" width="30" height="30" alt="">
+                </a>  
+            </nav>
+        </section>
+
+    </section>
+
+        <!----------------------------------------->
+    <!-- JS: Boostrap, Firebase, API related -->
+    <!----------------------------------------->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <script src="../scripts/firebase_api_banterbar.js"> </script>
+</body>
+</html>

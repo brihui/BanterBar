@@ -16,7 +16,20 @@ firebase.auth().onAuthStateChanged(function (user) {
         alert("You must be signed in to access the homepage.");
     }
 });
+//Youtube layout handling
+$(document).ready(function(){
 
+    $('iframe').each(function(){
+          var url = $(this).attr("src");
+          var char = "?";
+          if(url.indexOf("?") != -1){
+                  var char = "&";
+           }
+        
+          $(this).attr("src",url+char+"wmode=transparent");
+    });
+
+});
 // Function to personalize the home page.
 function personalizeHeader(uID) { 
     db.collection('users').doc(uID).onSnapshot(
