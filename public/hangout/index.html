@@ -44,7 +44,7 @@
   <!-- Material Components -->
   <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
   <!-- Material Design Lite -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -58,9 +58,9 @@
   <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="..images/favicon-16x16.png">
-    <link rel="stylesheet" href="../css/context-menu.css">
-    <link rel="stylesheet" href="../css/openForm.css">
-    <link rel="stylesheet" href="../css/hangout.css">
+  <link rel="stylesheet" href="../css/context-menu.css">
+  <link rel="stylesheet" href="../css/openForm.css">
+  <link rel="stylesheet" href="../css/hangout.css">
 
   <!-- TODO: Enable First Input Delay polyfill library. -->
   <script type="text/javascript">
@@ -121,13 +121,13 @@
 
     <!-- Header section containing logo -->
     <header class="mdl-layout__header mdl-color-text--white header-color">
-      <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
+      <div id="hangout-header" class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
         <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
           <a href="../html/homepage.html">
             <h3><span>BanterBar</span></h3>
           </a>
         </div>
-        <div id="user-container header-color">
+        <div id="user-container">
           <div hidden id="user-pic"></div>
           <div hidden id="user-name"></div>
           <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
@@ -140,15 +140,14 @@
       </div>
     </header>
 
-    <main class="mdl-layout__content mdl-color--grey-100">
+    <main id="body-container" class="mdl-layout__content mdl-color--grey-100">
       <div id="messages-card-container" class="mdl-cell mdl-cell--7-col mdl-grid">
 
         <!-- Messages container -->
         <div id="messages-card"
           class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--6-col-tablet mdl-cell--6-col-desktop">
           <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-            <div id="messages">
-            </div>
+            <div id="messages"></div>
             <form id="message-form" action="#">
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" type="text" id="message" autocomplete="off">
@@ -159,7 +158,7 @@
                 Send
               </button>
             </form>
-              
+
             <form id="image-form" action="#">
               <input id="mediaCapture" type="file" accept="image/*" capture="camera">
               <button id="submitImage" title="Add an image"
@@ -169,7 +168,7 @@
             </form>
           </div>
         </div>
-          
+
         <!-- start video -->
         <div id="main-container">
           <div id="video-chat-containier">
@@ -191,6 +190,7 @@
                 <span class="mdc-button__label">Hangup</span>
               </button>
             </div>
+
             <div>
               <span id="currentRoom"></span>
             </div>
@@ -221,78 +221,82 @@
               </div>
               <div class="mdc-dialog__scrim"></div>
             </div>
-          </div>
-        </div>
-          <div id='added'>
-    <main class = 'display'>
-        <div class = 'display-div'>
-            <h1 id='roomName'></h1>
-            <p>Users:</p>
-          <input type="button" value="Invite" onclick="openForm()">        
-        </div>
-    </main>
-             <div class="form-popup" id="myForm">
-                    
-                   <section id="create-hangout-card">
-                       <div class="card" id="desktop-create-hangout">
-                            <h6 class="card-header">Select friends:</h6>
-                            <div class="form-group">
-                                <form id="inviteForm">
-                                <label>Invite</label>
-                                <div  name ="option" id="roomInvite">
-                                </div>
-                            <button id ="submit" type="button" class="btn btn-primary btn-med btn-block" onclick="invite()" >Invite</button>
-                            <button type="button" class="btn btn-primary btn-med btn-block" id ='close' onclick="closeForm()">Close</button>
-                            </form>
-                           </div>
-                       </div>
-                    </section>
-                </div>
-    <nav id="context-menu" class="context-menu">
-    <ul class="context-menu__items" id="cont">
-      <li class="context-menu__item">
-        <a href="#" class="context-menu__link" data-action="View"><i class="fa fa-eye"></i> Add as Friend</a>
-      </li>
-      <li class="context-menu__item">
-        <a href="#" class="context-menu__link" data-action="Edit"><i class="fa fa-edit"></i> Blacklist User</a>
-      </li>
-    </ul>
-  </nav>
-    
-          </div>
-                      <div id="videos">
+
+            <div id="videos">
               <video id="localVideo" muted autoplay playsinline></video>
               <video id="remoteVideo" autoplay playsinline></video>
             </div>
-
-        <!-- end video -->
-        <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
-          <div class="mdl-snackbar__text"></div>
-          <button class="mdl-snackbar__action" type="button"></button>
+            <!-- end video -->
+          </div>
         </div>
       </div>
 
+      <!-- lobby info -->
+      <div id='added'>
+        <main class='display'>
+          <div class='display-div'>
+            <h1 id='roomName'></h1>
+            <p>Users:</p>
+            <input type="button" value="Invite" onclick="openForm()">
+          </div>
+        </main>
 
+        <div class="form-popup" id="myForm">
+          <section id="create-hangout-card">
+            <div class="card" id="desktop-create-hangout">
+              <h6 class="card-header">Select friends:</h6>
+              <div class="form-group">
+                <form id="inviteForm">
+                  <label>Invite</label>
+                  <div name="option" id="roomInvite">
+                  </div>
+                  <button id="submit" type="button" class="btn btn-primary btn-med btn-block"
+                    onclick="invite()">Invite</button>
+                  <button type="button" class="btn btn-primary btn-med btn-block" id='close'
+                    onclick="closeForm()">Close</button>
+                </form>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <nav id="context-menu" class="context-menu">
+          <ul class="context-menu__items" id="cont">
+            <li class="context-menu__item">
+              <a href="#" class="context-menu__link" data-action="View"><i class="fa fa-eye"></i> Add as Friend</a>
+            </li>
+            <li class="context-menu__item">
+              <a href="#" class="context-menu__link" data-action="Edit"><i class="fa fa-edit"></i> Blacklist User</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- end lobby info -->
+
+      <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
+        <div class="mdl-snackbar__text"></div>
+        <button class="mdl-snackbar__action" type="button"></button>
+      </div>
     </main>
   </div>
 
   <!-- Import and configure the Firebase SDK -->
   <!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
   <!-- If you do not want to serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
-<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-storage.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-messaging.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-performance.js"></script>
-    <script src="../scripts/firebase_api_banterbar.js"> </script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-messaging.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-performance.js"></script>
+  <script src="../scripts/firebase_api_banterbar.js"> </script>
 
-<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
   <script src="scripts/main.js"></script>
   <script src="scripts/app.js"></script>
-    <script src="../scripts/customRoom.js"></script>
-    <script src="../scripts/interaction.js"></script>
-    <script src="../scripts/openForm.js"></script>
+  <script src="../scripts/customRoom.js"></script>
+  <script src="../scripts/interaction.js"></script>
+  <script src="../scripts/openForm.js"></script>
 </body>
 
 </html>

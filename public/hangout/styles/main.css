@@ -13,52 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-:root {
+ :root {
   --mdc-theme-primary: #7a0203;
 }
-
 html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
 }
 main, #messages-card {
-  height: 100%;
+  height: 75%;
   width: 100%;
   padding-bottom: 0;
   margin: auto;
 }
 #messages-card-container {
-    width:100%;
-    height:100%;
   height: calc(100% - 35px);
   padding-bottom: 0;
   display: grid;
-    grid-template-columns : 15% 25% 20% 15% 15%;
-    align-items: flex-end;
-  grid-template-areas: 
-      "users video video menu menu"
-      "users video video menu menu"
-      "users video video chat chat"
-      "users video video chat chat"
-      "users video video chat chat"
-      ". video video chat chat"
-    ". video video chat chat"
-    ". video video chat chat"
-    ". video video chat chat"
-    ". video video chat chat";
+  grid-template-columns: 100% 50%;
+  grid-gap: 0% -100%;
   margin-left: 50px;
 }
-#added{
-    grid-area: users;
-    width:120%;
-}
-
 #messages-card {
   margin-top: 15px;
-    grid-area:chat;
   /* /* height: 500px; */
   /* padding-bottom: 0; */
-  display: flex;
-  overflow: scroll;
 }
 .mdl-layout__header-row span {
   margin-left: 15px;
@@ -170,11 +148,6 @@ main, #messages-card {
   justify-content: flex-end;
   padding-right: 10px;
 }
-#videos{
-    grid-area:video;
-    left:20px;
-    justify-self: center;
-}
 #user-container #user-pic {
   top: -3px;
   position: relative;
@@ -214,8 +187,8 @@ a{
   background-color: #7a0203;
 }
 #main-container {
-  padding: 15px;
-    grid-area: menu;
+  padding: 0px 15px 15px 15px;
+
 }
 #buttons {
   padding: 15px 15px 15px 0px;
@@ -226,10 +199,30 @@ a{
 button {
   padding: 5px;
 }
-video {
-  width: 360px;
-  height: 300px;
+#videos {
+  display: grid;
+  grid-gap: 10px;
 }
+video {
+  width: 400px;
+  height: 225px;
+  background-color: black;
+}
+#added {
+  margin-left: 20px;
+  margin-top: -160px;
+  width: 85%;
+  height: 100%;
+  overflow: scroll;
+}
+#hangout-header {
+  display: grid;
+  grid-template-columns: repeat(3, 20%);
+}
+#user-container {
+  display: inline;
+}
+
 @media screen and (max-width: 1120px) {
   #buttons {
     grid-template-columns: 300px;
@@ -257,6 +250,18 @@ video {
     display: grid;
     grid-gap: 5px;
     grid-template-columns: repeat(2, 48%);
+  }
+  #videos {
+    display: inline;
+    margin-left: 5%;
+  }
+  video {
+    width: 43%;
+  }
+  #added {
+    margin-top: 5px;
+    margin-left: 10px;
+    height: 25%;
   }
 }
 
@@ -288,12 +293,16 @@ video {
     background-size: 33px;
   }
   #videos {
-    display: inline;
-    
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    margin-left: -20px;
   }
   video {
     width: 175px;
     height: 125px;
+  }
+  #added {
+    margin-top: -20px;
   }
   /* #main-container {
     margin-left: 5%;
