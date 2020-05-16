@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Zombie Hunter</title>
+    <link rel="stylesheet" type="text/css" href="../css/zombie.css">
+</head>
+
+<body>
+    <h2 id="score">Score: 0</h3>
+    
+    <div id = "startButtonDiv">
+        <input type="button" id="start" value="Start Game">
+    </div>
+
+    <img src="../images/zombie.gif" id="zombie">
+    <img src="../images/zombie.gif" id="zombie2">
+
+    <div id="endButtonDiv">
+        <a href="games.html">
+            <input type="button" id="back-btn" value="Take Me Back">
+        </a>
+        <input type="button" id="end" value="End and Save Score">
+    </div>
+    <audio id="audio" src="../src/blop.mp3"></audio>
+
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+
+    <script src="../scripts/firebase_api_banterbar.js"> </script>
+    <script src="../scripts/zombie.js"></script>
+</body>
+
+</html>
