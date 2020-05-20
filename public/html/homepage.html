@@ -18,12 +18,18 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="..images/favicon-16x16.png">
     <link rel="stylesheet" href="../css/openForm.css">
+
+    <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
 </head>
 
 <body>
     <!-- Navigation bar -->
     <nav id="nav-bar" class="navbar sticky-top navbar-dark">
         <span class="navbar-brand mb-0 h1" id="brand-text">Banter Bar</span>
+        <a class="twitter-share-button" 
+        href="https://twitter.com/intent/tweet?text=Check%20out%20the%20Banter%20Bar!">
+            Tweet
+        </a>
     </nav>
 <video loop id="myVideo">
   <source src="../images/MJ.mp4" type="video/mp4">
@@ -39,7 +45,7 @@
                 <section id="personalization-content"> 
                     <section id="enter-pub">
                         <h4>Enter the pub!</h4>
-                        <a class="btn btn-secondary" href="../hangout/index.html" role="button">Bring me in</a>
+                        <a id="join-bmi" class="btn btn-secondary" role="button">Bring me in</a>
                         <button class="btn btn-secondary" id = "openForm" onclick="openForm()">Create Room</button>
                         <div class="form-popup" id="myForm">    
                    <section id="create-hangout-card">
@@ -115,6 +121,7 @@
     <script src ='../scripts/createRoom.js'></script>
     <script src ="../scripts/youtube.js"></script>
     <script src ='../scripts/easter.js'></script>
+    <script src="../scripts/joinRandom.js"></script>
 </body>
 
 </html>
