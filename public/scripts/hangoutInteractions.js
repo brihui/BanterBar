@@ -7,33 +7,36 @@ function acpRecord(roomID, recID) {
     joinRoom(roomID);
 }
 
+
 function joinRoom(roomID) {
+
     firebase.auth().onAuthStateChanged(function (user) {
         user = firebase.auth().currentUser;
         let userID = user.uid;
-        db.collection("rooms").doc(roomID).get()
-        .then(function(doc){
-        var size = doc.data().roomSize;
-        var users = doc.data().users;
-        var joined = false;
-        for(var i = 0; i < users.length; i ++){
-            if(users[i] == userID){
-                joined = true;
-            }
-        }
-            if(users.typeof == "string" && joined == false){
-                if(joined == false && size <= 1){
-                    alert("size exceeded");
-                    return;
-                }
-            }
-            else if(joined == false && size <= users.length){
-                alert("size exceeded");
-                return;
-            }
-        });
         db.collection("users").doc(userID).get()
             .then(function (doc) {
+            db.collection("rooms").doc(roomID).get()
+            .then(function(doc){
+                var boo = true;
+                var size = doc.data().roomSize;
+                var users = doc.data().users;
+                var joined = false;
+                for(var i = 0; i < users.length; i ++){
+                    if(users[i] == userID){
+                        joined = true;
+                    }
+                }
+            if(typeof users == "string" && joined == false){
+                if(joined == false && size <= 1){
+                    alert("size exceeded");
+                    boo = false ;
+                }
+            }else if(joined == false && size <= users.length){
+                alert("size exceeded");
+                boo =  false;
+            }
+                if(boo){
+            
                 db.collection('rooms').doc(roomID).update({
                         users: firebase.firestore.FieldValue.arrayUnion(userID)
                     })
@@ -51,6 +54,8 @@ function joinRoom(roomID) {
                     .catch(function (error) {
                         console.error("Error adding document: ", error);
                     });
+                }
+                })
             })
     })
 }
