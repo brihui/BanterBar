@@ -17,7 +17,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             if(doc.data().name == userName && !gotHighScore){
                 // Make boolean true in order to not trigger the if statement again
                 gotHighScore = true;
-                leaderboard.innerHTML += '<li class="list-group-item list-group-item-success scoreboard"><span><em><b>' + "Your High Score" + '</span><span>Score: ' + doc.data().score + '</em></b></span></li>';
+                leaderboard.innerHTML += '<li class="list-group-item list-group-item-success scoreboard"><span><em><b>' + "Your High Score" + '</span><span>' + doc.data().score + '</em></b></span></li>';
             }
         })
     })
