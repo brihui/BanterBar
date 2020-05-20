@@ -43,6 +43,11 @@ html, body {
     justify-content: space-between;
 }
 
+#fb-btn {
+    border:none;
+    overflow:hidden;
+}
+
 @media (max-width: 414px){
     #side-bar{
         display: none;

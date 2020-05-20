@@ -42,6 +42,11 @@ html, body {
     background-color: #7a0203;
 }
 
+#fb-btn {
+    border:none;
+    overflow:hidden;
+}
+
 @media (max-width: 634px){
      #mobile-footer{
         display: flex;

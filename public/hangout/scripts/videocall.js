@@ -1,7 +1,19 @@
+/**
+ * Few modifications made to WebRTC Firebase CodeLab.
+ * Sourced from:
+ * - https://webrtc.org/getting-started/firebase-rtc-codelab
+ * - https://github.com/webrtc/FirebaseRTC
+ */
+
+// Import Material Design Components to buttons.
 mdc.ripple.MDCRipple.attachTo(document.querySelector('.mdc-button'));
 
+// Check localStorage variable, retrieved in main.js.
 console.log(hangoutRoomID);
 
+// Constant declarations.
+
+// Set API config.
 const configuration = {
   iceServers: [
     {
@@ -14,24 +26,18 @@ const configuration = {
   iceCandidatePoolSize: 10,
 };
 
+// Declare null variables.
 let peerConnection = null;
 let localStream = null;
 let remoteStream = null;
 let roomDialog = null;
 let roomId = null;
 
-function init() {
-  document.querySelector('#cameraBtn').addEventListener('click', openUserMedia);
-  document.querySelector('#hangupBtn').addEventListener('click', hangUp);
-  document.querySelector('#createBtn').addEventListener('click', createRoom);
-  document.querySelector('#joinBtn').addEventListener('click', joinRoom);
-  roomDialog = new mdc.dialog.MDCDialog(document.querySelector('#room-dialog'));
-}
-
-async function createRoom() {
+// Function to create a call when button is clicked.
+async function createRoom() { 
+  // Disable the create/join buttons.
   document.querySelector('#createBtn').disabled = true;
   document.querySelector('#joinBtn').disabled = true;
-  const db = firebase.firestore();
   const roomRef = await db.collection('rooms').doc(hangoutRoomID);
   console.log("room id: " + roomRef.id);
 
@@ -44,7 +50,7 @@ async function createRoom() {
     peerConnection.addTrack(track, localStream);
   });
 
-  // Code for collecting ICE candidates below
+  // Collect ICE candidates
   const callerCandidatesCollection = roomRef.collection('callerCandidates');
 
   peerConnection.addEventListener('icecandidate', event => {
@@ -55,9 +61,8 @@ async function createRoom() {
     console.log('Got candidate: ', event.candidate);
     callerCandidatesCollection.add(event.candidate.toJSON());
   });
-  // Code for collecting ICE candidates above
 
-  // Code for creating a room below
+  // Creating a room
   const offer = await peerConnection.createOffer();
   await peerConnection.setLocalDescription(offer);
   console.log('Created offer:', offer);
@@ -71,10 +76,9 @@ async function createRoom() {
   await roomRef.set(roomWithOffer);
   roomId = roomRef.id;
   console.log(`New room created with SDP offer. Room ID: ${roomRef.id}`);
-  document.querySelector(
-      '#currentRoom').innerText = `Current room is ${roomRef.id} - You are the caller!`;
-  // Code for creating a room above
-
+  document.querySelector('#currentRoom').innerText = `Current room is ${roomRef.id} - You are the caller!`;
+  
+  // Add received track to media stream track.
   peerConnection.addEventListener('track', event => {
     console.log('Got remote track:', event.streams[0]);
     event.streams[0].getTracks().forEach(track => {
@@ -83,7 +87,7 @@ async function createRoom() {
     });
   });
 
-  // Listening for remote session description below
+  // Listen for remote session details
   roomRef.onSnapshot(async snapshot => {
     const data = snapshot.data();
     if (!peerConnection.currentRemoteDescription && data && data.answer) {
@@ -92,9 +96,8 @@ async function createRoom() {
       await peerConnection.setRemoteDescription(rtcSessionDescription);
     }
   });
-  // Listening for remote session description above
 
-  // Listen for remote ICE candidates below
+  // Listen for remote ICE candidates
   roomRef.collection('calleeCandidates').onSnapshot(snapshot => {
     snapshot.docChanges().forEach(async change => {
       if (change.type === 'added') {
@@ -104,31 +107,33 @@ async function createRoom() {
       }
     });
   });
-  // Listen for remote ICE candidates above
 }
 
+// Function to join a call.
 function joinRoom() {
   document.querySelector('#createBtn').disabled = true;
   document.querySelector('#joinBtn').disabled = true;
 
-  document.querySelector('#confirmJoinBtn').
-      addEventListener('click', async () => {
-        // roomId = document.querySelector('#room-id').value;
-        roomId = hangoutRoomID;
-        console.log('Join room: ', roomId);
-        document.querySelector(
-            '#currentRoom').innerText = `Current room is ${roomId} - You are the callee!`;
-        await joinRoomById(roomId);
-      }, {once: true});
+  // Calls join function to join room by ID.
+  document.querySelector('#confirmJoinBtn')
+    .addEventListener('click', async () => {
+      roomId = document.querySelector('#room-id').value;
+      console.log('Join room: ', roomId);
+      document.querySelector('#currentRoom').innerText = `Current room is ${roomId} - You are the callee!`;
+      await joinRoomById(roomId);
+    }, {
+      once: true
+    });
   roomDialog.open();
 }
 
+// Function to join a call by ID.
 async function joinRoomById(roomId) {
-  const db = firebase.firestore();
   const roomRef = db.collection('rooms').doc(`${roomId}`);
   const roomSnapshot = await roomRef.get();
   console.log('Got room:', roomSnapshot.exists);
 
+  // If the room ID exists, create a connection.
   if (roomSnapshot.exists) {
     console.log('Create PeerConnection with configuration: ', configuration);
     peerConnection = new RTCPeerConnection(configuration);
@@ -137,7 +142,7 @@ async function joinRoomById(roomId) {
       peerConnection.addTrack(track, localStream);
     });
 
-    // Code for collecting ICE candidates below
+    // Collect ICE candidates
     const calleeCandidatesCollection = roomRef.collection('calleeCandidates');
     peerConnection.addEventListener('icecandidate', event => {
       if (!event.candidate) {
@@ -147,8 +152,8 @@ async function joinRoomById(roomId) {
       console.log('Got candidate: ', event.candidate);
       calleeCandidatesCollection.add(event.candidate.toJSON());
     });
-    // Code for collecting ICE candidates above
 
+    // Add received track to media stream track.
     peerConnection.addEventListener('track', event => {
       console.log('Got remote track:', event.streams[0]);
       event.streams[0].getTracks().forEach(track => {
@@ -157,7 +162,7 @@ async function joinRoomById(roomId) {
       });
     });
 
-    // Code for creating SDP answer below
+    // Create SDP answer
     const offer = roomSnapshot.data().offer;
     console.log('Got offer:', offer);
     await peerConnection.setRemoteDescription(new RTCSessionDescription(offer));
@@ -172,9 +177,8 @@ async function joinRoomById(roomId) {
       },
     };
     await roomRef.update(roomWithAnswer);
-    // Code for creating SDP answer above
 
-    // Listening for remote ICE candidates below
+    // Listen for remote ICE candidates
     roomRef.collection('callerCandidates').onSnapshot(snapshot => {
       snapshot.docChanges().forEach(async change => {
         if (change.type === 'added') {
@@ -184,10 +188,10 @@ async function joinRoomById(roomId) {
         }
       });
     });
-    // Listening for remote ICE candidates above
   }
 }
 
+// Function to open audio/video communication.
 async function openUserMedia(e) {
   const stream = await navigator.mediaDevices.getUserMedia(
       {video: true, audio: true});
@@ -203,6 +207,7 @@ async function openUserMedia(e) {
   document.querySelector('#hangupBtn').disabled = false;
 }
 
+// Function to hangup the call.
 async function hangUp(e) {
   const tracks = document.querySelector('#localVideo').srcObject.getTracks();
   tracks.forEach(track => {
@@ -227,7 +232,6 @@ async function hangUp(e) {
 
   // Delete room on hangup
   if (roomId) {
-    const db = firebase.firestore();
     const roomRef = db.collection('rooms').doc(roomId);
     const calleeCandidates = await roomRef.collection('calleeCandidates').get();
     calleeCandidates.forEach(async candidate => {
@@ -243,6 +247,7 @@ async function hangUp(e) {
   document.location.reload(true);
 }
 
+// Function to listen for changes in connections.
 function registerPeerConnectionListeners() {
   peerConnection.addEventListener('icegatheringstatechange', () => {
     console.log(
@@ -261,6 +266,15 @@ function registerPeerConnectionListeners() {
     console.log(
         `ICE connection state change: ${peerConnection.iceConnectionState}`);
   });
+}
+
+// Apply onclick listeners to buttons.
+function init() {
+  document.querySelector('#cameraBtn').addEventListener('click', openUserMedia);
+  document.querySelector('#hangupBtn').addEventListener('click', hangUp);
+  document.querySelector('#createBtn').addEventListener('click', createRoom);
+  document.querySelector('#joinBtn').addEventListener('click', joinRoom);
+  roomDialog = new mdc.dialog.MDCDialog(document.querySelector('#room-dialog'));
 }
 
 init();

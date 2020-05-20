@@ -23,8 +23,6 @@ function getPublicRooms() {
 // Picks and returns a random number to use as the index for the publicRooms array.
 function selectRandomRoom() {
     let max = publicRooms.length;
-    console.log(max);
-    console.log(publicRooms.length);
     let rand = Math.floor(Math.random() * max);
     let randomRoom = publicRooms[rand];
     console.log(randomRoom);

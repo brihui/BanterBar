@@ -124,7 +124,10 @@ html,body {
     transform: translateX(-50%) translateY(-50%);
     display: none;
 }
-
+#fb-btn {
+    border:none;
+    overflow:hidden;
+}
 @media (max-width: 414px){
     #p-header{
         font-size: x-large;
