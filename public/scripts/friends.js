@@ -23,7 +23,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                 db.collection("users").doc(friendArray[i]).get()
                     .then(function(doc){
                         // Append a bunch of HTML that creates the friend card, including a 'delete' function
-                        $('#friends-list').append('<div class="card" style="width: 18rem;"><img src="../images/men.png" alt="Card image cap" class="rounded-circle profile-pic"><div class="card-body"><h5 class="card-title">' + doc.data().name + '</h5><div id="interactions"><a href="#" class="btn btn-light btn-sm" id="invite-friend">Invite</a><input type="button" value="Delete" onclick="removeFriend(\'' + doc.id + '\')" class="btn btn-light btn-sm"></div></div></div>');
+                        $('#friends-list').append('<div class="card bg-dark" style="width: 18rem;"><img src="../images/men.png" alt="Card image cap" class="rounded-circle profile-pic"><div class="card-body"><h5 class="card-title">' + doc.data().name + '</h5><div id="interactions"><a href="#" class="btn btn-outline-light btn-sm" id="invite-friend">Invite</a><input type="button" value="Delete" onclick="removeFriend(\'' + doc.id + '\')" class="btn btn-outline-light btn-sm"></div></div></div>');
                     
                 })
             }

@@ -1,6 +1,12 @@
 html, body {
     margin: 0; 
     height: 100%; 
+    background-image: url(../images/gameroom.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: black;
+    font-family: Enriqueta;
+    color: white;
 }
 
 #container {
@@ -8,9 +14,13 @@ html, body {
     height: 92%;
 }
 
-#nav-bar{
+#header-bar{
     height: 8%;
-    background-color: #7a0203;
+    background-color: black;
+}
+
+#logo{
+    height: 100%;
 }
 
 #content {
@@ -27,7 +37,7 @@ html, body {
     flex-direction: row;
     justify-content: space-around;
     height: 8%;
-    background-color: #7a0203;
+    background-color: black;
 }
 
 #leaderboard{
@@ -53,7 +63,7 @@ html, body {
         flex-direction: row;
         justify-content: space-around;
         height: 8%;
-        background-color: #7a0203;
+        background-color: black;
     }
 
     #container{

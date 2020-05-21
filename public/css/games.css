@@ -1,6 +1,12 @@
 html, body {
     margin: 0; 
     height: 100%; 
+    background-image: url(../images/gameroom.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: black;
+    font-family: Enriqueta;
+    color: white;
 }
 
 #container {
@@ -8,18 +14,35 @@ html, body {
     height: 92%;
 }
 
-#nav-bar{
+#header-bar{
     height: 8%;
-    background-color: #7a0203;
+    background-color: black;
+}
+
+#logo{
+    height: 100%;
 }
 
 #content {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-rows: 50% 50%;
     width: 100%;
-    height: 92%;
+    height: 100%;
+}
+
+#leaderboard-section{
+    padding-top: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#game-section{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5%;
 }
 
 #mobile-footer{
@@ -27,7 +50,7 @@ html, body {
     flex-direction: row;
     justify-content: space-around;
     height: 8%;
-    background-color: #7a0203;
+    background-color: black;
 }
 
 #leaderboard{
@@ -53,7 +76,7 @@ html, body {
         flex-direction: row;
         justify-content: space-around;
         height: 8%;
-        background-color: #7a0203;
+        background-color: black;
     }
 
     #container{
@@ -61,10 +84,24 @@ html, body {
     }
 
     #content{
-        width: 100vw;
+        width: 100%;
+        display: grid;
+        grid-template-rows: 50% 50%;
+    }
+
+    #leaderboard-section{
+        padding-top: 5%;
         display: flex;
         flex-direction: column;
-        overflow: scroll;
+        align-items: center;
+    }
+    
+    #game-section{
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 5%;
     }
 
     #add-friends{

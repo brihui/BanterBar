@@ -1,5 +1,5 @@
 var count = 0;
-$('#brand-text').click(function(){
+$('#logo').click(function(){
     count++;
     console.log(count);
     if(count == 10){
