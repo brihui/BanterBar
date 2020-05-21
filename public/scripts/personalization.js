@@ -34,7 +34,7 @@ $(document).ready(function(){
 function personalizeHeader(uID) { 
     db.collection('users').doc(uID).onSnapshot(
         function (snapshot) {
-            $('#p-header').html("Hello, " + snapshot.data().name);
+            $('#p-header').html("Welcome, " + snapshot.data().name);
         }
     );
 }

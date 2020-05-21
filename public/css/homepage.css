@@ -1,9 +1,11 @@
 html,body {
     margin: 0; 
     height: 100%; 
-    background-image: url(../images/gg.jpg);
+    background-image: url(../images/welcome.jpg);
     background-size: cover;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
+    background-repeat: no-repeat;
+    background-position: center;
     color: white;
 }
 
@@ -52,6 +54,16 @@ html,body {
     height: 8%;
     background-color: #7a0203;
 }
+
+#header-bar{
+    height: 8%;
+    background-color: black;
+}
+
+#logo{
+    height: 100%;
+}
+
 #player{
     z-index:-99;
 }
@@ -59,7 +71,7 @@ html,body {
     display:none;
 }
 #content {
-    padding: 1%;
+    /* padding: 1%; */
     display: grid;
     grid-template-rows: 28% 69%;
     row-gap: 2%;
@@ -85,7 +97,7 @@ html,body {
     flex-direction: row;
     justify-content: space-around;
     height: 8%;
-    background-color: #7a0203;
+    background-color: black;
 }
 
 #openForm{
@@ -127,7 +139,7 @@ html,body {
 
 @media (max-width: 414px){
     #p-header{
-        font-size: x-large;
+        font-size: larger;
     }
 
     #user-name{
@@ -139,7 +151,7 @@ html,body {
         flex-direction: row;
         justify-content: space-around;
         height: 8%;
-        background-color: #7a0203;
+        background-color: black;
     }
 
     #container{
@@ -162,7 +174,7 @@ html,body {
     }
 
     body{
-        background-image: url(../images/gg.jpg);
+        background-image: url(../images/open.jpeg);
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
