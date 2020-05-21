@@ -188,10 +188,12 @@ a{
     grid-row:1/2
 }
 #buttons {
-  padding: 15px 15px 15px 0px;
+  padding: 15px 15px 15px 15px;
   display: grid;
   grid-template-columns: repeat(2, 200px);
   grid-gap: 5px;
+    align-items: center;
+    justify-content: center;
 }
 button {
   padding: 5px;
@@ -249,34 +251,21 @@ video {
   }
   #main-container {
     margin-left: 5%;
+      margin-right:5%;
   }
   #buttons {
     display: grid;
     grid-gap: 5px;
     grid-template-columns: repeat(2, 48%);
   }
-  #videos {
-    display: inline;
-    grid-area: videos;
-    margin-bottom: 10%;
-  }
-  video {
-    width: 43%;
-  }
   #added {
       margin-top: 5px;
       margin:auto;
   }
-  #body-container{
-        display:flex;
-        flex-direction: column;
-        align-content: center;
-      justify-content: center;
-      
-    }
+
 }
 
-@media screen and (max-width: 610px) {
+@media screen and (max-width: 710px) {
   header {
     height: 113px;
     padding-bottom: 80px !important;
