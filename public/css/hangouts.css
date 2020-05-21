@@ -140,6 +140,7 @@ h5{
     }
     #rooms-list, #public-rooms, #invited-rooms{
         margin-top: 50px;
+        height:auto;
     }
     
 }
