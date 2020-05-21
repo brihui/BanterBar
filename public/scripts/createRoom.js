@@ -23,4 +23,5 @@ function createRoom(){
 }
     $('form').on("submit",function(){
         createRoom();
+        return false;
     });
