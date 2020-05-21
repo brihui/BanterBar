@@ -17,7 +17,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             if(doc.data().name == userName && !gotHighScore){
                 // Make boolean true in order to not trigger the if statement again
                 gotHighScore = true;
-                leaderboard.innerHTML += '<li class="list-group-item list-group-item-success scoreboard"><span><em><b>' + "Your High Score" + '</span><span>' + doc.data().score + '</em></b></span></li>';
+                leaderboard.innerHTML += '<li class="list-group-item list-group-item-primary scoreboard"><span><em><b>' + "Your High Score" + '</span><span>' + doc.data().score + '</em></b></span></li>';
             }
         })
     })
@@ -25,7 +25,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     .then(function(){
         db.collection("leaderboard").orderBy('score', 'desc').limit(10).get().then(function (querySnapshot){
             querySnapshot.forEach(function(doc){
-                leaderboard.innerHTML += '<li class="list-group-item list-group-item-info scoreboard"><span>' + doc.data().name + '</span><span>Score: ' + doc.data().score + '</span></li>';
+                leaderboard.innerHTML += '<li class="list-group-item list-group-item-dark scoreboard"><span>' + doc.data().name + '</span><span>Score: ' + doc.data().score + '</span></li>';
             })
         })
     })

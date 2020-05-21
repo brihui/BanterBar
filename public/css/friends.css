@@ -1,10 +1,22 @@
 html, body {
     margin: 0; 
     height: 100%; 
+    background-color: black;
+    color: white;
+    font-family: Enriqueta;
 }
 
 #brand-text{
     font-size: x-large;
+}
+
+#header-bar{
+    height: 8%;
+    background-color: black;
+}
+
+#logo{
+    height: 100%;
 }
 
 #container {
@@ -93,7 +105,7 @@ html, body {
     flex-direction: row;
     justify-content: space-around;
     height: 8%;
-    background-color: #7a0203;
+    background-color: black;
 }
 
 @media (max-width: 414px){
@@ -102,7 +114,7 @@ html, body {
         flex-direction: row;
         justify-content: space-around;
         height: 8%;
-        background-color: #7a0203;
+        background-color: black;
     }
 
     #container{
