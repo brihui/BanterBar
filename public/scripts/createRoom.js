@@ -15,13 +15,12 @@ function createRoom(){
         docRef.update({
            users:firebase.firestore.FieldValue.arrayUnion(userID) 
         });
-        docRef.update({
-           users:firebase.firestore.FieldValue.arrayUnion(userID) 
-        });
+        joinRoom(docRef.id);
     })
     .catch(function(error) {
         console.error("Error adding document: ", error);
     });
-          
-
 }
+    $('form').on("submit",function(){
+        createRoom();
+    });

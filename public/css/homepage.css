@@ -1,8 +1,8 @@
 html,body {
     margin: 0; 
     height: 100%; 
-    background-image: url(../images/gg.jpg);
-    background-size: cover;
+    background-image: url(../images/brickTex.jpg);
+    background-size: auto;
     background-attachment: fixed;
     color: white;
 }
@@ -161,13 +161,7 @@ html,body {
         padding-top: 5%;
     }
 
-    body{
-        background-image: url(../images/gg.jpg);
-        background-size: cover;
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+
 
     .iframe-container{
         position: relative;

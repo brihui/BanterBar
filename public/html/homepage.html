@@ -53,7 +53,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Room Size</label>
-                                <input type="number" class="form-control" id="roomSize">
+                                <input type="number" class="form-control" min ="1" max="25" id="roomSize">
                             </div>
                             <div class="form-group form-check">
                                 <input class="form-check-input" type="checkbox"  id="roomPrivate">
@@ -62,7 +62,7 @@
                             <div class="form-group">
                                 <label>Invite</label>
                             </div>
-                            <button type="button" class="btn btn-primary btn-med btn-block"  onclick="createRoom()">Create</button>
+                            <button type="submit" class="btn btn-primary btn-med btn-block"  >Create</button>
                             <button type="button" class="btn btn-primary btn-med btn-block" id ='close' onclick="closeForm()">Close</button>
                             </form>
                            </div>
@@ -115,6 +115,7 @@
     <script src ='../scripts/createRoom.js'></script>
     <script src ="../scripts/youtube.js"></script>
     <script src ='../scripts/easter.js'></script>
+    <script src="../scripts/hangoutInteractions.js"></script>
 </body>
 
 </html>
