@@ -388,3 +388,7 @@ firebase.performance();
 
 // We load currently existing chat messages and listen to new ones.
 loadMessages();
+
+$('#logo').click(function(){
+    window.location.replace("../html/homepage.html");
+})

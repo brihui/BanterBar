@@ -25,6 +25,7 @@ main, #messages-card {
   padding-bottom: 0;
   margin: auto;
 }
+
 #messages-card-container {
   height: calc(100% - 35px);
   padding-bottom: 0;
@@ -149,9 +150,6 @@ main, #messages-card {
   padding-right: 10px;
 }
 #user-container #user-pic {
-  top: -3px;
-  position: relative;
-  display: inline-block;
   background-image: url('/images/profile_placeholder.png');
   background-repeat: no-repeat;
   width: 40px;
@@ -209,11 +207,12 @@ video {
   background-color: black;
 }
 #added {
-  margin-left: 20px;
-  margin-top: -160px;
   width: 85%;
   height: 100%;
   overflow: scroll;
+}
+#body-container{
+    display:grid;
 }
 #hangout-header {
   display: grid;
@@ -260,9 +259,11 @@ video {
   }
   #added {
     margin-top: 5px;
-    margin-left: 10px;
     height: 25%;
   }
+        #body-container{
+        display:inline-block;
+    }
 }
 
 @media screen and (max-width: 610px) {
@@ -279,13 +280,12 @@ video {
     height: 300px;
     padding-bottom: 0;
   } */
-  #user-container {
-    top: 72px;
-    background-color: rgb(3,155,229);
-    height: 38px;
-    padding-top: 3px;
-    padding-right: 2px;
-  }
+    #user-name{
+        display:none;
+    }
+    #user-pic{
+        display:none;
+    }
   #user-container #user-pic {
     top: 2px;
     width: 33px;
@@ -298,12 +298,19 @@ video {
     margin-left: -20px;
   }
   video {
+      margin:auto;
     width: 175px;
     height: 125px;
   }
   #added {
     margin-top: -20px;
   }
+    #main-container{
+        margin-right:5%;
+    }
+    #body-container{
+        display:inline-block;
+    }
   /* #main-container {
     margin-left: 5%;
   } */
@@ -331,4 +338,5 @@ video {
   top: -1px;
   margin-right: 5px;
 }
+
 
