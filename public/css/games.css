@@ -8,7 +8,11 @@ html, body {
     font-family: Enriqueta;
     color: white;
 }
-
+#social{
+    float:right;
+    margin-top: 10px;
+    margin-right:5px;
+}
 #container {
     display: flex;
     height: 92%;

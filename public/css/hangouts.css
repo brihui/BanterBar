@@ -5,7 +5,11 @@ html, body {
     color: white;
     font-family: Enriqueta;
 }
-
+#social{
+    float:right;
+    margin-top: 10px;
+    margin-right:5px;
+}
 #brand-text{
     font-size: x-large;
 }
@@ -93,12 +97,26 @@ h5{
     flex-direction: column;
     align-items: center;
     text-align:center;
+    height:100%;
     overflow:scroll;
 }
 
 #nav-bar{
     height: 8%;
     background-color: #7a0203;
+}
+
+#mobile-footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 8%;
+    background-color: #7a0203;
+}
+
+#fb-btn {
+    border:none;
+    overflow:hidden;
 }
 
 @media (max-width: 634px){

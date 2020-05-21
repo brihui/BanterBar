@@ -108,6 +108,11 @@ html, body {
     background-color: black;
 }
 
+#fb-btn {
+    border:none;
+    overflow:hidden;
+}
+
 @media (max-width: 414px){
     #mobile-footer{
         display: flex;
@@ -153,7 +158,11 @@ html, body {
         width: 100%;
         padding-left: 2%;
     }
-
+    #social{
+        float:right;
+        margin-top: 10px;
+        margin-right:5px;
+    }
     #friends-list-outer{
         width: 100%;
         height: 80%;

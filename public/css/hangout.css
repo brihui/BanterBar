@@ -5,6 +5,10 @@ html, body {
     color: white;
     font-family: Enriqueta;
 }
+#fb-btn {
+    border:none;
+    overflow:hidden;
+}
 #added{
     color:black;
 }
@@ -95,5 +99,5 @@ html, body {
     #display-div{
         margin-right:0;
     }
-
 }
+

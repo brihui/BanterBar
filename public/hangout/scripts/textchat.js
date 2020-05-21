@@ -13,15 +13,47 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+/**
+ * Few modifications made to Firebase Web CodeLab.
+ * Sourced from:
+ * - https://codelabs.developers.google.com/codelabs/firebase-web/
+ * - https://github.com/firebase/codelab-friendlychat-web
+ */
 'use strict';
 
 let hangoutRoomID = localStorage.getItem('hangoutID');
 console.log(hangoutRoomID);
 
+// A loading image URL.
+let LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif?a';
+
+// Template for messages.
+let MESSAGE_TEMPLATE =
+    '<div class="message-container">' +
+      '<div class="spacing"><div class="pic"></div></div>' +
+      '<div class="message"></div>' +
+      '<div class="name"></div>' +
+    '</div>';
+
+// Shortcuts to DOM Elements.
+let messageListElement = document.getElementById('messages');
+let messageFormElement = document.getElementById('message-form');
+let messageInputElement = document.getElementById('message');
+let submitButtonElement = document.getElementById('submit');
+let imageButtonElement = document.getElementById('submitImage');
+let imageFormElement = document.getElementById('image-form');
+let mediaCaptureElement = document.getElementById('mediaCapture');
+let userPicElement = document.getElementById('user-pic');
+let userNameElement = document.getElementById('user-name');
+let signInButtonElement = document.getElementById('sign-in');
+let signOutButtonElement = document.getElementById('sign-out');
+let signInSnackbarElement = document.getElementById('must-signin-snackbar');
+
 // Signs-in Friendly Chat.
 function signIn() {
   // Sign in Firebase using popup auth and Google as the identity provider.
-  var provider = new firebase.auth.GoogleAuthProvider();
+  const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider);
 }
 
@@ -55,7 +87,7 @@ function isUserSignedIn() {
 // Saves a new message on the Cloud Firestore.
 function saveMessage(messageText) {
   // Add a new message entry to the Firebase database.
-  return firebase.firestore().collection('rooms').doc(hangoutRoomID).collection('messages').add({
+  return db.collection('rooms').doc(hangoutRoomID).collection('messages').add({
     name: getUserName(),
     text: messageText,
     profilePicUrl: getProfilePicUrl(),
@@ -68,7 +100,8 @@ function saveMessage(messageText) {
 // Loads chat messages history and listens for upcoming ones.
 function loadMessages() {
   // Create the query to load the last 12 messages and listen for new ones.
-  var query = firebase.firestore().collection('rooms').doc(hangoutRoomID).collection('messages').orderBy('timestamp', 'desc').limit(12);
+  let query = db.collection('rooms').doc(hangoutRoomID).collection('messages')
+                .orderBy('timestamp', 'desc').limit(12);
   
   // Start listening to the query.
   query.onSnapshot(function(snapshot) {
@@ -76,7 +109,7 @@ function loadMessages() {
       if (change.type === 'removed') {
         deleteMessage(change.doc.id);
       } else {
-        var message = change.doc.data();
+        let message = change.doc.data();
         displayMessage(change.doc.id, message.timestamp, message.name,
                       message.text, message.profilePicUrl, message.imageUrl);
       }
@@ -88,14 +121,14 @@ function loadMessages() {
 // This first saves the image in Firebase storage.
 function saveImageMessage(file) {
   // 1 - We add a message with a loading icon that will get updated with the shared image.
-  firebase.firestore().collection('rooms').doc(hangoutRoomID).collection('messages').add({
+  db.collection('rooms').doc(hangoutRoomID).collection('messages').add({
     name: getUserName(),
     imageUrl: LOADING_IMAGE_URL,
     profilePicUrl: getProfilePicUrl(),
     timestamp: firebase.firestore.FieldValue.serverTimestamp()
   }).then(function(messageRef) {
     // 2 - Upload the image to Cloud Storage.
-    var filePath = firebase.auth().currentUser.uid + '/' + messageRef.id + '/' + file.name;
+    let filePath = firebase.auth().currentUser.uid + '/' + messageRef.id + '/' + file.name;
     return firebase.storage().ref(filePath).put(file).then(function(fileSnapshot) {
       // 3 - Generate a public URL for the file.
       return fileSnapshot.ref.getDownloadURL().then((url) => {
@@ -117,7 +150,7 @@ function saveMessagingDeviceToken() {
     if (currentToken) {
       console.log('Got FCM device token:', currentToken);
       // Saving the Device Token to the datastore.
-      firebase.firestore().collection('rooms').doc(hangoutRoomID).collection('fcmTokens').doc(currentToken)
+      db.collection('rooms').doc(hangoutRoomID).collection('fcmTokens').doc(currentToken)
           .set({uid: firebase.auth().currentUser.uid});
     } else {
       // Need to request permissions to show notifications.
@@ -142,14 +175,14 @@ function requestNotificationsPermissions() {
 // Triggered when a file is selected via the media picker.
 function onMediaFileSelected(event) {
   event.preventDefault();
-  var file = event.target.files[0];
+  let file = event.target.files[0];
 
   // Clear the selection in the file picker input.
   imageFormElement.reset();
 
   // Check if the file is an image.
   if (!file.type.match('image.*')) {
-    var data = {
+    let data = {
       message: 'You can only share images',
       timeout: 2000
     };
@@ -179,8 +212,8 @@ function onMessageFormSubmit(e) {
 function authStateObserver(user) {
   if (user) { // User is signed in!
     // Get the signed-in user's profile pic and name.
-    var profilePicUrl = getProfilePicUrl();
-    var userName = getUserName();
+    let profilePicUrl = getProfilePicUrl();
+    let userName = getUserName();
 
     // Set the user's profile pic and name.
     userPicElement.style.backgroundImage = 'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')';
@@ -215,7 +248,7 @@ function checkSignedInWithMessage() {
   }
 
   // Display a message to the user using a Toast.
-  var data = {
+  let data = {
     message: 'You must sign-in first',
     timeout: 2000
   };
@@ -229,14 +262,6 @@ function resetMaterialTextfield(element) {
   element.parentNode.MaterialTextfield.boundUpdateClassesHandler();
 }
 
-// Template for messages.
-var MESSAGE_TEMPLATE =
-    '<div class="message-container">' +
-      '<div class="spacing"><div class="pic"></div></div>' +
-      '<div class="message"></div>' +
-      '<div class="name"></div>' +
-    '</div>';
-
 // Adds a size to Google Profile pics URLs.
 function addSizeToGoogleProfilePic(url) {
   if (url.indexOf('googleusercontent.com') !== -1 && url.indexOf('?') === -1) {
@@ -245,12 +270,11 @@ function addSizeToGoogleProfilePic(url) {
   return url;
 }
 
-// A loading image URL.
-var LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif?a';
+
 
 // Delete a Message from the UI.
 function deleteMessage(id) {
-  var div = document.getElementById(id);
+  let div = document.getElementById(id);
   // If an element for that message exists we delete it.
   if (div) {
     div.parentNode.removeChild(div);
@@ -299,7 +323,7 @@ function createAndInsertMessage(id, timestamp) {
 
 // Displays a Message in the UI.
 function displayMessage(id, timestamp, name, text, picUrl, imageUrl) {
-  var div = document.getElementById(id) || createAndInsertMessage(id, timestamp);
+  let div = document.getElementById(id) || createAndInsertMessage(id, timestamp);
 
   // profile picture
   if (picUrl) {
@@ -307,14 +331,14 @@ function displayMessage(id, timestamp, name, text, picUrl, imageUrl) {
   }
 
   div.querySelector('.name').textContent = name;
-  var messageElement = div.querySelector('.message');
+  let messageElement = div.querySelector('.message');
 
   if (text) { // If the message is text.
     messageElement.textContent = text;
     // Replace all line breaks by <br>.
     messageElement.innerHTML = messageElement.innerHTML.replace(/\n/g, '<br>');
   } else if (imageUrl) { // If the message is an image.
-    var image = document.createElement('img');
+    let image = document.createElement('img');
     image.addEventListener('load', function() {
       messageListElement.scrollTop = messageListElement.scrollHeight;
     });
@@ -350,20 +374,6 @@ function checkSetup() {
 // Checks that Firebase has been imported.
 checkSetup();
 
-// Shortcuts to DOM Elements.
-var messageListElement = document.getElementById('messages');
-var messageFormElement = document.getElementById('message-form');
-var messageInputElement = document.getElementById('message');
-var submitButtonElement = document.getElementById('submit');
-var imageButtonElement = document.getElementById('submitImage');
-var imageFormElement = document.getElementById('image-form');
-var mediaCaptureElement = document.getElementById('mediaCapture');
-var userPicElement = document.getElementById('user-pic');
-var userNameElement = document.getElementById('user-name');
-var signInButtonElement = document.getElementById('sign-in');
-var signOutButtonElement = document.getElementById('sign-out');
-var signInSnackbarElement = document.getElementById('must-signin-snackbar');
-
 // Saves message on form submit.
 messageFormElement.addEventListener('submit', onMessageFormSubmit);
 signOutButtonElement.addEventListener('click', signOut);
@@ -378,13 +388,15 @@ imageButtonElement.addEventListener('click', function(e) {
   e.preventDefault();
   mediaCaptureElement.click();
 });
+
+// Changes for selected media.
 mediaCaptureElement.addEventListener('change', onMediaFileSelected);
+
+// TODO: Enable Firebase Performance Monitoring.
+firebase.performance();
 
 // initialize Firebase
 initFirebaseAuth();
-
- // TODO: Enable Firebase Performance Monitoring.
-firebase.performance();
 
 // We load currently existing chat messages and listen to new ones.
 loadMessages();

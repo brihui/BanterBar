@@ -224,9 +224,7 @@ video {
   display: grid;
   grid-template-columns: repeat(3, 20%);
 }
-#user-container {
-  display: inline;
-}
+
 
 @media screen and (max-width: 1120px) {
   #buttons {
@@ -285,6 +283,7 @@ video {
     #user-pic{
         display:none;
     }
+
   #user-container #user-pic {
     top: 2px;
     width: 33px;

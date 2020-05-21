@@ -10,7 +10,11 @@ html,body {
     font-family: Enriqueta;
     /* Bad Script */
 }
-
+#social{
+    float:right;
+    margin-top: 10px;
+    margin-right:5px;
+}
 #brand-text{
     font-size: x-large;
 }
@@ -146,7 +150,10 @@ html,body {
     transform: translateX(-50%) translateY(-50%);
     display: none;
 }
-
+#fb-btn {
+    border:none;
+    overflow:hidden;
+}
 @media (max-width: 414px){
     #intro-text{
         width: 75%;
