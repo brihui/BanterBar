@@ -1,10 +1,7 @@
+//gets roomID from local storage
 let room = localStorage.getItem('hangoutID');
-
-function log(room) {
-    console.log(room);
-}
 let roomRef = db.collection("rooms").doc(room);
-
+//Reads the name of the room and shows it on #roomName
 roomRef.get().then(function (doc) {
     if (doc.exists) {
         console.log("Document data:", doc.data());
@@ -16,7 +13,9 @@ roomRef.get().then(function (doc) {
 }).catch(function (error) {
     console.log("Error getting document:", error);
 });
+//Listens in on the room database, executes whenever changes are made/page first loaded
 roomRef.onSnapshot(function (doc) {
+    //If current user is the room's host, context menu has more options added
     firebase.auth().onAuthStateChanged(function (user) {
         user = firebase.auth().currentUser;
         let userID = user.uid;
@@ -27,7 +26,9 @@ roomRef.onSnapshot(function (doc) {
             $('#cont').append(kick);
         }
     })
+    //Resets the users displayed
     $('.display-div').html('');
+    //Inserts each user as a list item
     let users = doc.data().users;
     let i;
     for (i = 0; i < users.length; i++) {

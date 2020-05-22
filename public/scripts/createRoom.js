@@ -1,3 +1,4 @@
+//Creates a room and adds the host to the room doc and vice versa, then redirects to the room
 function createRoom() {
     let roomName = $('#roomName').val();
     let roomSize = parseInt($('#roomSize').val());
@@ -21,8 +22,8 @@ function createRoom() {
             console.error("Error adding document: ", error);
         });
 }
-
-$('form').on("submit", function () {
+//On submission of the form, createRoom is called, but reloading is prevented to make sure function executes successfully
+$('#myForm').on("submit", function () {
     createRoom();
     return false;
 });

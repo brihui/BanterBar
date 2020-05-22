@@ -1,3 +1,7 @@
+//This script comes from 
+//https://www.sitepoint.com/building-custom-right-click-context-menu-javascript/
+//There are no changes made from the original
+
 (function () {
 
   "use strict";
