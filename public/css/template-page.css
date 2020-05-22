@@ -1,6 +1,7 @@
-html, body {
-    margin: 0; 
-    height: 100%; 
+html,
+body {
+    margin: 0;
+    height: 100%;
 }
 
 #container {
@@ -10,16 +11,16 @@ html, body {
     height: 92%;
 }
 
-#nav-bar{
+#nav-bar {
     height: 8%;
     background-color: #7a0203;
 }
 
-#side-bar{
+#side-bar {
     background-color: #d7d8db;
 }
 
-.row{
+.row {
     width: 100%;
 }
 
@@ -30,31 +31,35 @@ html, body {
     column-gap: 2%;
 }
 
-.side-link{
-    color:#383d41;
+.side-link {
+    color: #383d41;
 }
-.active{
-    color:white;
+
+.active {
+    color: white;
 }
-.side-link:hover{
+
+.side-link:hover {
     text-decoration: none;
-    color:white;
+    color: white;
 }
-.list-group-item:hover{
-    color:white;
+
+.list-group-item:hover {
+    color: white;
     background-color: darkturquoise;
 }
-#mobile-footer{
+
+#mobile-footer {
     display: none;
 }
 
-@media (max-width: 634px){
+@media (max-width: 634px) {
 
-    #side-bar{
+    #side-bar {
         display: none;
     }
 
-    #mobile-footer{
+    #mobile-footer {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -62,15 +67,14 @@ html, body {
         background-color: #7a0203;
     }
 
-    #container{
+    #container {
         height: 84%;
     }
 
-    #content{
+    #content {
         width: 100vw;
         display: flex;
         flex-direction: column;
         overflow: scroll;
     }
-
 }
