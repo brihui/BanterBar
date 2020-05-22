@@ -18,6 +18,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             }
         })
 })
+
 //Invited hangouts
 firebase.auth().onAuthStateChanged(function (user) {
     user = firebase.auth().currentUser;
@@ -29,6 +30,7 @@ firebase.auth().onAuthStateChanged(function (user) {
             })
         })
 })
+
 //Public hangouts
 firebase.auth().onAuthStateChanged(function (user) {
     db.collection("rooms").where("private", "==", false)
@@ -43,4 +45,3 @@ firebase.auth().onAuthStateChanged(function (user) {
             console.log("Error getting documents: ", error);
         });
 })
-

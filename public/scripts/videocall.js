@@ -15,14 +15,12 @@ console.log(hangoutRoomID);
 
 // Set API config.
 const configuration = {
-  iceServers: [
-    {
-      urls: [
-        'stun:stun1.l.google.com:19302',
-        'stun:stun2.l.google.com:19302',
-      ],
-    },
-  ],
+  iceServers: [{
+    urls: [
+      'stun:stun1.l.google.com:19302',
+      'stun:stun2.l.google.com:19302',
+    ],
+  }, ],
   iceCandidatePoolSize: 10,
 };
 
@@ -34,7 +32,7 @@ let roomDialog = null;
 let roomId = null;
 
 // Function to create a call when button is clicked.
-async function createRoom() { 
+async function createRoom() {
   // Disable the create/join buttons.
   document.querySelector('#createBtn').disabled = true;
   document.querySelector('#joinBtn').disabled = true;
@@ -73,11 +71,13 @@ async function createRoom() {
       sdp: offer.sdp,
     },
   };
-  await roomRef.set(roomWithOffer, {merge:true});
+  await roomRef.set(roomWithOffer, {
+    merge: true
+  });
   roomId = roomRef.id;
   console.log(`New room created with SDP offer. Room ID: ${roomRef.id}`);
   document.querySelector('#currentRoom').innerText = `Current room is ${roomRef.id} - You are the caller!`;
-  
+
   // Add received track to media stream track.
   peerConnection.addEventListener('track', event => {
     console.log('Got remote track:', event.streams[0]);
@@ -193,8 +193,10 @@ async function joinRoomById(roomId) {
 
 // Function to open audio/video communication.
 async function openUserMedia(e) {
-  const stream = await navigator.mediaDevices.getUserMedia(
-      {video: true, audio: true});
+  const stream = await navigator.mediaDevices.getUserMedia({
+    video: true,
+    audio: true
+  });
   document.querySelector('#localVideo').srcObject = stream;
   localStream = stream;
   remoteStream = new MediaStream();
@@ -230,28 +232,28 @@ async function hangUp(e) {
   document.querySelector('#hangupBtn').disabled = true;
   document.querySelector('#currentRoom').innerText = '';
 
-//  // Delete room on hangup
-//  if (roomId) {
-//    const roomRef = db.collection('rooms').doc(roomId);
-//    const calleeCandidates = await roomRef.collection('calleeCandidates').get();
-//    calleeCandidates.forEach(async candidate => {
-//      await candidate.ref.delete();
-//    });
-//    const callerCandidates = await roomRef.collection('callerCandidates').get();
-//    callerCandidates.forEach(async candidate => {
-//      await candidate.ref.delete();
-//    });
-//    await roomRef.delete();
-//  }
-//
-//  document.location.reload(true);
+  //  // Delete room on hangup
+  //  if (roomId) {
+  //    const roomRef = db.collection('rooms').doc(roomId);
+  //    const calleeCandidates = await roomRef.collection('calleeCandidates').get();
+  //    calleeCandidates.forEach(async candidate => {
+  //      await candidate.ref.delete();
+  //    });
+  //    const callerCandidates = await roomRef.collection('callerCandidates').get();
+  //    callerCandidates.forEach(async candidate => {
+  //      await candidate.ref.delete();
+  //    });
+  //    await roomRef.delete();
+  //  }
+  //
+  //  document.location.reload(true);
 }
 
 // Function to listen for changes in connections.
 function registerPeerConnectionListeners() {
   peerConnection.addEventListener('icegatheringstatechange', () => {
     console.log(
-        `ICE gathering state changed: ${peerConnection.iceGatheringState}`);
+      `ICE gathering state changed: ${peerConnection.iceGatheringState}`);
   });
 
   peerConnection.addEventListener('connectionstatechange', () => {
@@ -264,7 +266,7 @@ function registerPeerConnectionListeners() {
 
   peerConnection.addEventListener('iceconnectionstatechange ', () => {
     console.log(
-        `ICE connection state change: ${peerConnection.iceConnectionState}`);
+      `ICE connection state change: ${peerConnection.iceConnectionState}`);
   });
 }
 
