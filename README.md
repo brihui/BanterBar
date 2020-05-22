@@ -1,4 +1,5 @@
 
+
 # Banter Bar
 
 ## We would like to extend our gratitude to the following for their code contributions
@@ -8,6 +9,8 @@
 
 [YouTube IFrame](https://developers.google.com/youtube/iframe_api_reference)
 
+[Custom Context Menus](https://www.sitepoint.com/building-custom-right-click-context-menu-javascript/)
+
 ## Team Information
 BCIT CST, COMP 2800, Burnaby Team 19
 
@@ -15,8 +18,6 @@ Brian Hui, Colin Jeong, Jim Lin, Tommy Nguyen
 
 ## Application Information
 BanterBar was developed with the goal to combat social isolation during COVID-19. The application allows users to communicate via video/text chat and play games with others. BanterBar was developed with HTML, CSS, and JavaScript while utilizing Firebase's database and hosting services.
-
-***short bulleted list describing repo organization***
 
 #### Hosted Link
 [https://banterbar-4ff3d.web.app/](https://banterbar-4ff3d.web.app/)
