@@ -153,7 +153,7 @@
             padding:10px;
             padding-top:200px;          
         }
-        #topic1{
+        #topic2{
             color:#7797d4;
         }
         .intro3.intro-image{
@@ -166,8 +166,7 @@
         }
         .intro2{
             text-align:center;
-            /* color:white; */
-            background-color:antiquewhite
+             color:#787777; 
         }
         .intro3.intro-text{
             width:62%
@@ -219,6 +218,7 @@
             width: 100%;
             padding-bottom: 5%;
             padding-top: 5%;
-            background-color:antiquewhite;
+            width:80%;
+            margin:auto;
         }
     }
