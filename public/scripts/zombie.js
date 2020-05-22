@@ -1,3 +1,7 @@
+/** 
+ *  Sourced from Brian Hui's COMP 1537 Zombie Hunter game.
+ */
+
 const zombieMoveInterval = 2000;
 const buttonViewHeight = 3;
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +9,11 @@
     <!----------------------------------------->
     <!-- CSS: Bootstrap, Firebase, other API -->
     <!----------------------------------------->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Enriqueta">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Enriqueta">
 
     <!-- Custom CSS Files -->
     <link rel="stylesheet" href="../css/friends.css">
@@ -21,14 +22,18 @@
     <link rel="icon" type="image/png" sizes="16x16" href="..images/favicon-16x16.png">
     <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
 </head>
+
 <body>
     <!-- Navigation bar -->
     <div id="header-bar">
         <img id="logo" src="../images/logo.png">
         <div id='social'>
-            <iframe id="fb-btn" src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fbanterbar-4ff3d.web.app%2F&layout=button&size=small&width=67&height=20&appId" width="67" height="20" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-            <a class="twitter-share-button" 
-            href="https://twitter.com/intent/tweet?text=Check%20out%20the%20Banter%20Bar!">
+            <iframe id="fb-btn"
+                src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fbanterbar-4ff3d.web.app%2F&layout=button&size=small&width=67&height=20&appId"
+                width="67" height="20" scrolling="no" frameborder="0" allowTransparency="true"
+                allow="encrypted-media"></iframe>
+            <a class="twitter-share-button"
+                href="https://twitter.com/intent/tweet?text=Check%20out%20the%20Banter%20Bar!">
                 Tweet
             </a>
         </div>
@@ -38,10 +43,10 @@
         <!-- Main content -->
         <section id="content">
             <form id="add-friends">
-                <!-- <h5>Add by email</h5> -->
                 <section id="input-section">
-                <input type="email" class="form-control" id="add-email" placeholder="Email">
-                <input type="button" class="btn btn-outline-light btn-sm" id="addBtn" onclick="addFriend()" value="Add">
+                    <input type="email" class="form-control" id="add-email" placeholder="Email">
+                    <input type="button" class="btn btn-outline-light btn-sm" id="addBtn" onclick="addFriend()"
+                        value="Add">
                 </section>
                 <section id="smalltext-section">
                     <small class="form-text text-muted">Enter an email to add them</small>
@@ -67,18 +72,22 @@
             </a>
             <a class="navbar-brand" href="../html/games.html">
                 <img src="../images/games-dark.png" width="30" height="30" alt="">
-            </a>  
+            </a>
         </nav>
-            <div class="iframe-container">
-                <div id="player"></div>>
-            </div>
+        <div class="iframe-container">
+            <div id="player"></div>>
+        </div>
     </section>
 
     <!----------------------------------------->
     <!-- JS: Boostrap, Firebase, API related -->
     <!----------------------------------------->
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
 
     <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
@@ -87,7 +96,8 @@
     <script src="../scripts/firebase_api_banterbar.js"> </script>
 
     <!-- Custom JS files -->
-    <script src ="../scripts/youtube.js"></script>
+    <script src="../scripts/youtube.js"></script>
     <script src="../scripts/friends.js"></script>
 </body>
+
 </html>
