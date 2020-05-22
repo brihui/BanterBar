@@ -59,7 +59,7 @@ function updateFriends() {
         db.collection("users").doc(userID).get()
         .then(function (doc) {
                 let friends = doc.data().friends;
-                var display;
+                let display;
                 //inserts a div for each friend the user has
                 for (let i = 0; i < friends.length; i++) {
                     db.collection("users").doc(friends[i]).get()

@@ -22,8 +22,8 @@ roomRef.onSnapshot(function (doc) {
         if (doc.data().host == userID) {
             let kick = '<li class="context-menu__item"><a href="#" class="context-menu__link" data-action="Edit"><i class="fa fa-edit"></i>Kick User</a></li>';
             $('#cont').append(kick);
-            let kick = '<li class="context-menu__item"><a href="#" class="context-menu__link" data-action="Edit"><i class="fa fa-edit"></i>Assign DJ</a></li>';
-            $('#cont').append(kick);
+            let assign = '<li class="context-menu__item"><a href="#" class="context-menu__link" data-action="Edit"><i class="fa fa-edit"></i>Assign DJ</a></li>';
+            $('#cont').append(assign);
         }
     })
     //Resets the users displayed

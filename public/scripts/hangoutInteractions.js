@@ -1,17 +1,19 @@
-//Delete record by recID
+//Delete record by recID and reload
 function delRecord(recID) {
-    db.collection("invitations").doc(recID).delete();
+    db.collection("invitations").doc(recID).delete()
+    .then(function(){
+        location.reload();
+    })
 }
 
-//Delete record and reload
-function dnyRec(recID){
-    delRecord(recID);
-    location.reload();
+//Delete record by recID
+function delRec(recID){
+    db.collection("invitations").doc(recID).delete();
 }
 
 //Delete record by recID, then join room by roomID
 function acpRecord(roomID, recID) {
-    delRecord(recID);
+    delRec(recID);
     joinRoom(roomID);
 }
 

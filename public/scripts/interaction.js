@@ -48,8 +48,10 @@
     let posx = 0;
     let posy = 0;
 
-    if (!e) let e = window.event;
-
+    if (!e) {
+      let e = window.event;
+    }
+    
     if (e.pageX || e.pageY) {
       posx = e.pageX;
       posy = e.pageY;

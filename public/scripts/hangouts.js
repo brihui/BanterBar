@@ -29,7 +29,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         //iterates through the list of invitations
         querySnapshot.forEach(function (doc) {
             //each room gets inserted as a div
-            $('#invited-rooms').append('<div class="card" style="width: 18rem;"><div class="card-body"><h5 class="card-title">' + doc.data().roomName + '</h5><p>from:' + doc.data().userName + '</p><div id="interactions"><input type="button" class="btn btn-light btn-sm" value ="Accept" onclick ="acpRecord(' + "'" + doc.data().roomID + "', '" + doc.id + "'" + ')"><input type="button" class="btn btn-light btn-sm" value ="Deny" onclick ="dnyRec(' + "'" + doc.id + "'" + ')"></div></div></div>');
+            $('#invited-rooms').append('<div class="card" style="width: 18rem;"><div class="card-body"><h5 class="card-title">' + doc.data().roomName + '</h5><p>from:' + doc.data().userName + '</p><div id="interactions"><input type="button" class="btn btn-light btn-sm" value ="Accept" onclick ="acpRecord(' + "'" + doc.data().roomID + "', '" + doc.id + "'" + ')"><input type="button" class="btn btn-light btn-sm" value ="Deny" onclick ="delRecord(' + "'" + doc.id + "'" + ')"></div></div></div>');
         })
     })
 })

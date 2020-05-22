@@ -1,4 +1,4 @@
-const bmiBtn = $("#join-bmi");
+const bmiBtn = $("#public-hangout-btn");
 
 let publicRooms = [];
 
@@ -30,5 +30,4 @@ function selectRandomRoom() {
     window.location.replace("../html/hangoutRoom.html");
 }
 
-console.log("hello");
 bmiBtn.click(getPublicRooms);
