@@ -1,3 +1,7 @@
+/** 
+ *  Sourced from Brian Hui's COMP 1537 Zombie Hunter game.
+ */
+
 #zombie {
     position: fixed;
     width: 100px;
