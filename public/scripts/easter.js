@@ -1,17 +1,22 @@
-var count = 0;
-$('#brand-text').click(function(){
+let count = 0;
+//Count increments as logo is clicked, easter function called when count reaches 10
+$('#logo').click(function(){
     count++;
     console.log(count);
     if(count == 10){
         easter();
     }
 });
+//Hide everything; Show video
 function easter(){
     console.log('easter effects');
     $('#container').css('display', 'none');
     $('#nav-bar').css('display', 'none');
     $('#myVideo').css('display', 'block');
+    //Play video
     $('#myVideo').get(0).play();
+    
+    //Appends new paragrpahs, delayed based on video length
     $('body').append("<p class='mc'>I'm Michael Jordan, and McDonald's restaurants have given me this time to talk to you about something we both really care about. Kids.</p>");
     setTimeout(function(){  $('body').append("<p class='mc'>Kids are the reason McDonald's sponsors their Get It Straight program, an national drug awareness effort.</p>"); }, 10000);
     setTimeout(function(){  $('body').append("<p class='mc'>Think about this: Many of you using drugs out there now are under 18.</p>"); }, 17000);

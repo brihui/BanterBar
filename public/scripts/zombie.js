@@ -1,3 +1,7 @@
+/** 
+ *  Sourced from Brian Hui's COMP 1537 Zombie Hunter game.
+ */
+
 const zombieMoveInterval = 2000;
 const buttonViewHeight = 3;
 
@@ -16,10 +20,10 @@ let randomMoveTimer2;
 centerZombie();
 
 function startGame() {
-    if(gameStarted){
+    if (gameStarted) {
         return;
     }
-    
+
     gameStarted = true;
     randomMoveZombie();
     randomMoveTimer = setInterval(randomMoveZombie, zombieMoveInterval);
@@ -72,7 +76,7 @@ function increaseScore() {
     score += 1;
     document.getElementById("score").innerHTML = "Score: " + score;
 
-    if(score == 2){
+    if (score == 2) {
         revealZombie2();
     }
 }
@@ -80,7 +84,7 @@ function increaseScore() {
 function addHighScore() {
     let user = firebase.auth().currentUser;
 
-    if(user){   
+    if (user) {
         db.collection("leaderboard").add({
             name: user.displayName,
             score: score
@@ -109,7 +113,7 @@ function createNewZombie() {
     zombie2 = new Image();
     zombie2.src = "../images/zombie.gif";
     zombie2.id = "newZombie";
-    
+
     let zombieWidth = zombie2.clientWidth;
     let zombieHeight = zombie2.clientHeight;
     let width = window.innerWidth - zombieWidth;

@@ -9,8 +9,10 @@
     <!----------------------------------------->
     <!-- CSS: Bootstrap, Firebase, other API -->
     <!----------------------------------------->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Enriqueta">
 
     <!-- Custom CSS Files -->
     <link rel="stylesheet" href="../css/homepage.css">
@@ -18,57 +20,77 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="..images/favicon-16x16.png">
     <link rel="stylesheet" href="../css/openForm.css">
+
+    <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
 </head>
 
 <body>
     <!-- Navigation bar -->
-    <nav id="nav-bar" class="navbar sticky-top navbar-dark">
-        <span class="navbar-brand mb-0 h1" id="brand-text">Banter Bar</span>
-    </nav>
-<video loop id="myVideo">
-  <source src="../images/MJ.mp4" type="video/mp4">
-  Your browser does not support HTML5 video.
-</video>
+    <div id="header-bar">
+        <img id="logo" src="../images/logo.png">
+        <div id='social'>
+            <iframe id="fb-btn"
+                src="https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fbanterbar-4ff3d.web.app%2F&layout=button&size=small&width=67&height=20&appId"
+                width="67" height="20" scrolling="no" frameborder="0" allowTransparency="true"
+                allow="encrypted-media"></iframe>
+            <a class="twitter-share-button"
+                href="https://twitter.com/intent/tweet?text=Check%20out%20the%20Banter%20Bar!">
+                Tweet
+            </a>
+        </div>
+    </div>
+
+    <video loop id="myVideo">
+        <source src="../src/MJ.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
     <!-- Content under nav bar -->
     <section id="container">
         <!-- Main content -->
         <section id="content">
             <!-- Personalized card -->
             <section id="personalization">
-                <h3 id="p-header">Hello,</h3>
-                <section id="personalization-content"> 
+                <h5 id="p-header">Welcome</h5>
+                <section id="personalization-content">
                     <section id="enter-pub">
-                        <h4>Enter the pub!</h4>
-                        <a class="btn btn-secondary" href="../hangout/index.html" role="button">Bring me in</a>
-                        <button class="btn btn-secondary" id = "openForm" onclick="openForm()">Create Room</button>
-                        <div class="form-popup" id="myForm">    
-                   <section id="create-hangout-card">
-                       <div class="card" id="desktop-create-hangout">
-                            <h6 class="card-header">Create Your Own Hangout</h6>
-                            <div class="card-body" id="create-hangout-card-body">
-                            <form action="">
-                            <div class="form-group">
-                                <label for="roomName">Room Name</label>
-                                <input type="text" class="form-control" id="roomName">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Room Size</label>
-                                <input type="number" class="form-control" id="roomSize">
-                            </div>
-                            <div class="form-group form-check">
-                                <input class="form-check-input" type="checkbox"  id="roomPrivate">
-                                <label class="form-check-label">Private?</label>
-                            </div>
-                            <div class="form-group">
-                                <label>Invite</label>
-                            </div>
-                            <button type="button" class="btn btn-primary btn-med btn-block"  onclick="createRoom()">Create</button>
-                            <button type="button" class="btn btn-primary btn-med btn-block" id ='close' onclick="closeForm()">Close</button>
-                            </form>
-                           </div>
-                       </div>
-                    </section>
-                </div>
+                        <p id="intro-text">At this virtual bar, you can mingle in the public bar or create your own
+                            hangout.</p>
+                        <section id="button-section">
+                            <a class="btn btn-outline-light btn-lg" role="button"
+                                id="public-hangout-btn">Enter Bar</a>
+                            <button class="btn btn-outline-light btn-lg" id="openForm" onclick="openForm()">Create
+                                Hangout</button>
+                        </section>
+
+                        <div class="form-popup" id="myForm">
+                            <section id="create-hangout-card">
+                                <div class="card" id="desktop-create-hangout">
+                                    <h6 class="card-header">Create Your Own Hangout</h6>
+                                    <div class="card-body" id="create-hangout-card-body">
+                                        <form action="">
+                                            <div class="form-group">
+                                                <label for="roomName">Room Name</label>
+                                                <input type="text" class="form-control" id="roomName">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Room Size</label>
+                                                <input type="number" class="form-control" min="1" max="25"
+                                                    id="roomSize">
+                                            </div>
+                                            <div class="form-group form-check">
+                                                <input class="form-check-input" type="checkbox" id="roomPrivate">
+                                                <label class="form-check-label">Private?</label>
+                                            </div>
+                                            <button type="submit"
+                                                class="btn btn-primary btn-med btn-block">Create</button>
+                                            <button type="button" class="btn btn-primary btn-med btn-block" id='close'
+                                                onclick="closeForm()">Close</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </section>
+
+                        </div>
                         <!-- <a <button type="button" class="btn btn-secondary">Bring me in</button> -->
                     </section>
                 </section>
@@ -81,7 +103,7 @@
 
         <nav class="navbar fixed-bottom navbar-light" id="mobile-footer">
             <a class="navbar-brand" href="../html/homepage.html">
-              <img src="../images/home.png" width="30" height="30" alt="">
+                <img src="../images/home.png" width="30" height="30" alt="">
             </a>
             <a class="navbar-brand" href="../html/hangouts.html">
                 <img src="../images/pub.png" width="30" height="30" alt="">
@@ -91,7 +113,7 @@
             </a>
             <a class="navbar-brand" href="../html/games.html">
                 <img src="../images/games-dark.png" width="30" height="30" alt="">
-            </a>  
+            </a>
         </nav>
 
     </section>
@@ -99,22 +121,30 @@
     <!----------------------------------------->
     <!-- JS: Boostrap, Firebase, API related -->
     <!----------------------------------------->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
 
     <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.9.2/firebase-firestore.js"></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <script src="../scripts/firebase_api_banterbar.js"> </script>
-  
+
     <!-- Custom JS Files -->
     <script src="../scripts/personalization.js"></script>
-    <script src = '../scripts/openForm.js'></script>
-    <script src ='../scripts/createRoom.js'></script>
-    <script src ="../scripts/youtube.js"></script>
-    <script src ='../scripts/easter.js'></script>
+    <script src='../scripts/openForm.js'></script>
+    <script src='../scripts/createRoom.js'></script>
+    <script src="../scripts/youtube.js"></script>
+    <script src='../scripts/easter.js'></script>
+    <script src="../scripts/hangoutInteractions.js"></script>
+    <script src="../scripts/joinRandom.js"></script>
 </body>
 
 </html>

@@ -1,11 +1,95 @@
-html, body {
-    margin: 0; 
-    height: 100%; 
+html,
+body {
+    margin: 0;
+    height: 100%;
+    background-color: black;
+    color: white;
+    font-family: Enriqueta;
 }
 
-#brand-text{
+#social {
+    float: right;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+#player {
+    z-index: -99;
+}
+
+.iframe-container {
+    display: none;
+}
+
+#brand-text {
     font-size: x-large;
 }
+
+h2 {
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 3px #00668f, 0 0 4px #00668f, 0 0 5px #00668f, 0 0 6px #00668f, 0 0 7px #00668f;
+    }
+
+    to {
+        text-shadow: 0 0 6px #fff, 0 0 7px #00668f, 0 0 8px #00668f, 0 0 9px #00668f, 0 0 10px #00668f, 0 0 11px #00668f, 0 0 12px #00668f;
+    }
+}
+
+#header-bar {
+    height: 8%;
+    background-color: black;
+}
+
+#logo {
+    height: 100%;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-left: 5%;
+    background-image: url(../images/brickText.jpg);
+}
+
+h5 {
+    font-size: 20pt;
+    text-shadow: 0px 2px #000;
+}
+
+.btn {
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: gray;
+    color: white;
+    border: 1px solid black;
+}
+
+#mobile-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 8%;
+    background-color: black;
+}
+
 
 #container {
     display: flex;
@@ -13,55 +97,47 @@ html, body {
     height: 84%;
 }
 
-#content{
+#content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin-left: 5%;
     margin-right: 5%;
-    height:100%;
+    height: 100%;
 }
 
-#public-rooms, #rooms-list, #invited-rooms{
-    display:flex;
+#public-rooms,
+#rooms-list,
+#invited-rooms {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    text-align:center;
-    overflow:scroll;
+    text-align: center;
+    height: 100%;
+    overflow: scroll;
 }
 
-#nav-bar{
-    height: 8%;
-    background-color: #7a0203;
+#fb-btn {
+    border: none;
+    overflow: hidden;
 }
 
-#mobile-footer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    height: 8%;
-    background-color: #7a0203;
-}
-
-@media (max-width: 634px){
-     #mobile-footer{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        height: 8%;
-        background-color: #7a0203;
-    }
-
-    #container{
+@media (max-width: 634px) {
+    #container {
         height: 84%;
     }
 
-    #content{
-        display:flex;
+    #content {
+        display: flex;
         flex-direction: column;
-        height:2000px;
-        margin-bottom:8%;
+        height: 2000px;
+        margin-bottom: 10%;
     }
-    #rooms-list, #public-rooms, #invited-rooms{
+
+    #rooms-list,
+    #public-rooms,
+    #invited-rooms {
         margin-top: 50px;
+        height: auto;
     }
+
 }

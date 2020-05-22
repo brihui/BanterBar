@@ -1,5 +1,9 @@
-(function() {
-  
+//This script comes from 
+//https://www.sitepoint.com/building-custom-right-click-context-menu-javascript/
+//There are no changes made from the original
+
+(function () {
+
   "use strict";
 
   //////////////////////////////////////////////////////////////////////////////
@@ -18,14 +22,14 @@
    * @param {String} className The class name to check against
    * @return {Boolean}
    */
-  function clickInsideElement( e, className ) {
-    var el = e.srcElement || e.target;
-    
-    if ( el.classList.contains(className) ) {
+  function clickInsideElement(e, className) {
+    let el = e.srcElement || e.target;
+
+    if (el.classList.contains(className)) {
       return el;
     } else {
-      while ( el = el.parentNode ) {
-        if ( el.classList && el.classList.contains(className) ) {
+      while (el = el.parentNode) {
+        if (el.classList && el.classList.contains(className)) {
           return el;
         }
       }
@@ -41,10 +45,12 @@
    * @return {Object} Returns the x and y position
    */
   function getPosition(e) {
-    var posx = 0;
-    var posy = 0;
+    let posx = 0;
+    let posy = 0;
 
-    if (!e) var e = window.event;
+    if (!e) {
+      let e = window.event;
+    }
     
     if (e.pageX || e.pageY) {
       posx = e.pageX;
@@ -67,33 +73,33 @@
   //
   //////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
-  
+
   /**
-   * Variables.
+   * letiables.
    */
-  var contextMenuClassName = "context-menu";
-  var contextMenuItemClassName = "context-menu__item";
-  var contextMenuLinkClassName = "context-menu__link";
-  var contextMenuActive = "context-menu--active";
+  let contextMenuClassName = "context-menu";
+  let contextMenuItemClassName = "context-menu__item";
+  let contextMenuLinkClassName = "context-menu__link";
+  let contextMenuActive = "context-menu--active";
 
-  var taskItemClassName = "task";
-  var taskItemInContext;
+  let taskItemClassName = "task";
+  let taskItemInContext;
 
-  var clickCoords;
-  var clickCoordsX;
-  var clickCoordsY;
+  let clickCoords;
+  let clickCoordsX;
+  let clickCoordsY;
 
-  var menu = document.querySelector("#context-menu");
-  var menuItems = menu.querySelectorAll(".context-menu__item");
-  var menuState = 0;
-  var menuWidth;
-  var menuHeight;
-  var menuPosition;
-  var menuPositionX;
-  var menuPositionY;
+  let menu = document.querySelector("#context-menu");
+  let menuItems = menu.querySelectorAll(".context-menu__item");
+  let menuState = 0;
+  let menuWidth;
+  let menuHeight;
+  let menuPosition;
+  let menuPositionX;
+  let menuPositionY;
 
-  var windowWidth;
-  var windowHeight;
+  let windowWidth;
+  let windowHeight;
 
   /**
    * Initialise our application's code.
@@ -109,10 +115,10 @@
    * Listens for contextmenu events.
    */
   function contextListener() {
-    document.addEventListener( "contextmenu", function(e) {
-      taskItemInContext = clickInsideElement( e, taskItemClassName );
+    document.addEventListener("contextmenu", function (e) {
+      taskItemInContext = clickInsideElement(e, taskItemClassName);
 
-      if ( taskItemInContext ) {
+      if (taskItemInContext) {
         e.preventDefault();
         toggleMenuOn();
         positionMenu(e);
@@ -127,15 +133,15 @@
    * Listens for click events.
    */
   function clickListener() {
-    document.addEventListener( "click", function(e) {
-      var clickeElIsLink = clickInsideElement( e, contextMenuLinkClassName );
+    document.addEventListener("click", function (e) {
+      let clickeElIsLink = clickInsideElement(e, contextMenuLinkClassName);
 
-      if ( clickeElIsLink ) {
+      if (clickeElIsLink) {
         e.preventDefault();
-        menuItemListener( clickeElIsLink );
+        menuItemListener(clickeElIsLink);
       } else {
-        var button = e.which || e.button;
-        if ( button === 1 ) {
+        let button = e.which || e.button;
+        if (button === 1) {
           toggleMenuOff();
         }
       }
@@ -146,8 +152,8 @@
    * Listens for keyup events.
    */
   function keyupListener() {
-    window.onkeyup = function(e) {
-      if ( e.keyCode === 27 ) {
+    window.onkeyup = function (e) {
+      if (e.keyCode === 27) {
         toggleMenuOff();
       }
     }
@@ -157,7 +163,7 @@
    * Window resize event listener
    */
   function resizeListener() {
-    window.onresize = function(e) {
+    window.onresize = function (e) {
       toggleMenuOff();
     };
   }
@@ -166,9 +172,9 @@
    * Turns the custom context menu on.
    */
   function toggleMenuOn() {
-    if ( menuState !== 1 ) {
+    if (menuState !== 1) {
       menuState = 1;
-      menu.classList.add( contextMenuActive );
+      menu.classList.add(contextMenuActive);
     }
   }
 
@@ -176,9 +182,9 @@
    * Turns the custom context menu off.
    */
   function toggleMenuOff() {
-    if ( menuState !== 0 ) {
+    if (menuState !== 0) {
       menuState = 0;
-      menu.classList.remove( contextMenuActive );
+      menu.classList.remove(contextMenuActive);
     }
   }
 
@@ -198,13 +204,13 @@
     windowWidth = window.innerWidth;
     windowHeight = window.innerHeight;
 
-    if ( (windowWidth - clickCoordsX) < menuWidth ) {
+    if ((windowWidth - clickCoordsX) < menuWidth) {
       menu.style.left = windowWidth - menuWidth + "px";
     } else {
       menu.style.left = clickCoordsX + "px";
     }
 
-    if ( (windowHeight - clickCoordsY) < menuHeight ) {
+    if ((windowHeight - clickCoordsY) < menuHeight) {
       menu.style.top = windowHeight - menuHeight + "px";
     } else {
       menu.style.top = clickCoordsY + "px";
@@ -216,8 +222,8 @@
    * 
    * @param {HTMLElement} link The link that was clicked
    */
-  function menuItemListener( link ) {
-    console.log( "Task ID - " + taskItemInContext.getAttribute("data-id") + ", Task action - " + link.getAttribute("data-action"));
+  function menuItemListener(link) {
+    console.log("Task ID - " + taskItemInContext.getAttribute("data-id") + ", Task action - " + link.getAttribute("data-action"));
     toggleMenuOff();
   }
 

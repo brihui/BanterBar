@@ -17,24 +17,23 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 });
 //Youtube layout handling
-$(document).ready(function(){
+$(document).ready(function () {
 
-    $('iframe').each(function(){
-          var url = $(this).attr("src");
-          var char = "?";
-          if(url.indexOf("?") != -1){
-                  var char = "&";
-           }
-        
-          $(this).attr("src",url+char+"wmode=transparent");
+    $('iframe').each(function () {
+        let url = $(this).attr("src");
+        let char = "?";
+        if (url.indexOf("?") != -1) {
+            let char = "&";
+        }
+        $(this).attr("src", url + char + "wmode=transparent");
     });
 
 });
 // Function to personalize the home page.
-function personalizeHeader(uID) { 
+function personalizeHeader(uID) {
     db.collection('users').doc(uID).onSnapshot(
         function (snapshot) {
-            $('#p-header').html("Hello, " + snapshot.data().name);
+            $('#p-header').html("Welcome, " + snapshot.data().name);
         }
     );
 }
