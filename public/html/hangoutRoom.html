@@ -10,13 +10,22 @@
   See the License for the specific language governing permissions and
   limitations under the License
 -->
+
+<!-- 
+  Few modifications made to WebRTC Firebase CodeLab and Firebase Web CodeLab.
+  Sourced from:
+    - https://webrtc.org/getting-started/firebase-rtc-codelab
+    - https://github.com/webrtc/FirebaseRTC
+    - https://codelabs.developers.google.com/codelabs/firebase-web/
+    - https://github.com/firebase/codelab-friendlychat-web
+ -->
 <!doctype html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Learn how to use the Firebase platform on the Web">
+  <meta name="description" content="Banter Bar: Chat">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Banter Bar: Chat</title>
 
@@ -52,14 +61,15 @@
   <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
 
   <!-- App Styling -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
   <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="..images/favicon-16x16.png">
   <link rel="stylesheet" href="../css/context-menu.css">
-  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="../css/hangoutRoom.css">
   <link rel="stylesheet" href="../css/openForm.css">
   <link rel="stylesheet" href="../css/hangout.css">
 
@@ -120,18 +130,18 @@
 <body>
   <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <div id="header-bar">
-        <img id="logo" src="../images/logo.png">
-                <div id="user-container">
-          <div hidden id="user-pic"></div>
-          <div hidden id="user-name"></div>
-          <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
-            Sign-out
-          </button>
-          <button hidden id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
-            <i class="material-icons">account_circle</i>Sign-in with Google
-          </button>
-        </div>
-        
+      <img id="logo" src="../images/logo.png">
+      <div id="user-container">
+        <div hidden id="user-pic"></div>
+        <div hidden id="user-name"></div>
+        <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+          Sign-out
+        </button>
+        <button hidden id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+          <i class="material-icons">account_circle</i>Sign-in with Google
+        </button>
+      </div>
+
     </div>
     <!-- Header section containing logo -->
 
@@ -140,100 +150,100 @@
 
 
 
-        <!-- start video -->
-        <div id="main-container">
-          <div id="video-chat-containier">
-            <div id="buttons">
-              <button class="mdc-button mdc-button--raised" id="cameraBtn">
-                <i class="material-icons mdc-button__icon" aria-hidden="true">perm_camera_mic</i>
-                <span class="mdc-button__label">Open camera</span>
-              </button>
-              <button class="mdc-button mdc-button--raised" disabled id="createBtn">
-                <i class="material-icons mdc-button__icon" aria-hidden="true">group_add</i>
-                <span class="mdc-button__label">Create room</span>
-              </button>
-              <button class="mdc-button mdc-button--raised" disabled id="joinBtn">
-                <i class="material-icons mdc-button__icon" aria-hidden="true">group</i>
-                <span class="mdc-button__label">Join room</span>
-              </button>
-              <button class="mdc-button mdc-button--raised" disabled id="hangupBtn">
-                <i class="material-icons mdc-button__icon" aria-hidden="true">close</i>
-                <span class="mdc-button__label">Hangup</span>
-              </button>
-            </div>
+      <!-- start video -->
+      <div id="main-container">
+        <div id="video-chat-containier">
+          <div id="buttons">
+            <button class="mdc-button mdc-button--raised" id="cameraBtn">
+              <i class="material-icons mdc-button__icon" aria-hidden="true">perm_camera_mic</i>
+              <span class="mdc-button__label">Open camera</span>
+            </button>
+            <button class="mdc-button mdc-button--raised" disabled id="createBtn">
+              <i class="material-icons mdc-button__icon" aria-hidden="true">group_add</i>
+              <span class="mdc-button__label">Create room</span>
+            </button>
+            <button class="mdc-button mdc-button--raised" disabled id="joinBtn">
+              <i class="material-icons mdc-button__icon" aria-hidden="true">group</i>
+              <span class="mdc-button__label">Join room</span>
+            </button>
+            <button class="mdc-button mdc-button--raised" disabled id="hangupBtn">
+              <i class="material-icons mdc-button__icon" aria-hidden="true">close</i>
+              <span class="mdc-button__label">Hangup</span>
+            </button>
+          </div>
 
-            <div>
-              <span id="currentRoom"></span>
-            </div>
+          <div>
+            <span id="currentRoom"></span>
+          </div>
 
-            <div class="mdc-dialog" id="room-dialog" role="alertdialog" aria-modal="true"
-              aria-labelledby="my-dialog-title" aria-describedby="my-dialog-content">
-              <div class="mdc-dialog__container">
-                <div class="mdc-dialog__surface">
-                  <h2 class="mdc-dialog__title" id="my-dialog-title">Join room</h2>
-                  <div class="mdc-dialog__content" id="my-dialog-content">
-                    Enter ID for room to join:
-                    <div class="mdc-text-field">
-                      <input type="text" id="room-id" class="mdc-text-field__input">
-                      <label class="mdc-floating-label" for="my-text-field">Room ID</label>
-                      <div class="mdc-line-ripple"></div>
-                    </div>
+          <div class="mdc-dialog" id="room-dialog" role="alertdialog" aria-modal="true"
+            aria-labelledby="my-dialog-title" aria-describedby="my-dialog-content">
+            <div class="mdc-dialog__container">
+              <div class="mdc-dialog__surface">
+                <h2 class="mdc-dialog__title" id="my-dialog-title">Join room</h2>
+                <div class="mdc-dialog__content" id="my-dialog-content">
+                  Enter ID for room to join:
+                  <div class="mdc-text-field">
+                    <input type="text" id="room-id" class="mdc-text-field__input">
+                    <label class="mdc-floating-label" for="my-text-field">Room ID</label>
+                    <div class="mdc-line-ripple"></div>
                   </div>
-                  <footer class="mdc-dialog__actions">
-                    <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="no">
-                      <span class="mdc-button__label">Cancel</span>
-                    </button>
-                    <button id="confirmJoinBtn" type="button" class="mdc-button mdc-dialog__button"
-                      data-mdc-dialog-action="yes">
-                      <span class="mdc-button__label">Join</span>
-                    </button>
-                  </footer>
                 </div>
+                <footer class="mdc-dialog__actions">
+                  <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="no">
+                    <span class="mdc-button__label">Cancel</span>
+                  </button>
+                  <button id="confirmJoinBtn" type="button" class="mdc-button mdc-dialog__button"
+                    data-mdc-dialog-action="yes">
+                    <span class="mdc-button__label">Join</span>
+                  </button>
+                </footer>
               </div>
-              <div class="mdc-dialog__scrim"></div>
             </div>
+            <div class="mdc-dialog__scrim"></div>
+          </div>
 
-            <div id="videos">
-              <video id="localVideo" muted autoplay playsinline></video>
-              <video id="remoteVideo" autoplay playsinline></video>
+          <div id="videos">
+            <video id="localVideo" muted autoplay playsinline></video>
+            <video id="remoteVideo" autoplay playsinline></video>
+          </div>
+          <!-- end video -->
+        </div>
+      </div>
+      <!-- Messages container -->
+      <div id="messages-card"
+        class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--6-col-tablet mdl-cell--6-col-desktop">
+        <div class="mdl-card__supporting-text mdl-color-text--grey-600">
+          <div id="messages"></div>
+          <form id="message-form" action="#">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" type="text" id="message" autocomplete="off">
+              <label class="mdl-textfield__label" for="message">Message...</label>
             </div>
-            <!-- end video -->
-          </div>
-        </div>
-                <!-- Messages container -->
-        <div id="messages-card"
-          class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--6-col-tablet mdl-cell--6-col-desktop">
-          <div class="mdl-card__supporting-text mdl-color-text--grey-600">
-            <div id="messages"></div>
-            <form id="message-form" action="#">
-              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="message" autocomplete="off">
-                <label class="mdl-textfield__label" for="message">Message...</label>
-              </div>
-              <button id="submit" disabled type="submit"
-                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-                Send
-              </button>
-            </form>
+            <button id="submit" disabled type="submit"
+              class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+              Send
+            </button>
+          </form>
 
-            <form id="image-form" action="#">
-              <input id="mediaCapture" type="file" accept="image/*" capture="camera">
-              <button id="submitImage" title="Add an image"
-                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--amber-400 mdl-color-text--white">
-                <i class="material-icons">image</i>
-              </button>
-            </form>
-          </div>
+          <form id="image-form" action="#">
+            <input id="mediaCapture" type="file" accept="image/*" capture="camera">
+            <button id="submitImage" title="Add an image"
+              class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--amber-400 mdl-color-text--white">
+              <i class="material-icons">image</i>
+            </button>
+          </form>
         </div>
+      </div>
       <!-- lobby info -->
       <div id='added'>
         <main class='display'>
-                <h1 id='roomName'></h1>
-            <p>Users:</p>
+          <h1 id='roomName'></h1>
+          <p>Users:</p>
           <div class='display-div'>
-            
+
           </div>
-        <input type="button" value="Invite" onclick="openForm()">
+          <input type="button" value="Invite" onclick="openForm()">
 
         </main>
 
@@ -255,7 +265,7 @@
             </div>
           </section>
         </div>
-                  <nav id="context-menu" class="context-menu">
+        <nav id="context-menu" class="context-menu">
           <ul class="context-menu__items" id="cont">
             <li class="context-menu__item">
               <a href="#" class="context-menu__link" data-action="View"><i class="fa fa-eye"></i> Add as Friend</a>
@@ -266,10 +276,10 @@
           </ul>
         </nav>
       </div>
-            <!-- Div which will hold the Youtube IFrame -->
-            <div class="iframe-container">
-                <div id="player"></div>>
-            </div>
+      <!-- Div which will hold the Youtube IFrame -->
+      <div class="iframe-container">
+        <div id="player"></div>
+      </div>
       <!-- end lobby info -->
 
       <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
@@ -277,7 +287,8 @@
         <button class="mdl-snackbar__action" type="button"></button>
       </div>
     </main>
-    </div>
+  </div>
+
   <!-- Firebase CDNs -->
   <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
@@ -291,12 +302,12 @@
   <script src="../scripts/firebase_api_banterbar.js"> </script>
 
   <!-- Custom JS Files -->
-  <script src="scripts/textchat.js"></script>
-  <script src="scripts/videocall.js"></script>
+  <script src="../scripts/textchat.js"></script>
+  <script src="../scripts/videocall.js"></script>
   <script src="../scripts/customRoom.js"></script>
   <script src="../scripts/interaction.js"></script>
   <script src="../scripts/openForm.js"></script>
-  <script src ="../scripts/youtube.js"></script>
+  <script src="../scripts/youtube.js"></script>
 </body>
 
 </html>

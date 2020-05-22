@@ -27,7 +27,7 @@ function selectRandomRoom() {
     let randomRoom = publicRooms[rand];
     console.log(randomRoom);
     localStorage.setItem('hangoutID', randomRoom);
-    window.location.replace("../hangout/index.html");
+    window.location.replace("../html/hangoutRoom.html");
 }
 
 console.log("hello");

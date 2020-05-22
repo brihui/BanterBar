@@ -46,9 +46,7 @@ function joinRoom(roomID) {
                             })
                             .then(function (doc) {
                                 localStorage.setItem('hangoutID', roomID);
-                                window.location.replace("../hangout/index.html");
-                                // var url = "hangout/" + roomID;
-                                // window.location.href = url;
+                                window.location.replace("../html/hangoutRoom.html");
                             })
                     })
                     .catch(function (error) {
