@@ -41,6 +41,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                     })     
                     }
                 }
+            closeForm();
         })
     })
 })

@@ -9,7 +9,11 @@ html, body {
 #brand-text{
     font-size: x-large;
 }
-
+#social{
+    float:right;
+    margin-top: 10px;
+    margin-right:5px;
+}
 #header-bar{
     height: 8%;
     background-color: black;

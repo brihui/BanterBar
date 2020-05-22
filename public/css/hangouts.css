@@ -38,10 +38,6 @@ h2 {
     height: 100%;
 }
 
-#nav-bar{
-    height: 8%;
-    background-color: #7a0203;
-}
 
 #content {
     display: flex;
@@ -78,6 +74,7 @@ h5{
     background-color: black;
 }
 
+
 #container {
     display: flex;
     flex-direction: column;
@@ -101,32 +98,12 @@ h5{
     overflow:scroll;
 }
 
-#nav-bar{
-    height: 8%;
-    background-color: #7a0203;
-}
-
-#mobile-footer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    height: 8%;
-    background-color: #7a0203;
-}
-
 #fb-btn {
     border:none;
     overflow:hidden;
 }
 
 @media (max-width: 634px){
-    #mobile-footer{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        height: 8%;
-        background-color: black;
-    }
 
     #container{
         height: 84%;
