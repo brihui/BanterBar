@@ -10,6 +10,12 @@ html, body {
     margin-top: 10px;
     margin-right:5px;
 }
+#player{
+    z-index:-99;
+}
+.iframe-container{
+    display:none;
+}
 #brand-text{
     font-size: x-large;
 }

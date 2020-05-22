@@ -73,7 +73,7 @@ async function createRoom() {
       sdp: offer.sdp,
     },
   };
-  await roomRef.set(roomWithOffer);
+  await roomRef.set(roomWithOffer, {merge:true});
   roomId = roomRef.id;
   console.log(`New room created with SDP offer. Room ID: ${roomRef.id}`);
   document.querySelector('#currentRoom').innerText = `Current room is ${roomRef.id} - You are the caller!`;
@@ -230,21 +230,21 @@ async function hangUp(e) {
   document.querySelector('#hangupBtn').disabled = true;
   document.querySelector('#currentRoom').innerText = '';
 
-  // Delete room on hangup
-  if (roomId) {
-    const roomRef = db.collection('rooms').doc(roomId);
-    const calleeCandidates = await roomRef.collection('calleeCandidates').get();
-    calleeCandidates.forEach(async candidate => {
-      await candidate.ref.delete();
-    });
-    const callerCandidates = await roomRef.collection('callerCandidates').get();
-    callerCandidates.forEach(async candidate => {
-      await candidate.ref.delete();
-    });
-    await roomRef.delete();
-  }
-
-  document.location.reload(true);
+//  // Delete room on hangup
+//  if (roomId) {
+//    const roomRef = db.collection('rooms').doc(roomId);
+//    const calleeCandidates = await roomRef.collection('calleeCandidates').get();
+//    calleeCandidates.forEach(async candidate => {
+//      await candidate.ref.delete();
+//    });
+//    const callerCandidates = await roomRef.collection('callerCandidates').get();
+//    callerCandidates.forEach(async candidate => {
+//      await candidate.ref.delete();
+//    });
+//    await roomRef.delete();
+//  }
+//
+//  document.location.reload(true);
 }
 
 // Function to listen for changes in connections.

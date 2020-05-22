@@ -26,7 +26,7 @@ roomRef.onSnapshot(function(doc){
         $('#cont').append(kick);
     }
 })
-    $('.display-div').innerHTML = '';
+    $('.display-div').html('');
     var users = doc.data().users;
     var i;
     for(i = 0; i < users.length; i++){

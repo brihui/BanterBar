@@ -9,6 +9,12 @@ html, body {
 #brand-text{
     font-size: x-large;
 }
+#player{
+    z-index:-99;
+}
+.iframe-container{
+    display:none;
+}
 #social{
     float:right;
     margin-top: 10px;

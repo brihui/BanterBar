@@ -228,11 +228,13 @@
       <!-- lobby info -->
       <div id='added'>
         <main class='display'>
-          <div class='display-div'>
-            <h1 id='roomName'></h1>
+                <h1 id='roomName'></h1>
             <p>Users:</p>
-            <input type="button" value="Invite" onclick="openForm()">
+          <div class='display-div'>
+            
           </div>
+        <input type="button" value="Invite" onclick="openForm()">
+
         </main>
 
         <div class="form-popup" id="myForm">
@@ -264,7 +266,10 @@
           </ul>
         </nav>
       </div>
-
+            <!-- Div which will hold the Youtube IFrame -->
+            <div class="iframe-container">
+                <div id="player"></div>>
+            </div>
       <!-- end lobby info -->
 
       <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
@@ -272,7 +277,7 @@
         <button class="mdl-snackbar__action" type="button"></button>
       </div>
     </main>
-
+    </div>
   <!-- Firebase CDNs -->
   <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-auth.js"></script>
@@ -291,6 +296,7 @@
   <script src="../scripts/customRoom.js"></script>
   <script src="../scripts/interaction.js"></script>
   <script src="../scripts/openForm.js"></script>
+  <script src ="../scripts/youtube.js"></script>
 </body>
 
 </html>

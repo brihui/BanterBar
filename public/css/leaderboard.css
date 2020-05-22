@@ -8,6 +8,12 @@ html, body {
     font-family: Enriqueta;
     color: white;
 }
+#player{
+    z-index:-99;
+}
+.iframe-container{
+    display:none;
+}
 #social{
     float:right;
     margin-top: 10px;

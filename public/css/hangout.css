@@ -13,7 +13,22 @@ html, body {
     color:black;
 }
 .display-div{
+    margin-top: 5%;
     text-align: center;
+}
+#player{
+    z-index:-99;
+}
+.iframe-container{
+    display:none;
+}
+#currentRoom{
+    color:black;
+}
+.display{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
 }
 #header-bar{
     height: 8%;
