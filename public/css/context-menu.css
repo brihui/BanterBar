@@ -13,7 +13,7 @@
 }
 
 .task {
-    text-align:center;
+  text-align: center;
   justify-content: space-between;
   padding: 12px 0;
   border-bottom: solid 1px #dfdfdf;
@@ -62,7 +62,7 @@
 }
 
 .context-menu__link:hover {
-    text-decoration: none;
+  text-decoration: none;
   color: #fff;
   background-color: #0066aa;
 }

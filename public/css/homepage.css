@@ -1,83 +1,98 @@
-html,body {
-    margin: 0; 
-    height: 100%; 
+html,
+body {
+    margin: 0;
+    height: 100%;
     background-image: url(../images/welcome.jpg);
     background-size: cover;
-    /* background-attachment: fixed; */
     background-repeat: no-repeat;
     background-position: center;
     color: white;
     font-family: Enriqueta;
-    /* Bad Script */
 }
-#social{
-    float:right;
+
+#social {
+    float: right;
     margin-top: 10px;
-    margin-right:5px;
+    margin-right: 5px;
 }
-#brand-text{
+
+#brand-text {
     font-size: x-large;
 }
 
 @keyframes ani {
-  from {font-size: 20pt; opacity: 1;}
-  to {font-size: 80pt; opacity: 0;}
+    from {
+        font-size: 20pt;
+        opacity: 1;
+    }
+
+    to {
+        font-size: 80pt;
+        opacity: 0;
+    }
 }
-*{
-    z-index:2;
+
+* {
+    z-index: 2;
 }
-#mj{
-    position:fixed;
-    z-index:2;
+
+#mj {
+    position: fixed;
+    z-index: 2;
 }
-.mc{
-    opacity:0;
-    z-index:3;
-    position:fixed;
+
+.mc {
+    opacity: 0;
+    z-index: 3;
+    position: fixed;
     font-size: 30pt;
     animation-name: ani;
     animation-duration: 5s;
 }
-.move{
-    font-size:100pt;
+
+.move {
+    font-size: 100pt;
     transition: font-size 3s;
 }
-.audiobtn{
-    width:10%;
+
+.audiobtn {
+    width: 10%;
     height: 50px;
 }
+
 #container {
     display: flex;
     flex-direction: column;
     height: 92%;
 }
 
-#personalization{
+#personalization {
     text-align: center;
 }
 
-#nav-bar{
+#nav-bar {
     height: 8%;
     background-color: #7a0203;
 }
 
-#header-bar{
+#header-bar {
     height: 8%;
     background-color: black;
 }
 
-#logo{
+#logo {
     height: 100%;
 }
 
-#player{
-    z-index:-99;
+#player {
+    z-index: -99;
 }
-.iframe-container{
-    display:none;
+
+.iframe-container {
+    display: none;
 }
+
 #content {
-    /* padding: 1%; */
     display: grid;
     grid-template-rows: 28% 69%;
     row-gap: 2%;
@@ -88,7 +103,7 @@ html,body {
     text-align: center;
 }
 
-#button-section{
+#button-section {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -96,7 +111,7 @@ html,body {
     padding-bottom: 5%;
 }
 
-#enter-pub{
+#enter-pub {
     padding-top: 2%;
 }
 
@@ -106,7 +121,7 @@ html,body {
     margin-top: 1%;
 }
 
-#mobile-footer{
+#mobile-footer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -114,31 +129,34 @@ html,body {
     background-color: black;
 }
 
-#public-hangout-btn{
+#public-hangout-btn {
     padding-top: 4%;
 }
 
-#myForm{
-    display:none;
+#myForm {
+    display: none;
     position: fixed;
-    bottom:50px;
-    color:black;
+    bottom: 50px;
+    color: black;
 }
-.open-button{
-    width:150px;
-    height:50px;
+
+.open-button {
+    width: 150px;
+    height: 50px;
 }
-#box{
-    background-color:red;
+
+#box {
+    background-color: red;
     position: fixed;
-    width:20%;
-    height:20%;
-    left:40%;
-    top:40%;
-    z-index:3;
+    width: 20%;
+    height: 20%;
+    left: 40%;
+    top: 40%;
+    z-index: 3;
     opacity: 0;
 }
-#myVideo{
+
+#myVideo {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -150,21 +168,23 @@ html,body {
     transform: translateX(-50%) translateY(-50%);
     display: none;
 }
+
 #fb-btn {
-    border:none;
-    overflow:hidden;
+    border: none;
+    overflow: hidden;
 }
-@media (max-width: 414px){
-    #intro-text{
+
+@media (max-width: 414px) {
+    #intro-text {
         width: 75%;
         font-size: large;
     }
 
-    #user-name{
+    #user-name {
         font-size: larger;
     }
 
-    #mobile-footer{
+    #mobile-footer {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -172,15 +192,15 @@ html,body {
         background-color: black;
     }
 
-    #public-hangout-btn{
+    #public-hangout-btn {
         padding-top: 5%;
     }
 
-    #container{
+    #container {
         height: 84%;
     }
 
-    #content{
+    #content {
         width: 100%;
         height: 100%;
         display: flex;
@@ -188,14 +208,14 @@ html,body {
         overflow: scroll;
     }
 
-    #personalization{
+    #personalization {
         display: grid;
         grid-template-rows: 5% 95%;
         padding-top: 1%;
         height: 100%;
     }
 
-    #button-section{
+    #button-section {
         width: 100%;
         display: flex;
         flex-direction: row;
@@ -203,14 +223,14 @@ html,body {
         padding-bottom: 5%;
     }
 
-    #enter-pub{
+    #enter-pub {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
     }
 
-    body{
+    body {
         background-image: url(../images/open.jpeg);
         background-size: cover;
         background-attachment: fixed;
@@ -218,15 +238,16 @@ html,body {
         background-repeat: no-repeat;
     }
 
-    .iframe-container{
+    .iframe-container {
         position: relative;
         width: 100%;
-        padding-bottom: 56.25%; 
+        padding-bottom: 56.25%;
         height: 0;
     }
-    .iframe-container iframe{
+
+    .iframe-container iframe {
         position: absolute;
-        top:0;
+        top: 0;
         left: 0;
         width: 100%;
         height: 100%;

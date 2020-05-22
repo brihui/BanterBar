@@ -1,45 +1,54 @@
-html, body {
-    margin: 0; 
-    height: 100%; 
+html,
+body {
+    margin: 0;
+    height: 100%;
     background-color: black;
     color: white;
     font-family: Enriqueta;
 }
+
 #fb-btn {
-    border:none;
-    overflow:hidden;
+    border: none;
+    overflow: hidden;
 }
-#added{
-    color:black;
+
+#added {
+    color: black;
 }
-.display-div{
+
+.display-div {
     margin-top: 5%;
     text-align: center;
 }
-#player{
-    z-index:-99;
+
+#player {
+    z-index: -99;
 }
-.iframe-container{
-    display:none;
+
+.iframe-container {
+    display: none;
 }
-#currentRoom{
-    color:black;
+
+#currentRoom {
+    color: black;
 }
-.display{
-    display:flex;
-    flex-direction:column;
+
+.display {
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
-#header-bar{
+
+#header-bar {
     height: 8%;
     background-color: black;
 }
 
-#logo{
+#logo {
     height: 100%;
 }
 
-#nav-bar{
+#nav-bar {
     height: 8%;
     background-color: #7a0203;
 }
@@ -53,7 +62,7 @@ html, body {
 }
 
 
-#mobile-footer{
+#mobile-footer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -66,32 +75,41 @@ html, body {
     flex-direction: column;
     height: 84%;
 }
-#user-container{
-    width:50%;
+
+#user-container {
+    width: 50%;
 }
-#content{
+
+#content {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin-left: 5%;
     margin-right: 5%;
-    height:100%;
+    height: 100%;
 }
-#nav-bar{
+
+#nav-bar {
     height: 8%;
     background-color: #7a0203;
 }
-#logo{
-    z-index:99;
+
+#logo {
+    z-index: 99;
 }
-#user-container{
-    display:block;
+
+#user-container {
+    display: block;
 }
-#sign-out, #user-name, #user-pic{
-    float:right;
-    color:white;
+
+#sign-out,
+#user-name,
+#user-pic {
+    float: right;
+    color: white;
 }
-@media (max-width: 634px){
-    #mobile-footer{
+
+@media (max-width: 634px) {
+    #mobile-footer {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -99,18 +117,18 @@ html, body {
         background-color: black;
     }
 
-    #container{
+    #container {
         height: 84%;
     }
 
-    #content{
-        display:flex;
+    #content {
+        display: flex;
         flex-direction: column;
-        height:2000px;
-        margin-bottom:10%;
+        height: 2000px;
+        margin-bottom: 10%;
     }
-    #display-div{
-        margin-right:0;
+
+    #display-div {
+        margin-right: 0;
     }
 }
-

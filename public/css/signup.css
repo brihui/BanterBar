@@ -1,19 +1,23 @@
-body{
-    font-family: Tahoma, Geneva, sans-serif;
-    color: #fff;
-    background: url(../images/gg.jpg) no-repeat center center fixed; 
-    background-size: cover;
+body {
+	font-family: Tahoma, Geneva, sans-serif;
+	color: #fff;
+	background: url(../images/gg.jpg) no-repeat center center fixed;
+	background-size: cover;
 
 }
-#firebaseui-auth-container{
-    margin:5%;
+
+#firebaseui-auth-container {
+	margin: 5%;
 }
-#title{
-    text-align: center;
-    margin-top:5%;
-    font-size:350%;
+
+#title {
+	text-align: center;
+	margin-top: 5%;
+	font-size: 350%;
 }
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700);
+
 .mdl-button {
 	background: 0 0;
 	border: none;
@@ -460,6 +464,7 @@ input.mdl-button[type=submit] {
 }
 
 @supports (-webkit-appearance:none) {
+
 	.mdl-progress:not(.mdl-progress--indeterminate):not(.mdl-progress--indeterminate)>.auxbar,
 	.mdl-progress:not(.mdl-progress__indeterminate):not(.mdl-progress__indeterminate)>.auxbar {
 		background-image: linear-gradient(to right, rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), linear-gradient(to right, #3f51b5, #3f51b5);
@@ -496,10 +501,12 @@ input.mdl-button[type=submit] {
 		left: 0;
 		width: 0%
 	}
+
 	50% {
 		left: 25%;
 		width: 75%
 	}
+
 	75% {
 		left: 100%;
 		width: 0%
@@ -511,14 +518,17 @@ input.mdl-button[type=submit] {
 		left: 0;
 		width: 0%
 	}
+
 	50% {
 		left: 0;
 		width: 0%
 	}
+
 	75% {
 		left: 0;
 		width: 25%
 	}
+
 	100% {
 		left: 100%;
 		width: 0%
@@ -633,24 +643,31 @@ input.mdl-button[type=submit] {
 	12.5% {
 		transform: rotate(135deg)
 	}
+
 	25% {
 		transform: rotate(270deg)
 	}
+
 	37.5% {
 		transform: rotate(405deg)
 	}
+
 	50% {
 		transform: rotate(540deg)
 	}
+
 	62.5% {
 		transform: rotate(675deg)
 	}
+
 	75% {
 		transform: rotate(810deg)
 	}
+
 	87.5% {
 		transform: rotate(945deg)
 	}
+
 	to {
 		transform: rotate(1080deg)
 	}
@@ -660,18 +677,23 @@ input.mdl-button[type=submit] {
 	from {
 		opacity: .99
 	}
+
 	25% {
 		opacity: .99
 	}
+
 	26% {
 		opacity: 0
 	}
+
 	89% {
 		opacity: 0
 	}
+
 	90% {
 		opacity: .99
 	}
+
 	100% {
 		opacity: .99
 	}
@@ -681,15 +703,19 @@ input.mdl-button[type=submit] {
 	from {
 		opacity: 0
 	}
+
 	15% {
 		opacity: 0
 	}
+
 	25% {
 		opacity: .99
 	}
+
 	50% {
 		opacity: .99
 	}
+
 	51% {
 		opacity: 0
 	}
@@ -699,15 +725,19 @@ input.mdl-button[type=submit] {
 	from {
 		opacity: 0
 	}
+
 	40% {
 		opacity: 0
 	}
+
 	50% {
 		opacity: .99
 	}
+
 	75% {
 		opacity: .99
 	}
+
 	76% {
 		opacity: 0
 	}
@@ -717,15 +747,19 @@ input.mdl-button[type=submit] {
 	from {
 		opacity: 0
 	}
+
 	65% {
 		opacity: 0
 	}
+
 	75% {
 		opacity: .99
 	}
+
 	90% {
 		opacity: .99
 	}
+
 	100% {
 		opacity: 0
 	}
@@ -774,7 +808,7 @@ input.mdl-button[type=submit] {
 	border-width: 3px;
 	border-style: solid;
 	border-color: inherit;
-	border-bottom-color: transparent!important;
+	border-bottom-color: transparent !important;
 	border-radius: 50%;
 	animation: none;
 	position: absolute;
@@ -785,7 +819,7 @@ input.mdl-button[type=submit] {
 }
 
 .mdl-spinner__left .mdl-spinner__circle {
-	border-right-color: transparent!important;
+	border-right-color: transparent !important;
 	transform: rotate(129deg)
 }
 
@@ -795,7 +829,7 @@ input.mdl-button[type=submit] {
 
 .mdl-spinner__right .mdl-spinner__circle {
 	left: -100%;
-	border-left-color: transparent!important;
+	border-left-color: transparent !important;
 	transform: rotate(-129deg)
 }
 
@@ -807,9 +841,11 @@ input.mdl-button[type=submit] {
 	from {
 		transform: rotate(130deg)
 	}
+
 	50% {
 		transform: rotate(-5deg)
 	}
+
 	to {
 		transform: rotate(130deg)
 	}
@@ -819,9 +855,11 @@ input.mdl-button[type=submit] {
 	from {
 		transform: rotate(-130deg)
 	}
+
 	50% {
 		transform: rotate(5deg)
 	}
+
 	to {
 		transform: rotate(-130deg)
 	}
@@ -1350,6 +1388,7 @@ input.firebaseui-input-invalid {
 	.firebaseui-idp-text.firebaseui-idp-text-long {
 		display: none
 	}
+
 	.firebaseui-idp-text.firebaseui-idp-text-short {
 		display: table-cell
 	}
@@ -1650,17 +1689,21 @@ input.firebaseui-input-invalid {
 		max-width: none;
 		width: 100%
 	}
+
 	.firebaseui-card-header {
 		border-bottom: 1px solid #e0e0e0;
 		margin-bottom: 16px;
 		padding: 16px 24px 0 24px
 	}
+
 	.firebaseui-title {
 		padding-bottom: 16px
 	}
+
 	.firebaseui-card-actions {
 		padding-right: 24px
 	}
+
 	.firebaseui-busy-indicator {
 		top: 0
 	}
